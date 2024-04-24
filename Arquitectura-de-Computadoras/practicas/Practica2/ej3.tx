@@ -1,0 +1,81 @@
+A)
+
+ORG 1000H
+ASCII db 00H
+ORG 2000H
+MOV BX, OFFSET ASCII
+LOOP: MOV AL, 1
+INT 7
+ADD BYTE PTR[BX],1
+
+;CMP BYTE PTR[BX], 00H; la representacion llego al 255 y volvió al 0 por acarreo
+
+JNC LOOP; simplemente con el flag de carry es suficiente
+FIN:INT 0 
+END
+
+B)
+ORG 1000H
+ASCII db 61H
+ORG 2000H
+MOV BX, OFFSET ASCII
+LOOP: MOV AL, 1
+INT 7
+ADD BYTE PTR[BX],1
+CMP BYTE PTR[BX], 07BH
+JNZ LOOP
+FIN:INT 0 
+END
+
+C)
+
+ORG 1000H
+ASCII db "0"
+ORG 2000H
+MOV BX, OFFSET ASCII
+LOOP: MOV AL, 1
+INT 7
+ADD BYTE PTR[BX],1
+
+CMP BYTE PTR[BX], 03Ah; la representacion llego al 255 y volvió al 0 por acarreo
+JNZ LOOP; simplemente con el flag de carry es suficiente
+FIN:INT 0 
+END
+
+D)
+
+ORG 1000H
+ASCII db "0"
+ORG 2000H
+MOV BX, OFFSET ASCII
+MOV AH, 0
+LOOP: MOV AL, 1
+INT 7
+MOV AH, [BX]; GUARDADO MOMENTANEO DEL VALOR DE LA CELDA DE MEMORIA
+MOV BYTE PTR[BX], 10
+MOV AL, 1
+INT 7
+MOV [BX],AH
+ADD BYTE PTR[BX],1
+CMP BYTE PTR[BX], 03Ah; la representacion llego al 255 y volvió al 0 por acarreo
+JNZ LOOP; simplemente con el flag de carry es suficiente
+FIN:INT 0 
+END
+
+
+E)
+
+ORG 1000H
+ASCII db 41H
+ORG 2000H
+MOV BX, OFFSET ASCII
+LOOP: MOV AL, 1
+INT 7
+ADD BYTE PTR[BX], 20H
+MOV AL, 1 
+INT 7
+SUB BYTE PTR[BX],1FH
+CMP BYTE PTR[BX], 05BH
+JNZ LOOP
+FIN:INT 0 
+END
