@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Pasajero
+comment1.params=
+comment1.target=Pasajero()
+comment2.params=dni\ num
+comment2.target=Pasajero(int,\ int)
+comment3.params=dni
+comment3.target=void\ setDni(int)
+comment4.params=num
+comment4.target=void\ setNumAsiento(int)
+comment5.params=
+comment5.target=int\ getDni()
+comment6.params=
+comment6.target=int\ getNumAsiento()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8

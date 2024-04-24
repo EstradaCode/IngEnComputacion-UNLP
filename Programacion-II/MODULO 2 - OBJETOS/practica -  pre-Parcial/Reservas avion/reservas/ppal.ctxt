@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=ppal
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=reservas\ diml
+comment2.target=void\ AplicarPromocion(Reserva[],\ int)
+comment3.params=reservas\ diml
+comment3.target=void\ mostrar(Reserva[],\ int)
+comment4.params=grupo\ dato\ in
+comment4.target=void\ leerPasajeros(Grupal,\ int,\ java.util.Scanner)
+comment5.params=in
+comment5.target=Reserva\ LeerReserva(java.util.Scanner)
+numComments=6

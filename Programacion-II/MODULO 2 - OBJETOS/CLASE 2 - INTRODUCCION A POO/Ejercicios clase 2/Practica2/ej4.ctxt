@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=ej4
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=partidos
+comment2.target=int\ partidosRover(Partido[])
+comment3.params=partidos
+comment3.target=int\ localBoca(Partido[])
+comment4.params=partidos
+comment4.target=double\ porcentaje(Partido[])
+numComments=5

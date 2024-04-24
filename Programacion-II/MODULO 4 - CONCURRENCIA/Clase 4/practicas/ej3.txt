@@ -1,0 +1,94 @@
+programa ej3
+areas
+  areaT: AreaC(2,2,10,10)
+  area1:AreaP(2,1,2,1)
+  area2:AreaP(3,1,3,1)
+  area3:AreaP(4,1,4,1)
+  area4:AreaP(5,1,5,1)
+  areaJ:AreaP(1,1,1,1)
+robots 
+  robot florero
+  variables
+    miAv:numero
+    miCa:numero
+    Av:numero
+    Ca:numero 
+    cantf:numero 
+    id:numero
+    Hayflor:boolean
+  comenzar
+    cantf:=0
+    miAv:=PosAv
+    miCa:=PosCa
+    RecibirMensaje(id,jefazo)
+    RecibirMensaje(Av,jefazo)
+    RecibirMensaje(Ca,jefazo)
+    Hayflor:= V
+    mientras Hayflor
+      BloquearEsquina(Av,Ca)
+      Pos(Av,Ca)
+      si HayFlorEnLaEsquina
+        tomarFlor
+        cantf:= cantf + 1
+      sino
+        Hayflor:=F
+      Pos(miAv,miCa)
+      LiberarEsquina(Av,Ca)
+    EnviarMensaje(id,jefazo)
+    EnviarMensaje(cantf,jefazo)
+  fin  
+  robot jefe
+  variables
+    Av:numero
+    Ca:numero
+    id:numero
+    Maxid:numero
+    Max:numero
+    aux:numero
+  comenzar 
+    Max:=0
+    Random(Av,2,10)
+    Random(Ca,2,10)
+    EnviarMensaje(1,robot1)
+    EnviarMensaje(Av,robot1)
+    EnviarMensaje(Ca,robot1)
+    EnviarMensaje(2,robot2)
+    EnviarMensaje(Av,robot2)
+    EnviarMensaje(Ca,robot2)
+    EnviarMensaje(3,robot3)
+    EnviarMensaje(Av,robot3)
+    EnviarMensaje(Ca,robot3)
+    EnviarMensaje(4,robot4)
+    EnviarMensaje(Av,robot4)
+    EnviarMensaje(Ca,robot4)
+    repetir 4
+      RecibirMensaje(id,*)
+      RecibirMensaje(aux,*)
+      si (aux > Max)
+        Max:= aux
+        Maxid:= id
+    Informar('numDelRobotConMasFlores', Maxid)
+    Informar('cantdeFloresRecogidas',  Max)
+  fin  
+variables 
+  robot1: florero
+  robot2: florero
+  robot3: florero
+  robot4: florero
+  jefazo: jefe
+comenzar 
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,area3)
+  AsignarArea(robot4,area4)
+  AsignarArea(jefazo,areaJ)
+  AsignarArea(robot1,areaT)
+  AsignarArea(robot2,areaT)
+  AsignarArea(robot3,areaT)
+  AsignarArea(robot4,areaT)
+  Iniciar(robot1,2,1)
+  Iniciar(robot2,3,1)
+  Iniciar(robot3,4,1)
+  Iniciar(robot4,5,1)
+  Iniciar(jefazo,1,1) 
+fin 

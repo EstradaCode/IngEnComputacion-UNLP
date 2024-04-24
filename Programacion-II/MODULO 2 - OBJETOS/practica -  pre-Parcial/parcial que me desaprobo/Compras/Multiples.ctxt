@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Multiples
+comment1.params=num\ categoria\ nombreEstadio\ fecha\ importe
+comment1.target=Multiples(int,\ int,\ java.lang.String,\ Fecha,\ double)
+comment2.params=
+comment2.target=void\ setCantAsientos()
+comment3.params=
+comment3.target=int\ getCantAsientos()
+comment4.params=
+comment4.target=double\ darPromo()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

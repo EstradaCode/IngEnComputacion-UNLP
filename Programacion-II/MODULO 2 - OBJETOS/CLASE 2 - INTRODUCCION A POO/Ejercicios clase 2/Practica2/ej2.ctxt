@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ej2
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=Personas
+comment2.target=int\ Mayores65(Persona[])
+comment3.params=Personas
+comment3.target=Persona\ menorDni(Persona[])
+numComments=4

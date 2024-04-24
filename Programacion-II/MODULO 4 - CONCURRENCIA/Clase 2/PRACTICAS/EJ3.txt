@@ -1,0 +1,43 @@
+programa P1EJ3
+procesos
+  proceso juntarFlores (ES cantf: numero) 
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      cantf:= cantf + 1
+  fin
+  proceso depositarFlores
+  comenzar
+    mientras HayFlorEnLaBolsa
+      depositarFlor
+  fin
+areas
+  ciudad: AreaPC(1,1,100,100)
+robots
+  robot tipo1
+  variables
+    cantf: numero
+  comenzar
+    cantf:=0
+    repetir 99
+      juntarFlores(cantf)
+      mover
+    juntarFlores (cantf)
+    depositarFlores
+    Informar(cantf)
+  fin
+variables
+  robot1: tipo1
+  robot2: tipo1
+  robot3: tipo1
+  robot4: tipo1
+comenzar
+  AsignarArea(robot1,ciudad)
+  AsignarArea(robot2,ciudad)
+  AsignarArea(robot3,ciudad)
+  AsignarArea(robot4,ciudad)
+  Iniciar(robot1,1,1)
+  Iniciar(robot2,2,1)
+  Iniciar(robot3,3,1)
+  Iniciar(robot4,4,1)
+fin

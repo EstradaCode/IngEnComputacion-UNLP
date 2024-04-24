@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=ProgramaRASE
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=solicitudes\ diml
+comment2.target=void\ evaluar(Solicitud[],\ int)
+comment3.params=solicitud\ diml
+comment3.target=void\ LeerTodo(Solicitud[],\ int)
+comment4.params=in
+comment4.target=Solicitud\ LeerSolicitud(java.util.Scanner)
+numComments=5

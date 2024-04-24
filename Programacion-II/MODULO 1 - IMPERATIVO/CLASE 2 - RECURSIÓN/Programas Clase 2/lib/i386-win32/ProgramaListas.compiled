@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\FPC\3.2.2\bin\i386-win32\fpc.exe" Date="1387233575"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -l -vewnhibq &quot;-FuC:\Users\franc\Documents\APUNTES\PRIMER AÑO\PROGRA II RE\MODULO IMPERATIVO\CLASE 2  RECURSIÓN\Programas Clase 2\&quot; &quot;-FUC:\Users\franc\Documents\APUNTES\PRIMER AÑO\PROGRA II RE\MODULO IMPERATIVO\CLASE 2  RECURSIÓN\Programas Clase 2\lib\i386-win32\&quot; &quot;-FEC:\Users\franc\Documents\APUNTES\PRIMER AÑO\PROGRA II RE\MODULO IMPERATIVO\CLASE 2  RECURSIÓN\Programas Clase 2\&quot; &quot;-oC:\Users\franc\Documents\APUNTES\PRIMER AÑO\PROGRA II RE\MODULO IMPERATIVO\CLASE 2  RECURSIÓN\Programas Clase 2\ProgramaListas.exe&quot; ProgramaListas.pas"/>
+</CONFIG>

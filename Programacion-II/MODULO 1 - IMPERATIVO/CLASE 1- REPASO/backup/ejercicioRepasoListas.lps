@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ejercicioRepasoListas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="177"/>
+        <CursorPos X="11" Y="194"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="twitter.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="172"/>
+        <CursorPos Y="181"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="4">
+      <Position>
+        <Filename Value="ejercicioRepasoListas.pas"/>
+        <Caret Line="140" Column="27" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="ejercicioRepasoListas.pas"/>
+        <Caret Line="34" Column="21" TopLine="14"/>
+      </Position>
+      <Position>
+        <Filename Value="ejercicioRepasoListas.pas"/>
+        <Caret Line="195" Column="22" TopLine="153"/>
+      </Position>
+      <Position>
+        <Filename Value="ejercicioRepasoListas.pas"/>
+        <Caret Line="137" Column="68" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="ejercicioRepasoListas.pas"/>
+        <Caret Line="214" Column="21" TopLine="176"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ActColaborativa2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="104"/>
+        <CursorPos X="18" Y="108"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 5 - REPETIDOS\ArboldeListas.pas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="79"/>
+        <CursorPos Y="109"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\PROGRA II\1-MODULO IMPERATIVO\Clase 6- Ejercicios Combinados\actcolaborativa2Final.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="201"/>
+        <CursorPos X="41" Y="202"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="2">
+      <Position>
+        <Filename Value="ActColaborativa2.pas"/>
+        <Caret Line="80" Column="15" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="ActColaborativa2.pas"/>
+        <Caret Line="64" Column="13" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="ActColaborativa2.pas"/>
+        <Caret Line="59" TopLine="40"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Gas
+comment1.params=
+comment1.target=Gas()
+comment10.params=
+comment10.target=boolean\ accedeAlSubsidio()
+comment11.params=
+comment11.target=java.lang.String\ mostrar()
+comment2.params=gestion\ fecha\ ingresos\ cantI\ region\ persona\ numMedidor\ tama\u00F1oH\ cantEstufas
+comment2.target=Gas(java.lang.String,\ java.lang.String,\ double,\ int,\ java.lang.String,\ Persona,\ int,\ double,\ int)
+comment3.params=
+comment3.target=int\ getNumMedidor()
+comment4.params=
+comment4.target=double\ getTama\u00F1oH()
+comment5.params=
+comment5.target=int\ getCantEstufas()
+comment6.params=numMedidor
+comment6.target=void\ setNumMedidor(int)
+comment7.params=tama\u00F1oH
+comment7.target=void\ setTama\u00F1oH(double)
+comment8.params=cantEstufas
+comment8.target=void\ setCantEstufas(int)
+comment9.params=
+comment9.target=double\ calcularGasto()
+numComments=12

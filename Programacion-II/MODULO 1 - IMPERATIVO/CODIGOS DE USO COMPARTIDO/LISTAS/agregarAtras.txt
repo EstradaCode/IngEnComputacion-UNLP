@@ -1,0 +1,13 @@
+AGREGARATRAS - Agrega un elemento atrás en l}
+
+Procedure AgregarAtras (var l, ult: listaNivel; a:arbol);
+ var nue:listaNivel;
+
+ begin
+ new (nue);
+ nue^.info := a;
+ nue^.sig := nil;
+ if l= nil then l:= nue
+           else ult^.sig:= nue;
+ ult:= nue;
+ end;

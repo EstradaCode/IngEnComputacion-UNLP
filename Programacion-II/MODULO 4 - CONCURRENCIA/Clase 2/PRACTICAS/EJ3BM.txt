@@ -1,0 +1,52 @@
+programa P1EJ4m
+procesos
+  proceso juntarPapeles 
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+  fin
+  proceso izquierda
+  comenzar
+    derecha
+    derecha
+    derecha
+  fin
+areas
+  ciudad: AreaPC(1,1,100,100)
+robots
+  robot tipoPar
+  comenzar
+    izquierda
+    juntarPapeles
+    mover
+    repetir 49
+      depositarPapel
+      mover
+      mover
+    depositarPapel
+  fin
+  robot tipoImpar
+  comenzar
+    izquierda
+    juntarPapeles
+    repetir 49
+      depositarPapel
+      mover
+      mover
+    depositarPapel
+  fin
+variables
+  robot1: tipoImpar
+  robot2: tipoPar
+  robot3: tipoImpar
+  robot4: tipoPar
+comenzar
+  AsignarArea(robot1,ciudad)
+  AsignarArea(robot2,ciudad)
+  AsignarArea(robot3,ciudad)
+  AsignarArea(robot4,ciudad)
+  Iniciar(robot1,100,1)
+  Iniciar(robot2, 100,2)
+  Iniciar(robot3,100,3)
+  Iniciar(robot4,100,4)
+fin

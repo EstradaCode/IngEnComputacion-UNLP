@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="Insertararboles.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="163"/>
+        <CursorPos X="8" Y="201"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Clase 3 Programas en Pascal (1)\ProgramaGenerarLista.pas"/>
+        <UnitName Value="arboles"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="96"/>
+        <CursorPos X="27" Y="138"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Clase 3 Programas en Pascal (1)\arbolesinrepetidos.pas"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\CLASE 1- REPASO\twitter-Completo.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="106"/>
+        <CursorPos X="57" Y="115"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="4">
+      <Position>
+        <Filename Value="Insertararboles.pas"/>
+        <Caret Line="192" Column="24" TopLine="153"/>
+      </Position>
+      <Position>
+        <Filename Value="Insertararboles.pas"/>
+        <Caret Line="144" Column="34" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="Insertararboles.pas"/>
+        <Caret Line="168" Column="56" TopLine="147"/>
+      </Position>
+      <Position>
+        <Filename Value="Insertararboles.pas"/>
+        <Caret Line="201" Column="7" TopLine="164"/>
+      </Position>
+      <Position>
+        <Filename Value="Insertararboles.pas"/>
+        <Caret Line="199" Column="31" TopLine="164"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=TarifasNacionalesPorRegion
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ TarifasNacionalesPorRegion\ here.\r\n\ \r\n\ @author\ (Leandro\ Romanut)\ \r\n\ @version\ (1.0)\r\n
+comment1.params=
+comment1.target=TarifasNacionalesPorRegion()
+comment2.params=ingreso\ region
+comment2.target=boolean\ puedeAccederAlSubsidio(double,\ java.lang.String)
+comment2.text=\r\n\ M\u00E9todo\ para\ saber\ si\ un\ grupo\ familiar\ puede\ acceder,\ o\ no,\ a\ un\ subsidio\r\n\ \r\n\ @params\ ingresos\ del\ grupo\ familiar\ y\ regi\u00F3n\r\n\ @return\ verdadero\ o\ falso\r\n
+numComments=3

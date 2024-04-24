@@ -1,0 +1,86 @@
+programa P1EJ4
+procesos
+  proceso juntarFlores
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+  fin
+  proceso juntarPapeles 
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+  fin
+  proceso izquierda
+  comenzar
+    derecha
+    derecha
+    derecha
+  fin
+areas
+  Area1: AreaPC(1,1,25,100)
+  Area2: AreaPC(26,1,50,100)
+  Area3: AreaPC(51,1,75,100)
+  Area4: AreaPC(76,1,100,100)
+robots
+  robot tipoPar
+  comenzar
+    repetir 24
+      repetir 99
+        juntarPapeles
+        mover 
+      juntarPapeles
+      Pos(PosAv + 1,1)
+    repetir 99
+      juntarPapeles
+      mover
+    juntarPapeles
+    Pos(PosAv + 26,1)
+    repetir 24
+      repetir 99
+        juntarPapeles
+        mover 
+      juntarPapeles
+      Pos(PosAv + 1,1)
+    repetir 99
+      juntarPapeles
+      mover
+    juntarPapeles
+    Pos(26,1)   
+  fin
+  robot tipoImpar
+  comenzar
+    repetir 24
+      repetir 99
+        juntarFlores
+        mover 
+      juntarFlores
+      Pos(PosAv + 1,1)
+    repetir 99
+      juntarFlores
+      mover
+    juntarFlores
+    Pos(PosAv + 26,1)
+    repetir 24
+      repetir 99
+        juntarFlores
+        mover 
+      juntarFlores
+      Pos(PosAv + 1,1)
+    repetir 99
+      juntarFlores
+      mover
+    juntarFlores
+    Pos(1,1)   
+  fin
+
+variables
+  robot1: tipoImpar
+  robot2: tipoPar
+comenzar
+  AsignarArea(robot1,Area1)
+  AsignarArea(robot1,Area3)
+  AsignarArea(robot2,Area2)
+  AsignarArea(robot2,Area4)
+  Iniciar(robot1,1,1)
+  Iniciar(robot2,26,1)
+fin

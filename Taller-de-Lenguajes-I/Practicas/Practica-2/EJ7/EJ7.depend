@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1693483632 source:c:\users\alumnos\desktop\lamba expression\ej7\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

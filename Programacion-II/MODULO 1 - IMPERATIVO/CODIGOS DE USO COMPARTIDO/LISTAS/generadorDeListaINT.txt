@@ -1,0 +1,61 @@
+ program ListaPrueba;
+type
+// Lista de enteros
+  lista = ^nodoL;
+  nodoL = record
+    dato: integer;
+    sig: lista;
+  end;
+// LIsta nivel 
+
+
+procedure agregarAdelante(var l: Lista; nro: integer);
+var
+  aux: lista;
+begin
+  new(aux);
+  aux^.dato := nro;
+  aux^.sig := l;
+  l:= aux;
+end;
+
+
+
+{-----------------------------------------------------------------------------
+CREARLISTA - Genera una lista con números aleatorios }
+procedure crearLista(var l: Lista);
+var
+  n: integer;
+begin
+ l:= nil;
+ n := random (20);
+ While (n <> 0) do Begin
+   agregarAdelante(L, n);
+   n := random (20);
+ End;
+end;
+
+
+{-----------------------------------------------------------------------------
+IMPRIMIRLISTA - Muestra en pantalla la lista l }
+procedure imprimirLista(l: Lista);
+begin
+ While (l <> nil) do begin
+   write(l^.dato, ' - ');
+   l:= l^.sig;
+ End;
+end;
+
+{-----------------------------------------------------------------------------
+CONTARELEMENTOS - Devuelve la cantidad de elementos de una lista l }
+
+function ContarElementos (l: listaNivel): integer;
+  var c: integer;
+begin
+ c:= 0;
+ While (l <> nil) do begin
+   c:= c+1;
+   l:= l^.sig;
+ End;
+ contarElementos := c;
+end; 

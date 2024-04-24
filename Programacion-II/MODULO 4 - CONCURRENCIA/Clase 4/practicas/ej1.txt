@@ -1,0 +1,140 @@
+programa ej1
+procesos
+  proceso juntarF( ES cant: numero)
+  comenzar
+    si HayFlorEnLaEsquina
+      mientras HayFlorEnLaEsquina
+        tomarFlor
+        cant:= cant + 1
+  fin 
+  proceso juntarP( ES cant: numero)
+  comenzar
+    si HayPapelEnLaEsquina
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        cant:=cant + 1
+  fin     
+  proceso avenidaF(E valor:numero; ES cant:numero)
+  variables
+    miAv: numero
+    miCa: numero
+  comenzar
+    repetir 99
+      miAv:=PosAv
+      miCa:= PosCa
+      juntarF(cant)
+      BloquearEsquina(PosAv,PosCa + valor)
+      mover
+      LiberarEsquina(miAv,miCa)
+  fin 
+  proceso CalleF( E valor:numero ES cant:numero)
+  variables
+    miAv:numero
+    miCa:numero
+  comenzar
+    derecha
+    repetir 99
+      miAv:= PosAv
+      miCa:= PosCa
+      juntarF(cant)
+      BloquearEsquina(miAv+valor,miCa)
+      mover
+      LiberarEsquina(miAv,miCa)
+  fin 
+  proceso CalleP( E valor:numero ES cant:numero)
+  variables
+    miAv:numero
+    miCa:numero
+  comenzar
+    derecha
+    repetir 99
+      miAv:= PosAv
+      miCa:= PosCa
+      juntarP(cant)
+      BloquearEsquina(miAv+valor,miCa)
+      mover
+      LiberarEsquina(miAv,miCa)
+  fin
+  proceso avenidaP(E valor:numero; ES cant:numero)
+  variables
+    miAv: numero
+    miCa: numero
+  comenzar
+    repetir 99
+      miAv:=PosAv
+      miCa:= PosCa
+      juntarP(cant)
+      BloquearEsquina(miAv,miCa + valor)
+      mover
+      LiberarEsquina(miAv,miCa)
+  fin 
+areas
+  l1: AreaC(1,1,1,100)
+  l2: AreaC(2,100,100,100)
+  l3: AreaC(100,1,100,99)
+  l4: AreaC(2,1,99,1)
+  areaRF: AreaP(49,50,49,50)
+  areaRP:AreaP(50,49,50,49)
+robots 
+  robot florero
+  variables
+    cantf:numero
+    miAv:numero
+    miCa:numero
+    valor:numero  
+  comenzar
+    cantf:=0
+    miAv:=PosAv
+    miCa:=PosCa
+    BloquearEsquina(1,1)
+    Pos(1,1)
+    valor:=1
+    repetir 2
+      avenidaF(valor,cantf)
+      CalleF(valor,cantf)
+      derecha
+      valor:=-1
+    Pos(miAv,miCa)
+    LiberarEsquina(1,1)  
+    Informar(cantf)
+  fin  
+  robot papelero
+  variables
+    cantp: numero
+    valor: numero
+    miAv:numero
+    miCa:numero
+  comenzar 
+    cantp:=0
+    miAv:=PosAv
+    miCa:=PosCa
+    BloquearEsquina(1,1)
+    Pos(1,1)
+    valor:=1
+    repetir 2
+      avenidaP(valor,cantp)
+      CalleP(valor,cantp)
+      derecha
+      valor:=-1
+    Pos(miAv,miCa)
+    LiberarEsquina(1,1)
+    Informar(cantp)
+  fin   
+variables 
+  robot1: florero
+  robot2: papelero
+comenzar 
+  AsignarArea(robot1,l1)
+  AsignarArea(robot1,l2)
+  AsignarArea(robot1,l3)
+  AsignarArea(robot1,l4)
+  AsignarArea(robot1,areaRF)
+  AsignarArea(robot2,l1)
+  AsignarArea(robot2,l2)
+  AsignarArea(robot2,l3)
+  AsignarArea(robot2,l4)
+  AsignarArea(robot2,areaRP)
+  Iniciar(robot1, 49, 50)
+  Iniciar(robot2,50,49) 
+fin
+  

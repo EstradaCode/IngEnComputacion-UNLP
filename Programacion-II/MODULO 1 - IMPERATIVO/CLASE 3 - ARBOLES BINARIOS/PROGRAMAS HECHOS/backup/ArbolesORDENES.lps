@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ArbolesORDENES.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="210"/>
+        <CursorPos X="17" Y="250"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Insertararboles.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="23"/>
+        <CursorPos Y="26"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\CLASE 2  RECURSIÓN\PROGRAMAS HECHOS\VectorOrdenadoHECHO.pas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="33"/>
+        <CursorPos Y="55"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\CLASE 2  RECURSIÓN\PROGRAMAS HECHOS\MaxSumayMaxNUMVEC.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="31"/>
+        <CursorPos Y="53"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="3">
+      <Position>
+        <Filename Value="ArbolesORDENES.pas"/>
+        <Caret Line="212" Column="17" TopLine="177"/>
+      </Position>
+      <Position>
+        <Filename Value="ArbolesORDENES.pas"/>
+        <Caret Line="180" Column="21" TopLine="159"/>
+      </Position>
+      <Position>
+        <Filename Value="ArbolesORDENES.pas"/>
+        <Caret Line="206" Column="7" TopLine="184"/>
+      </Position>
+      <Position>
+        <Filename Value="ArbolesORDENES.pas"/>
+        <Caret Line="204" Column="11" TopLine="184"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

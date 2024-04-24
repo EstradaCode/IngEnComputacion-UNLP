@@ -1,0 +1,35 @@
+procedure agregarOrdenado(var pri:listaTweets; t:tweet);
+var
+   nuevo, anterior, actual: listaTweets;
+begin
+     new (nuevo);
+     nuevo^.dato:= t;
+     nuevo^.sig := nil;
+     if (pri = nil) then
+          pri := nuevo
+     else
+     begin
+          actual := pri;
+          anterior := pri;
+          while (actual<>nil) and (actual^.dato.nombreUsuario < nuevo^.dato .nombreUsuario) do begin
+               anterior := actual;
+               actual:= actual^.sig;
+          end;
+          if (anterior = actual) then
+               pri := nuevo
+          else
+               anterior^.sig := nuevo;
+          nuevo^.sig := actual;
+     end;
+end;
+
+
+{generarNuevaEstructura - Resuelve la generación estructura ordenada}
+procedure generarNuevaEstructura (lT: listaTweets; VAR listaOrdenada: listaTweets);
+begin
+     listaOrdenada := nil;
+     while(lT <> nil) do begin
+          agregarOrdenado(listaOrdenada, lT^.dato);
+          lT := lT^.sig;
+     end;
+end;

@@ -1,0 +1,14 @@
+function darMax(a:arbol):integer;
+begin
+     if (a= nil) then begin {SI EL ARBOL ES VACIO}
+         darMax:= -1;
+     end
+     else begin	
+       if(a^.HD = nil) then begin
+        darMax:= a^.dato; { si no hay más hijos derechos, este es el minimo} 
+       end
+       else begin
+        darMax:= darMax(a^.HD); {si hay hijos der ,busquemos el maximo de ellos}
+        end;
+end;
+end;

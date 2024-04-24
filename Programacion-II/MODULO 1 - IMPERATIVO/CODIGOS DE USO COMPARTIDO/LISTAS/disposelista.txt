@@ -1,0 +1,10 @@
+procedure disposearLista(var l:lGoles);
+ var aux:lGoles;
+    begin
+         aux:= l;
+         while (aux <> nil) do begin
+             l:= l^.sig;
+             dispose(aux);
+             aux:= l;
+         end;
+    end;

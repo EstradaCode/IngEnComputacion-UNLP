@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1692419602 source:c:\users\franc\documents\apuntes\segundo a—o\taller de lenguajes 1\modulo 1\1-tipos simples y estructuras de control\pruebas\ejemplo 1\ej16\main.c
+	<stdio.h>
+	<stdlib.h>
+

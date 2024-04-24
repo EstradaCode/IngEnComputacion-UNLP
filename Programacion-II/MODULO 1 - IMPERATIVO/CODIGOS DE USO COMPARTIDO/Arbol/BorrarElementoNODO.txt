@@ -1,0 +1,52 @@
+function darMin(a:arbol):Rarbol;
+begin
+     if (a= nil) then begin {SI EL ARBOL ES VACIO}
+         darMin:= a^.dato;
+     end
+     else begin
+       if(a^.HI = nil) then begin
+        darMin:= a^.dato; { si no hay más hijos izq, este es el minimo}
+       end
+       else begin
+        darMin:= darMin(a^.HI); {si hay hijos izq ,busquemos el minimo de ellos}
+        end;
+end;
+end;
+
+
+procedure borrarElemento ( var a:arbol; lean:longint;  var resultado:boolean);
+var aux:arbol; l:lGoles;
+begin
+  if( a = nil) then begin     {si está vacio, damos falso}
+      resultado:= false
+   end
+  else begin  {sino}
+      if ( a^.dato.dni > lean ) then  begin   {si el dato de mi nodo es mas grande}
+          borrarElemento (a^.HI, lean, resultado)   {busco el elemento en los chiquitos}
+      end
+      else
+           if (a^.dato.dni < lean) then begin    {si el dato del nodo es mas chico}
+           borrarElemento (a^.HD, lean, resultado)  {busco en los mas grandes}
+           end
+           else begin  {sino, lo encontró!!!}
+             resultado:= true;     {está}
+             if(a^.HI = nil)then begin    {si no tiene hijo izq /o ninguno de los dos}
+             aux:= a;		{aux es a, a apunta al hijo derecho}
+             a:= a^.HD;
+             disposearLista(aux^.dato.l); // borro la lista
+             dispose(aux)            {lo borra}
+             end
+             else
+                if (a^.HD = nil) then begin {sino si no tiene hijo der}
+                 aux:= a;	{aux es a, a apunto al hijo izq}
+                 a:= a^.HI;
+                 disposearLista(aux^.dato.l); // borro la lista
+                 dispose(aux)   {lo borra}
+                 end
+                 else begin    {SI EXISTEN LOS DOS NODOS}
+                   a^.dato:= darMin(a^.HD);  {me copio el dato mas chico, porque va a ser el mas cercano al dato a borrar y mantendrá la linealidad de la estructura}
+                   borrarElemento(a^.HD, a^.dato.dni ,resultado); { y ahora busco borrar ese nodo minimo}
+                 end;
+           end;
+         end;
+end;  

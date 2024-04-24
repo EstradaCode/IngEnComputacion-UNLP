@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Literatura
+comment1.params=
+comment1.target=Literatura()
+comment2.params=ISBN\ titulo\ cantPaginas\ precio\ fechaPublicacion\ autor\ genero\ debolsillo
+comment2.target=Literatura(java.lang.String,\ java.lang.String,\ int,\ double,\ java.lang.String,\ Autor,\ java.lang.String,\ boolean)
+comment3.params=
+comment3.target=java.lang.String\ getGenero()
+comment4.params=
+comment4.target=void\ setGenero()
+comment5.params=
+comment5.target=boolean\ getEsDebolsillo()
+comment6.params=debolsillo
+comment6.target=void\ setEsDebolsillo(boolean)
+comment7.params=
+comment7.target=double\ calculoDescuento()
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

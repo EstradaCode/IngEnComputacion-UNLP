@@ -1,0 +1,39 @@
+
+Procedure AgregarTweets (var ltweets:lista1; var ultT:lista1; data:tweet); {agregar al final}
+Var nue:Lista1;
+Begin
+ new(nue);
+ nue^.dato.mensaje:=data.mensaje;
+ nue^.dato.esRetweet:=data.esRetweet;
+ nue^.sig:= Nil;
+ if (ltweets <> nil) then begin
+     ultT^.sig:= nue;
+ end
+ else begin
+     ltweets:= nue;
+  end;
+ ultT:=nue;
+End;
+procedure agregarData(var l2:lista2;cod:integer; nom:string);  { instancio la lista grande}
+var aux:lista2;
+begin
+ new(aux);
+ aux^.dato.nombre:=nom;
+ aux^.dato.codigo:=cod;
+ aux^.dato.l:=nil; {pongo datos e inicializo en nil la lista chiquita}
+ aux^.sig:=l2;
+ l2:=aux;
+end;
+
+procedure generarListadeLista (var l2: lista2; listaOrdenada: listaTweets); {lista 2 es la lista grande, lista ord es la ordenada que vamos a usar}
+ var ultT:lista1;
+begin
+     while(listaOrdenada <> nil)do begin
+          agregarData(l2,listaOrdenada^.dato.codigoUsuario,listaOrdenada^.dato.nombreUsuario); {agrego a la lista grande, los datos que no quiero repetir y inicializo lista}
+          ultT:=nil;                    {opcional: un puntero para el agregar al final}
+          while(listaordenada<>nil) and ( l2^.dato.nombre = listaOrdenada^.dato.nombreUsuario)do begin { mientras la lista no sea nil y mi dato se repita}
+              AgregarTweets(l2^.dato.l,ultT,listaOrdenada^.dato); { agrego dato a la lista chiquita}
+              listaOrdenada:= listaOrdenada^.sig; {paso al siguiente nodo de la lista ord}
+          end;
+end;
+end;  

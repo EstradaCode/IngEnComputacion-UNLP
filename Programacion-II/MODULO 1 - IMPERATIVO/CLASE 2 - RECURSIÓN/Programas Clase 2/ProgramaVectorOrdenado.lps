@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="VectorOrdenado"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="54"/>
+        <CursorPos X="26" Y="62"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="14">
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="85" Column="32" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="55" Column="34" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="59" Column="23" TopLine="39"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="61" Column="32" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="62" Column="33" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="73" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="91" Column="51" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="58" Column="15" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="97" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="70" Column="47" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="97" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="58" Column="14" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="97" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="67" Column="47" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectorOrdenado.pas"/>
+        <Caret Line="90" Column="26" TopLine="55"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

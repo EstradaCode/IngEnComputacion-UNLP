@@ -1,0 +1,17 @@
+programa C4EJ1
+procesos
+  proceso
+  comenzar
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+ robot tipo1
+ variables
+ comenzar
+ fin
+variables
+ robot1: tipo1
+comenzar
+  AsignarArea(robot1,AreaC)
+fin

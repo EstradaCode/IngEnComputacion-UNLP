@@ -1,0 +1,34 @@
+procedure borrarElemento ( var a:arbol; dato:integer;  var resultado:boolean);
+var aux:arbol;
+begin
+  if( a = nil) then begin     {si está vacio, damos falso}
+      resultado:= false
+   end
+  else begin  {sino}
+      if ( a^.dato > dato ) then  begin   {si el dato de mi nodo es mas grande}
+          borrarElemento (a^.HI, dato, resultado)   {busco el elemento en los chiquitos}
+      end
+      else
+           if (a^.dato < dato) then begin    {si el dato del nodo es mas chico}
+           borrarElemento (a^.HD, dato, resultado)  {busco en los mas grandes}
+           end
+           else begin  {sino, lo encontró!!!}
+             resultado:= true;     {está}
+             if(a^.HI = nil)then begin    {si no tiene hijo izq /o ninguno de los dos}
+             	aux:= a;		{aux es a, a apunta al hijo derecho}
+             	a:= a^.HD;
+             	dispose(aux)            {lo borra}
+             end
+             else
+                if (a^.HD = nil) then begin {sino si no tiene hijo der}
+                 aux:= a;	{aux es a, a apunto al hijo izq}
+                 a:= a^.HI;
+                 dispose(aux)   {lo borra}
+                 end
+                 else begin    {SI EXISTEN LOS DOS NODOS}
+                   a^.dato:= darMin(a^.HD);  {me copio el dato mas chico, porque va a ser el mas cercano al dato a borrar y mantendrá la linealidad de la estructura}
+                   borrarElemento(a^.HD, a^.dato,resultado); { y ahora busco borrar ese nodo minimo}
+                 end;
+           end;
+         end;
+end;

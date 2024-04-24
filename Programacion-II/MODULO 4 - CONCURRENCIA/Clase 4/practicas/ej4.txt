@@ -1,0 +1,91 @@
+programa EJ4
+procesos 
+  proceso obtenerP (ES seguir: boolean E miAv:numero E miCa:numero)
+  comenzar
+    BloquearEsquina(11,11)
+    Pos(11,11)
+    si HayPapelEnLaEsquina
+      tomarPapel
+    sino
+      seguir:= F
+    Pos(miAv,miCa)
+    LiberarEsquina(11,11)   
+  fin
+areas
+  area1: AreaP(4,1,4,100)
+  area2: AreaP(6,1,6,100)
+  area3: AreaP(8,1,8,100)
+  area4: AreaP(10,1,10,100)
+  areaP: AreaC(11,11,11,11)
+  areaC: AreaC(1,1,1,1)
+robots
+  robot tipo1
+  variables
+    id:numero
+    miAv:numero
+    miCa:numero
+    seguir:boolean
+    pasos:numero
+  comenzar
+    miAv:=PosAv
+    pasos:=0
+    seguir:=V
+    RecibirMensaje(id,jefe)
+    mientras ((seguir) & ( PosCa < 100))
+      miCa:=PosCa
+      obtenerP(seguir,miAv,miCa)
+      si (seguir)
+        depositarPapel
+        mover
+        pasos:= pasos + 1  
+    si (PosCa = 100)
+      miCa:= PosCa
+      obtenerP(seguir,miAv,miCa)
+      si (seguir)
+        depositarPapel
+    EnviarMensaje(id,jefe)
+    EnviarMensaje(pasos,jefe)      
+  fin
+  robot Jefe
+  variables
+    idGanador:numero
+    id:numero
+    maxpasos:numero
+    pasos:numero
+  comenzar 
+    maxpasos:=0
+    EnviarMensaje(1,robot1)
+    EnviarMensaje(2,robot2)
+    EnviarMensaje(3,robot3)
+    EnviarMensaje(4,robot4)
+    repetir 4
+      RecibirMensaje(id,*)
+      RecibirMensaje(pasos,*)
+      si (pasos > maxpasos)
+        maxpasos:= pasos
+        idGanador:=id
+    Informar('elganadorEsElRobot',idGanador)
+    Informar('CantDeEsqRecorridas',maxpasos)
+  fin
+variables
+  robot1: tipo1
+  robot2: tipo1
+  robot3: tipo1
+  robot4: tipo1
+  jefe: Jefe
+comenzar
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,area3)
+  AsignarArea(robot4,area4)
+  AsignarArea(jefe,areaC)
+  AsignarArea(robot1,areaP)
+  AsignarArea(robot2,areaP)
+  AsignarArea(robot3,areaP)
+  AsignarArea(robot4,areaP)
+  Iniciar(robot1,4,1)
+  Iniciar(robot2,6,1)
+  Iniciar(robot3,8,1)
+  Iniciar(robot4,10,1)
+  Iniciar(jefe,1,1)
+fin

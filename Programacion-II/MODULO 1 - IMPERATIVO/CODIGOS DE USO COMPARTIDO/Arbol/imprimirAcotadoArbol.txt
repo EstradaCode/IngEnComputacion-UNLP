@@ -1,0 +1,14 @@
+procedure verValoresRango(a: arbol; inf:integer; sup:integer);
+begin
+  if (a <> nil) then {si a no está vacia}
+    if (a^.dato >= inf) then                 {si el dato es mayor o igual al min}
+      if (a^.dato <= sup) then begin             { y si el dato es menor o igual al sup}
+        verValoresRango(a^.hi, inf, sup);            {en orden de los datos}
+        writeln(a^.dato);
+        verValoresRango(a^.hd, inf, sup);
+      end
+      else        {si el dato es mas grande al sup}
+        verValoresRango(a^.hi, inf, sup) { me fijo los datos izquierdos}
+    else         {si el dato es mas chico que el min}
+      verValoresRango(a^.hd, inf, sup);   {me fijo en los de la derecha}
+end;  

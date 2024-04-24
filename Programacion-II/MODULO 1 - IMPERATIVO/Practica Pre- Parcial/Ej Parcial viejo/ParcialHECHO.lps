@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ParcialHECHO.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="322"/>
+        <CursorPos X="35" Y="416"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\EJS COLABORATIVOS\ActividaColaborativa2Final.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="79"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\CLASE 6 - REPASO\EJ3.pas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="119"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\ej 2019\TP_Final (1)\TP_Final\Olimpico.pas"/>
+        <UnitName Value="juegos"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="12">
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="431" Column="17" TopLine="403"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="55" Column="26" TopLine="41"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="282" Column="33" TopLine="266"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="296" Column="31" TopLine="275"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="295" Column="32" TopLine="280"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="301" Column="4" TopLine="286"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="315" Column="29" TopLine="299"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="323" Column="28" TopLine="301"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="346" Column="34" TopLine="328"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="345" Column="129" TopLine="333"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="372" Column="9" TopLine="356"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="380" Column="25" TopLine="363"/>
+      </Position>
+      <Position>
+        <Filename Value="ParcialHECHO.pas"/>
+        <Caret Line="446" Column="61" TopLine="420"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

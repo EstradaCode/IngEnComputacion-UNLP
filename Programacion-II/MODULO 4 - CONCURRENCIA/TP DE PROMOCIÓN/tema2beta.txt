@@ -1,0 +1,202 @@
+programa Tema2 
+procesos 
+  proceso Izquierda
+  comenzar
+    derecha
+    derecha
+    derecha
+  fin
+  proceso BuscarFlor (E miAv:numero E miCa:numero)  
+  comenzar  
+    BloquearEsquina(100,100) 
+    Pos(100,100) 
+    si HayFlorEnLaEsquina 
+      tomarFlor  
+    Pos(miAv,miCa) 
+    LiberarEsquina(100,100) 
+  fin
+  proceso juntarElem (ES elementos:numero ES CantidadPapeles:numero) 
+  comenzar 
+    mientras HayFlorEnLaEsquina 
+      tomarFlor 
+      elementos:=elementos+1
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      elementos:=elementos+1
+      CantidadPapeles:=CantidadPapeles+1
+  fin 
+  proceso RecorridoL (ES cumple: boolean ES miAv:numero  ES miCa: numero)  
+  comenzar   
+    BloquearEsquina(miAv,miCa)  
+    Pos(miAv,miCa)  
+    derecha 
+    repetir 3 
+      miAv:=PosAv 
+      si(cumple) 
+        BuscarFlor(miAv,miCa)
+        si HayFlorEnLaBolsa
+          depositarFlor
+        sino
+          cumple:= F
+      BloquearEsquina(miAv + 1,miCa)
+      mover 
+      LiberarEsquina(miAv,miCa)
+    miAv:= PosAv    
+    derecha
+    repetir 7 
+      miCa:=PosCa 
+      si(cumple) 
+        BuscarFlor(miAv,miCa) 
+        si HayFlorEnLaBolsa 
+          depositarFlor 
+        sino
+          cumple:= F
+      BloquearEsquina(miAv,miCa -1) 
+      mover 
+      LiberarEsquina(miAv,miCa)    
+    miCa:= PosCa
+    si(cumple) 
+      BuscarFlor(miAv,miCa) 
+      si HayFlorEnLaBolsa 
+        depositarFlor 
+      sino
+        cumple:= F        
+  fin 
+areas  
+  areaG: AreaC(1,2,100,97)  
+  areaR1: AreaP(2,1,2,1)  
+  areaR2: AreaP(3,1,3,1)  
+  areaR3: AreaP(4,1,4,1)  
+  areaC: AreaP(1,1,1,1)  
+  fuente:AreaC(100,100,100,100)  
+robots  
+  robot tipoL  
+  variables  
+    MiID:numero 
+    miAv,miCa,dato,avO,caO:numero  
+    pasos:numero  
+    elementos:numero
+    cumple,sigue:boolean
+    CantidadPapeles:numero   
+  comenzar  
+    CantidadPapeles:=0
+    elementos:=0
+    cumple:= V  
+    avO:=PosAv  
+    caO:=PosCa  
+    miCa:=70  
+    RecibirMensaje(MiID,Jefazo)   
+    RecibirMensaje(dato,Jefazo)  
+    miAv:=dato   
+    Informar('mi_ID_Es', MiID)   
+    Informar('mi_esquina_es_avenida',miAv)  
+    Informar('calle_',miCa)  
+    RecorridoL (cumple,miAv,miCa)   
+    EnviarMensaje(MiID,Jefazo)  
+    EnviarMensaje(cumple,Jefazo)  
+    RecibirMensaje(sigue,Jefazo)  
+    si (sigue)  
+      RecibirMensaje(pasos,Jefazo)  
+      BloquearEsquina(1,dato)  
+      Pos(1,dato)
+      LiberarEsquina(miAv,miCa)  
+      Izquierda
+      repetir pasos 
+        miAv:=PosAv
+        juntarElem(elementos,CantidadPapeles) 
+        BloquearEsquina(miAv+1,dato)
+        mover 
+        LiberarEsquina(miAv,dato)
+      miAv:=PosAv  
+      juntarElem(elementos,CantidadPapeles) 
+      Informar('Cant',elementos) 
+      EnviarMensaje(MiID,Jefazo)   
+      EnviarMensaje(CantidadPapeles,Jefazo)
+      LiberarEsquina(miAv,dato) 
+    Pos(avO,caO)   
+    si (sigue)  
+      LiberarEsquina(miAv,dato)
+    sino
+      LiberarEsquina(miAv,miCa) 
+  fin  
+  robot tipoC 
+  variables 
+    id,av,pasos,robotsB:numero  
+    min,minid,dato:numero  
+    cumple:boolean  
+  comenzar  
+    id:=0  
+    min:= 9999
+    robotsB:=0  
+    EnviarMensaje(1,robot1)  
+    EnviarMensaje(2,robot2)  
+    EnviarMensaje(3,robot3)  
+    repetir 3
+      id:= id + 1  
+      Random(av,2,97)   
+      si (id = 1)  
+        EnviarMensaje(av,robot1)  
+      sino  
+        si (id=2)  
+          EnviarMensaje(av,robot2)  
+        sino  
+          si (id=3)  
+            EnviarMensaje(av,robot3)  
+    repetir 3 
+      RecibirMensaje(id,*)  
+      RecibirMensaje(cumple,*)  
+      si (id = 1)  
+        EnviarMensaje(cumple,robot1)  
+        si (cumple)  
+          robotsB:= robotsB + 1  
+          Random(pasos,50,70)  
+          EnviarMensaje(pasos,robot1)   
+      sino  
+        si (id=2)   
+          EnviarMensaje(cumple,robot2)   
+          si(cumple)   
+            robotsB:= robotsB + 1    
+            Random(pasos,50,70)    
+            EnviarMensaje(pasos,robot2)   
+        sino   
+          si (id=3)    
+            EnviarMensaje(cumple,robot3)    
+            si(cumple)     
+              robotsB:= robotsB + 1   
+              Random(pasos,50,70)    
+              EnviarMensaje(pasos,robot3)   
+          sino  
+            Informar('Fallo',0)  
+    si (robotsB <> 0)  
+      repetir robotsB   
+        RecibirMensaje(id,*)   
+        RecibirMensaje(dato,*)    
+        si( dato < min)    
+          min:=dato     
+          minid:=id     
+      Informar('Robot_que_Recogio_menos_papeles', minid)     
+      Informar('min_cant_de_papeles', min)     
+    sino    
+      Informar('Ningun_rob0t_llega_a_la_parte_b',0)    
+  fin  
+variables  
+  robot1: tipoL  
+  robot2: tipoL  
+  robot3: tipoL  
+  Jefazo: tipoC  
+comenzar  
+  AsignarArea(robot1,areaG)    
+  AsignarArea(robot2,areaG)  
+  AsignarArea(robot3,areaG)  
+  AsignarArea(robot1,areaR1)  
+  AsignarArea(robot2,areaR2)  
+  AsignarArea(robot3,areaR3)    
+  AsignarArea(Jefazo,areaC)   
+  AsignarArea(robot1,fuente)    
+  AsignarArea(robot2,fuente)    
+  AsignarArea(robot3,fuente)    
+  Iniciar(Jefazo,1,1) 
+  Iniciar(robot1,2,1) 
+  Iniciar(robot2,3,1) 
+  Iniciar(robot3,4,1) 
+fin 

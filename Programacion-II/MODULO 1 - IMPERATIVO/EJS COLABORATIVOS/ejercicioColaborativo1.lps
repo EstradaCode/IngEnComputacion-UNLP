@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ejercicioColaborativo1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 3 - ARBOLES BINARIOS\PROGRAMAS HECHOS\Insertararboles.pas"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="164"/>
+        <CursorPos X="49" Y="50"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 1- REPASO\twitter-Completo.pas"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="102"/>
+        <CursorPos Y="107"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 3 - ARBOLES BINARIOS\PROGRAMAS HECHOS\programaArboles.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="155"/>
+        <CursorPos Y="107"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\PROGRA II\1-MODULO IMPERATIVO\Clase 6- Ejercicios Combinados\Ejercicio1FINAL.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\PROGRA II\1-MODULO IMPERATIVO\Clase 5 - Arboles III\actcolabo1final.pas"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="94"/>
+        <CursorPos X="30" Y="119"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 3 - ARBOLES BINARIOS\PROGRAMAS HECHOS\ArbolesMAXMIN.pas"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="166"/>
+        <CursorPos Y="176"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\PROGRA II\1-MODULO IMPERATIVO\Clase 4 - Busqueda acotada a ABO\Act7BusquedaacotadaArboles.pas"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="140"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 2  RECURSIÓN\PROGRAMAS HECHOS\listaHECHOs.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="25"/>
+        <CursorPos Y="43"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\PROGRA II\1-MODULO IMPERATIVO\Clase 4 - Busqueda acotada a ABO\BorrarDatoarbolesCOMPLETO.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="165"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 4- BUSQUEDA ACOTADA\clase4_ejercicio.lpr"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="36" Y="6"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory>
+      <Position>
+        <Filename Value="ejercicioColaborativo1.pas"/>
+        <Caret Line="83" Column="41" TopLine="60"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

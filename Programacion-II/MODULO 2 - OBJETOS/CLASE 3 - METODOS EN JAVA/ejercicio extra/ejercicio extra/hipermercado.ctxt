@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=hipermercado
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=in
+comment2.target=Producto\ agregarProducto(java.util.Scanner)
+numComments=3

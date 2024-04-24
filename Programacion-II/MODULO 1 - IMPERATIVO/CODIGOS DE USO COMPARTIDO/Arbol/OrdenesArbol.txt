@@ -1,0 +1,24 @@
+Procedure preOrden( a: arbol ); {DE RAIZ PARA ABAJOS}
+begin
+  if ( a <> nil ) then begin
+    write (a^.dato, '   ');
+    preOrden (a^.HI);
+    preOrden (a^.HD)
+  end;
+end;
+Procedure enOrden( a: arbol ); {MENOR A MAYOR}
+begin
+  if ( a <> nil ) then begin
+    enOrden (a^.HI);
+    write (a^.dato, '   ');
+    enOrden (a^.HD)
+  end;
+end;
+procedure postOrden(a:arbol); {ABAJOS A RAIZ}
+begin
+ if(a<>nil) then begin
+   postOrden(a^.HI);
+   postOrden(a^.HD);
+   write(a^.dato, ' ');
+ end;
+end; 

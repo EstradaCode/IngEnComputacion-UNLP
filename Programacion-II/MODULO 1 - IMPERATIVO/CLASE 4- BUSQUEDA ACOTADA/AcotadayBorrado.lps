@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="AcotadayBorrado.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="224"/>
+        <CursorPos X="22" Y="261"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 3 - ARBOLES BINARIOS\PROGRAMAS HECHOS\Insertararboles.pas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="23"/>
+        <CursorPos Y="26"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 3 - ARBOLES BINARIOS\PROGRAMAS HECHOS\ArbolesMAXMIN.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="210"/>
+        <CursorPos Y="237"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="-1"/>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

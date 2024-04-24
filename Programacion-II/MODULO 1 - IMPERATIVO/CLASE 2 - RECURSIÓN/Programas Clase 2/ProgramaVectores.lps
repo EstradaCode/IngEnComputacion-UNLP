@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ProgramaVectores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Arreglos"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="48"/>
+        <CursorPos X="42" Y="71"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\PROGRAMAS HECHOS\Recursion.pas"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="24" Y="19"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="10">
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="59" Column="25" TopLine="25"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="80" Column="52" TopLine="39"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="57" Column="20" TopLine="37"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="64" Column="10" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="53" Column="55" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="88" Column="67" TopLine="48"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="66" Column="18" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="73" Column="16" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="71" Column="10" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="67" Column="29" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="71" Column="17" TopLine="48"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

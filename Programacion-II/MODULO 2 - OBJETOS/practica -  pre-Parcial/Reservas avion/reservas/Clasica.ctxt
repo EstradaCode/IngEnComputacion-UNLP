@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Clasica
+comment1.params=num\ aero\ aeroD\ fecha\ pasajero
+comment1.target=Clasica(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ Pasajero)
+comment2.params=pasajero
+comment2.target=void\ setPasajero(Pasajero)
+comment3.params=
+comment3.target=Pasajero\ getPasajero()
+comment4.params=
+comment4.target=void\ calcularPromocion()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

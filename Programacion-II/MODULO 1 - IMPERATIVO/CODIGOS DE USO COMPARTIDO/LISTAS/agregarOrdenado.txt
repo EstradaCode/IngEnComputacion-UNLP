@@ -1,0 +1,24 @@
+procedure agregarOrdenado(var pri:listaTweets; t:tweet);
+var
+   nuevo, anterior, actual: listaTweets;
+begin
+     new (nuevo);
+     nuevo^.dato:= t;
+     nuevo^.sig := nil;
+     if (pri = nil) then
+          pri := nuevo
+     else
+     begin
+          actual := pri;
+          anterior := pri;
+          while (actual<>nil) and (actual^.dato.nombreUsuario < nuevo^.dato .nombreUsuario) do begin //ordena datos de forma ascendente //
+               anterior := actual;
+               actual:= actual^.sig;
+          end;
+          if (anterior = actual) then
+               pri := nuevo
+          else
+               anterior^.sig := nuevo;
+          nuevo^.sig := actual;
+     end;
+end;

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="programaArboles.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="223"/>
+        <CursorPos X="22" Y="261"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Insertararboles.pas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="23"/>
+        <CursorPos Y="26"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ArbolesMAXMIN.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="182"/>
+        <CursorPos Y="196"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="15">
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="173" Column="14" TopLine="134"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="193" Column="31" TopLine="153"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="205" Column="26" TopLine="166"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="176" TopLine="150"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="188" Column="22" TopLine="161"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="190" TopLine="189"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="204" Column="54" TopLine="183"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="208" Column="24" TopLine="188"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="230" Column="3" TopLine="190"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="228" Column="20" TopLine="200"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="226" Column="25" TopLine="208"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="223" Column="11" TopLine="207"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="226" Column="25" TopLine="206"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="223" Column="14" TopLine="206"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="225" Column="24" TopLine="207"/>
+      </Position>
+      <Position>
+        <Filename Value="programaArboles.pas"/>
+        <Caret Line="260" Column="14" TopLine="219"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

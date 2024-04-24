@@ -1,0 +1,88 @@
+programa ej3
+procesos
+  proceso juntarFlores( ES cant: numero)
+  comenzar
+    si HayFlorEnLaEsquina
+      mientras HayFlorEnLaEsquina
+        tomarFlor
+        cant:= cant + 1
+  fin 
+  proceso juntarPapeles(ES cantp:numero)
+  comenzar
+    si HayPapelEnLaEsquina
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        cantp:= cantp + 1
+  fin
+  proceso evaluarEsquina(ES cantEsq: numero)
+  variables
+    cantp: numero
+    cantf:numero
+  comenzar
+    cantp:=0
+    cantf:=0
+    juntarPapeles(cantp)
+    juntarFlores(cantf)      
+    si (cantf > cantp)
+      cantEsq:= cantEsq + 1
+  fin     
+  proceso izq
+  comenzar
+    derecha
+    derecha
+    derecha
+  fin
+  proceso escalones ( E alto :numero ES cantEsq: numero)
+  comenzar
+    repetir 4
+      repetir alto
+        mover
+        evaluarEsquina(cantEsq)
+      derecha   
+      mover
+      evaluarEsquina(cantEsq)
+      izq
+  fin      
+areas
+  areaR1 : AreaP(1,1,1,1)
+  areaR2: AreaP(2,1,6,21)
+  areaR3: AreaP(7,1,11,21)
+  areaR4: AreaP(12,1,16,21)
+robots 
+  robot tipo1
+  variables
+    cantEsq: numero
+    alto: numero  
+  comenzar
+    cantEsq:=0
+    Random(alto,1,5)
+    escalones(alto,cantEsq)
+    EnviarMensaje(cantEsq,robot1)
+  fin
+  robot jefe
+  variables
+    aux:numero
+    suma:numero
+    id:numero
+  comenzar
+    suma:=0
+    repetir 3
+      RecibirMensaje(aux,*)
+      suma:= suma + aux
+    Informar(suma)
+  fin           
+variables 
+  robot2: tipo1
+  robot3: tipo1
+  robot4: tipo1
+  robot1: jefe 
+comenzar 
+  AsignarArea(robot1,areaR1)
+  AsignarArea(robot2,areaR2)
+  AsignarArea(robot3,areaR3)
+  AsignarArea(robot4,areaR4)
+  Iniciar(robot1, 1, 1)
+  Iniciar(robot2, 2, 1)
+  Iniciar(robot3,7,1)
+  Iniciar(robot4,12,1) 
+fin  

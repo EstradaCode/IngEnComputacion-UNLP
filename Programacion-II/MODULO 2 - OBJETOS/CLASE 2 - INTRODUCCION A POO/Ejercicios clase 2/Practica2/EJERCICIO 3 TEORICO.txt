@@ -1,0 +1,16 @@
+A)
+QueImprimeA:
+	false;
+	true;
+	false; (chusmear);
+QueImprimeB:
+	imprime el toString de p2 sin cambios.
+	imprime el toString de p2 con la edad en 52.
+	true;
+B) El efecto que tiene la asignacion utilizada entre objetos
+es copiar la direccion en memoria dinamica del objeto en cuestión.
+Dejando la direccion previa innacesible al usuario.
+
+C) == y != sirve para comparar si son punteros al mismo objeto (aunque sean los mismos datos, si los punteros no apuntan a la misma
+direccion, son distintos)
+d) el metodo .equals("algo") devolverá un booleano (true or false) dependiendo de si, EL CONTENIDO del String es igual al del argumento.

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ProgramaRecursion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Recursion"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="23" Y="22"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\..\..\Downloads\ProgramaRecursion.pas"/>
+        <UnitName Value="Recursion"/>
+        <EditorIndex Value="1"/>
+        <CursorPos Y="6"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="2">
+      <Position>
+        <Filename Value="ProgramaRecursion.pas"/>
+        <Caret Line="18" Column="26"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaRecursion.pas"/>
+        <Caret Line="16" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="ProgramaRecursion.pas"/>
+        <Caret Line="18" Column="23"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

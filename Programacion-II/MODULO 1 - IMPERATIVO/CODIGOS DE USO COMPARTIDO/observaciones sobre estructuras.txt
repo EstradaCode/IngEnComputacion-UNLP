@@ -1,0 +1,20 @@
+Arbol Binario
+--------------
+¿Cuando conviene usarlo?
+- Conviene usarlo cuando se pide una busqueda EFICIENTE en funcion de una variable.
+-Sirve para busquedas especificas y recorridos acotados.
+- En el caso de buscar un dato que no corresponde a la variable en la que no esta ordenada el arbol, se realizará recorrido completo en el orden que desee.
+- Utiliza la recursion, por lo tanto, utilizamos más memoria a costa de menos tiempo de ejecución.
+- Conviene no repetir variables del registro original y restructurar un registro sin el dato por el cual el arbol esta ordenado.
+- Conviene Graficar las estructuras dentro del mismo para favorecer la interpretación del enunciado.
+----------------------
+Listas
+-----------
+¿Cuando conviene usarlo ?
+- Conviene usarlo como lista desde la cual crear el arbol, si se dispone, (caso contrario, un registro y un bucle es más que suficiente).
+- puede crearse una lista ordenada en función de algo si se pide un minimo que no conviene ser buscado por un arbol binario. ( ej: si tengo un arbol ordenado por codigo de area y dentro tiene la lista de dnis de usuarios, y me piden buscar el dni más chico de TODOS. 
+El arbol deberia no SOLO recorrerse completo, sino tambien, debe revisar cada lista de dnis dentro de cada nodo. Lo que resulta en mucha memoria desperdiciada. En vez de eso, Ordenemos la lista que nos dieron de menor a mayor y agarremos el primer nodo. 
+Estos casos deben pensarse mas de una vez, ya que pueden malinterpretar el enunciado. EJ: si me pedian ver el minimo dni de cada codarea, entonces conviene haber ordenado la lista interna de menor a mayor y mostrar el primer nodo. De esa forma, nos ahorramos el recorrido 
+y el tiempo de ejecución que conlleva recorrer cada lista.)
+- los punteros son Buenas maneras de Guardar un elemento de suma importancia, para usarlo despues.
+- Conviene una vez terminado el programa, liberar la memoria dinamica del programa.

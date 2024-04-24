@@ -1,0 +1,14 @@
+function darMin(a:arbol):integer;
+begin
+     if (a= nil) then begin {SI EL ARBOL ES VACIO}
+         darMin:= -1;
+     end
+     else begin	
+       if(a^.HI = nil) then begin
+        darMin:= a^.dato; { si no hay más hijos izq, este es el minimo} 
+       end
+       else begin
+        darMin:= darMin(a^.HI); {si hay hijos izq ,busquemos el minimo de ellos}
+        end;
+end;
+end; 

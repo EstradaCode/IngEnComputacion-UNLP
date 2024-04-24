@@ -1,0 +1,41 @@
+programa P1EJ2
+procesos
+  proceso juntarFlores (ES cantf: numero  ES sinf: numero) 
+  comenzar
+    si HayFlorEnLaEsquina
+      mientras HayFlorEnLaEsquina
+        tomarFlor
+        cantf:= cantf + 1
+    sino
+      sinf:= sinf + 1
+  fin
+  proceso depositarFlores
+  comenzar
+    mientras HayFlorEnLaBolsa
+      depositarFlor
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot tipo1
+  variables
+    cantf: numero
+    sinf: numero
+  comenzar
+    cantf:=0
+    sinf:=0
+    repetir 4
+      juntarFlores(cantf,sinf)
+      mover
+      mover
+    juntarFlores (cantf, sinf)
+    depositarFlores
+    Informar(cantf)
+    Informar(sinf)
+  fin
+variables
+  robot1: tipo1
+comenzar
+  AsignarArea(robot1,ciudad)
+  Iniciar(robot1,1,1)
+fin

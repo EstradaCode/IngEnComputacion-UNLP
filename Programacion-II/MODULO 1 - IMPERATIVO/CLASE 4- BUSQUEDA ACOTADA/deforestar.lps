@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="deforestar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="37"/>
+        <CursorPos X="8" Y="83"/>
+        <UsageCount Value="72"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 1- REPASO\twitter-Completo.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="84"/>
+        <CursorPos Y="107"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="18">
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="264" Column="14" TopLine="233"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="265" Column="12" TopLine="234"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="243" Column="13" TopLine="224"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="269" Column="33" TopLine="243"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="283" TopLine="246"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="165" TopLine="146"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="283" TopLine="246"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="246" Column="61" TopLine="219"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="238" Column="28" TopLine="226"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="245" Column="17" TopLine="226"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="285" TopLine="248"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="244" Column="13" TopLine="232"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="247" Column="35" TopLine="247"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="266" Column="18" TopLine="242"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="238" Column="32" TopLine="219"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="243" Column="18" TopLine="224"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="250" Column="15" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="174" Column="20" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="deforestar.pas"/>
+        <Caret Line="271" Column="4" TopLine="245"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

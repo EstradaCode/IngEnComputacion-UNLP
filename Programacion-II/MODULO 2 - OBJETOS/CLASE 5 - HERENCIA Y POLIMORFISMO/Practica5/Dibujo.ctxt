@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Dibujo
+comment1.params=autor\ titulo\ cantFig
+comment1.target=Dibujo(java.lang.String,\ java.lang.String,\ int)
+comment2.params=
+comment2.target=Dibujo()
+comment3.params=
+comment3.target=int\ getTotFiguras()
+comment4.params=
+comment4.target=boolean\ validarFiguras()
+comment5.params=fig
+comment5.target=void\ agregarFig(Figura)
+comment6.params=
+comment6.target=void\ Dibujado()
+numComments=7

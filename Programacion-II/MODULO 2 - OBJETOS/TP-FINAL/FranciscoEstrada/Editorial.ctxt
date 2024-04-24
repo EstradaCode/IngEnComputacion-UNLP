@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Editorial
+comment1.params=nombre\ cantPremios
+comment1.target=Editorial(java.lang.String,\ int)
+comment2.params=
+comment2.target=Editorial()
+comment3.params=
+comment3.target=Libro[]\ getLibros()
+comment4.params=libro\ diml
+comment4.target=void\ setLibro(Libro,\ int)
+comment5.params=
+comment5.target=void\ Totalizar()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Electricidad
+comment1.params=
+comment1.target=Electricidad()
+comment2.params=gestion\ fecha\ ingresos\ cantI\ region\ persona\ NIS\ cantElectro
+comment2.target=Electricidad(java.lang.String,\ java.lang.String,\ double,\ int,\ java.lang.String,\ Persona,\ int,\ int)
+comment3.params=
+comment3.target=int\ getNis()
+comment4.params=
+comment4.target=int\ getCantElectro()
+comment5.params=nis
+comment5.target=void\ setNis(int)
+comment6.params=cantElectro
+comment6.target=void\ setCantElectro(int)
+comment7.params=
+comment7.target=double\ calcularGasto()
+comment8.params=
+comment8.target=boolean\ accedeAlSubsidio()
+comment9.params=
+comment9.target=java.lang.String\ mostrar()
+numComments=10

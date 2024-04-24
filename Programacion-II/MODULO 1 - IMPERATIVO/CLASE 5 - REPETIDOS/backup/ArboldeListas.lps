@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ArboldeListas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="102"/>
+        <CursorPos Y="142"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\CLASE 3 - ARBOLES BINARIOS\PROGRAMAS HECHOS\ArbolesORDENES.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="106"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="8">
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="141" Column="9" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="102" Column="37" TopLine="82"/>
+      </Position>
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="121" Column="14" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="110" Column="15" TopLine="85"/>
+      </Position>
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="122" Column="10" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="112" Column="29" TopLine="102"/>
+      </Position>
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="135" Column="19" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="141" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="ArboldeListas.pas"/>
+        <Caret Line="123" Column="3" TopLine="100"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

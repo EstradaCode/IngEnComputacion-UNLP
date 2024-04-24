@@ -1,0 +1,20 @@
+Function Buscar(a:arbol; x:integer):arbol;
+var medio:integer;
+begin
+    if( a= nil)  then begin
+        buscar:= nil
+    end
+    else begin
+     if(a^.dato = x) then begin
+        buscar:= a;
+    end
+    else
+      if(a^.dato > x ) then begin
+            buscar:= buscar(a^.HI, x);
+      end
+      else begin
+         buscar:= buscar(a^.HD, x);
+
+       end;
+   end;
+end; 

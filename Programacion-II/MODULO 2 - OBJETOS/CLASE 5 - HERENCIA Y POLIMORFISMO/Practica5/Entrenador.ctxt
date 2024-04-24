@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Entrenador
+comment1.params=dni\ nombre\ edad\ sueldo\ campeonatos
+comment1.target=Entrenador(int,\ java.lang.String,\ int,\ double,\ int)
+comment2.params=
+comment2.target=int\ getCampeonatos()
+comment3.params=campeonatos
+comment3.target=void\ setCampeonatos(int)
+comment4.params=
+comment4.target=double\ calcularSueldoACobrar()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

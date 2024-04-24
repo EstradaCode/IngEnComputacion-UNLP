@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Ppal
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=libros
+comment2.target=void\ AplicarDescuentos(Libro[])
+comment3.params=in
+comment3.target=Libro\ LeerLibro(java.util.Scanner)
+numComments=4

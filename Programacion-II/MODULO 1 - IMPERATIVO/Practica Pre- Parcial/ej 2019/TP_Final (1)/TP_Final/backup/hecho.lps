@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="hecho.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="166"/>
+        <CursorPos X="15" Y="196"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Olimpico.pas"/>
+        <UnitName Value="juegos"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="62"/>
+        <CursorPos X="39" Y="95"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="4">
+      <Position>
+        <Filename Value="hecho.pas"/>
+        <Caret Line="83" TopLine="62"/>
+      </Position>
+      <Position>
+        <Filename Value="hecho.pas"/>
+        <Caret Line="199" Column="16" TopLine="166"/>
+      </Position>
+      <Position>
+        <Filename Value="hecho.pas"/>
+        <Caret Line="115" Column="8" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="hecho.pas"/>
+        <Caret Line="23" Column="23" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="hecho.pas"/>
+        <Caret Line="142" Column="30" TopLine="127"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

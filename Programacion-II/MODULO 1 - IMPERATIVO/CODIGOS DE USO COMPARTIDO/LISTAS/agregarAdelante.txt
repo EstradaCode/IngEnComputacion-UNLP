@@ -1,0 +1,9 @@
+Procedure agregarAdelante(var l listaTweets; t tweet);
+var
+   aux listaTweets;
+begin
+     new(aux);
+     aux^.dato = t;
+     aux^.sig = l;
+     l= aux;
+end;

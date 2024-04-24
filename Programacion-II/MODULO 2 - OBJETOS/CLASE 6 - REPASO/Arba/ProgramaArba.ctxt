@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ProgramaArba
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=vehiculos\ diml
+comment2.target=void\ mostrarCalculo(Vehiculo[],\ int)
+comment3.params=in
+comment3.target=Vehiculo\ LeerVehiculo(java.util.Scanner)
+numComments=4

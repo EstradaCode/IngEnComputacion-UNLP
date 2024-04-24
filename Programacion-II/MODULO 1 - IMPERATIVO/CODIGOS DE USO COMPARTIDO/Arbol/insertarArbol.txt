@@ -1,0 +1,22 @@
+procedure insertarArbol ( var a:arbol; p:paciente); {MODULO DE INSERTAR ABO}
+var nue:arbol;
+begin
+  if( a = nil)then begin
+    new(nue);
+    nue^.dato.codp:= p.codp;
+    nue^.dato.l:=nil;
+    AgregarDato1(nue^.dato.l,p.nomCiudad, p.dni);
+    nue^.HI:= nil;
+    nue^.HD:= nil;
+    a:= nue;
+  end
+  else begin
+    if( a^.dato.codp > p.codp) then {SI  codp del arbol es más grande}
+      insertarArbol(a^.HI, p)
+    else
+        if (a^.dato.codp < p.codp) then     {SI  codp del arbol ES MAS chico A LA DERECHA}
+       insertarArbol(a^.HD,p)
+    else
+      checkCiudades(a^.dato.l, p);  {SI EL CODIGOP YA EXISTE, comprueba la lista de lista, buscando la ciudad}
+  end
+end;

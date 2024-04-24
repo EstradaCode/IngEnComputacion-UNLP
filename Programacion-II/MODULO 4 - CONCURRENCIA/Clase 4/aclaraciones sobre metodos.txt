@@ -1,0 +1,2 @@
+bloquearesquina: pregunta si la esquina esta disponible, sino se pone en espera.
+en el caso de que esté disponible, el robot bloquea la esquina para el resto.

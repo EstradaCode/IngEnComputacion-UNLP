@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="twitter.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="179"/>
+        <CursorPos X="21" Y="215"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\PROGRA II\1-MODULO IMPERATIVO\Clase 1 - Repaso listas\TWITTER_COMPLETO.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="117"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="21">
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="135" Column="9" TopLine="122"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="184" Column="39" TopLine="152"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="141" Column="5" TopLine="156"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="151" Column="21" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="153" Column="6" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="152" Column="5" TopLine="132"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="150" Column="30" TopLine="135"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="151" Column="21" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="152" Column="4" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="151" Column="22" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="175" Column="103" TopLine="154"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="176" Column="66" TopLine="156"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="170" Column="6" TopLine="161"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="150" Column="31" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="151" Column="21" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="152" Column="30" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="151" Column="23" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="153" Column="12" TopLine="149"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="143" Column="50" TopLine="142"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="195" Column="18" TopLine="178"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="189" Column="31" TopLine="168"/>
+      </Position>
+      <Position>
+        <Filename Value="twitter.pas"/>
+        <Caret Line="215" Column="20" TopLine="178"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

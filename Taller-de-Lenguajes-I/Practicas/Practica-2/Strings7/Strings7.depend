@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1693786603 source:c:\users\franc\documents\apuntes\segundo a—o\taller de lenguajes 1\modulo 1\2-funciones\practica hecha\strings7\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
