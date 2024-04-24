@@ -1,0 +1,19 @@
+programa ej
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(23,1)
+    mientras (HayPapelEnLaEsquina)
+      mover
+    mientras(HayPapelEnLaBolsa)
+      depositarPapel
+    Informar(PosCa)
+  fin
+variables
+  Rinfo: robot1
+comenzar
+  AsignarArea(Rinfo,ciudad)
+  Iniciar(Rinfo,1,1)
+fin

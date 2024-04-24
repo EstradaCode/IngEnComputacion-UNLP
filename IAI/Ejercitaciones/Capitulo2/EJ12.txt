@@ -1,0 +1,26 @@
+programa ej
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 5
+      repetir 99
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+        mover
+      mientras (HayFlorEnLaEsquina)
+        tomarFlor
+      mientras (HayPapelEnLaEsquina)
+        tomarPapel
+      Pos(PosAv+1,1)
+    Pos(1,1) 
+  fin
+variables
+  Rinfo: robot1
+comenzar
+  AsignarArea(Rinfo,ciudad)
+  Iniciar(Rinfo,1,1)
+fin
