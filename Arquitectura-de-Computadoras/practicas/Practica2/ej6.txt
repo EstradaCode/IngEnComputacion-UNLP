@@ -1,34 +1,45 @@
-sc;scribir un programa que lea un vector de 20 números de un solo dígito, y los
+;scribir un programa que lea un vector de 20 números de un solo dígito, y los
 ;almacene en un vector. Luego, se calcula el máximo de los números, y se imprime en pantalla. Los números deben
 ;almacenarse como valores entre 0 y 9, y no como los códigos ASCII de los caracteres que les corresponde. Para ello,
 ; [1,2,3,4,5,6,7,9]
 ORG 1000H
-INTR DB "INGRESE UN DIGITO ENTRE 0 Y 9 \n"
-INCO DB "CARACTER INCORRECTO: DEBE SER UN DIGITO ENTRE 0 Y 9 \n"
-NUM DB ?
+INTR DB "INGRESE UN DIGITO ENTRE 0 Y 9 "
+INCO DB "CARACTER INCORRECTO: DEBE SER UN DIGITO ENTRE 0 Y 9"
+N DB 10
+VECTOR DB ?
+ORG 1500H
+SALTO DB 10
 ORG 3000H
 ES_DIGITO:            ; CL TIENE DIGITO , AH RETORNA
             CMP CL, 30H
             JS NO_DIGITO
-            CMP CL, 39H
+            CMP CL, 40H
             JNS NO_DIGITO
             MOV CH, 1
             JMP FIN_ES_DIGITO
 NO_DIGITO:MOV CH, 0
 FIN_ES_DIGITO: RET
 
+SALTO_LINEA: PUSH BX
+            PUSH AX
+            MOV BX, OFFSET SALTO
+            MOV AL, 1
+            INT 7
+FIN_SALTO_LINEA: POP AX 
+            POP BX
+            RET
 ; LEE CAR CON INT 6 HASTA QUE SE LEA UN DIGITO
 ; se muestra " ingrese un numero entre 0 y 9. despues incorrecto
 ; "incorrecto: debe ser un digito entre 0 y 9"
 LEER_CAR: Push BX;
           PUSH AX
-          PUSH CX
           MOV CX, 0
           MOV AX, 0
           PUSH BX; GUARDO EN PILA EL DATO A REMOVER
           mov Al, offset INCO - OFFSET INTR
           mov BX, offset INTR
     LEER: int 7
+          CALL SALTO_LINEA
           POP BX
           INT 6
           MOV CL, [BX]; CARGO EL DATO 
@@ -36,17 +47,50 @@ LEER_CAR: Push BX;
 IF_DIGITO:CMP CH,1
           JZ FIN_LEER_CAR
           PUSH BX; GUARDO OTRA VEZ EL DATO
-          MOV AL, OFFSET NUM - OFFSET INCO
+          MOV AL, OFFSET N - OFFSET INCO
           MOV BX, OFFSET INCO
           JMP LEER
-FIN_LEER_CAR:POP CX
+FIN_LEER_CAR: MOV CH, 0
              POP AX
              POP BX
-             RET   
+             RET   ; RETORNA CHAR POR CL
+
+LEER_VECTOR: PUSH BX; PARAMETRO DIR DEL VECTOR 
+             PUSH AX
+             CMP AL, 0
+             JZ FIN_LEER_VECTOR
+       LOOP: CALL LEER_CAR
+             INC BX
+             DEC AL
+             JNZ LOOP
+FIN_LEER_VECTOR: POP AX
+                 POP BX
+                 RET
+
+MAX_NUM: CMP DL,DH; USA DX
+          JNS FIN_MAX_NUM
+          MOV DL, DH
+FIN_MAX_NUM: RET; RETORNA EL NUMERO MAYOR POR DL
+
+MAX_VECTOR: PUSH BX ; RECIBE BX Y DL
+            PUSH AX; AL TIENE DIMF
+            CMP AL,0
+            JZ FIN_MAX_VECTOR
+            MOV DL, BYTE PTR[BX]; OBTIENE DATO DEL PRIMER ELEMENTO
+            INC BX
+            DEC AL
+  LOOP_MAX: MOV DH, BYTE PTR[BX]
+            CALL MAX_NUM; DL DEVUELVE EL MAYOR
+            INC BX
+            DEC AL
+            JNZ LOOP_MAX
+FIN_MAX_VECTOR: POP AX
+                POP BX
+                RET; DH DEVUELVE EL ELEMENTO MAXIMO DEL VECTOR
 ORG 2000H
-MOV BX, OFFSET NUM
-CALL LEER_CAR
-MOV AL, 1
-INT 7
+MOV BX, OFFSET VECTOR
+MOV AL, N
+CALL LEER_VECTOR
+CALL MAX_VECTOR
 INT 0 
 END
