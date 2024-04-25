@@ -1,0 +1,52 @@
+sc;scribir un programa que lea un vector de 20 números de un solo dígito, y los
+;almacene en un vector. Luego, se calcula el máximo de los números, y se imprime en pantalla. Los números deben
+;almacenarse como valores entre 0 y 9, y no como los códigos ASCII de los caracteres que les corresponde. Para ello,
+; [1,2,3,4,5,6,7,9]
+ORG 1000H
+INTR DB "INGRESE UN DIGITO ENTRE 0 Y 9 \n"
+INCO DB "CARACTER INCORRECTO: DEBE SER UN DIGITO ENTRE 0 Y 9 \n"
+NUM DB ?
+ORG 3000H
+ES_DIGITO:            ; CL TIENE DIGITO , AH RETORNA
+            CMP CL, 30H
+            JS NO_DIGITO
+            CMP CL, 39H
+            JNS NO_DIGITO
+            MOV CH, 1
+            JMP FIN_ES_DIGITO
+NO_DIGITO:MOV CH, 0
+FIN_ES_DIGITO: RET
+
+; LEE CAR CON INT 6 HASTA QUE SE LEA UN DIGITO
+; se muestra " ingrese un numero entre 0 y 9. despues incorrecto
+; "incorrecto: debe ser un digito entre 0 y 9"
+LEER_CAR: Push BX;
+          PUSH AX
+          PUSH CX
+          MOV CX, 0
+          MOV AX, 0
+          PUSH BX; GUARDO EN PILA EL DATO A REMOVER
+          mov Al, offset INCO - OFFSET INTR
+          mov BX, offset INTR
+    LEER: int 7
+          POP BX
+          INT 6
+          MOV CL, [BX]; CARGO EL DATO 
+          CALL ES_DIGITO
+IF_DIGITO:CMP CH,1
+          JZ FIN_LEER_CAR
+          PUSH BX; GUARDO OTRA VEZ EL DATO
+          MOV AL, OFFSET NUM - OFFSET INCO
+          MOV BX, OFFSET INCO
+          JMP LEER
+FIN_LEER_CAR:POP CX
+             POP AX
+             POP BX
+             RET   
+ORG 2000H
+MOV BX, OFFSET NUM
+CALL LEER_CAR
+MOV AL, 1
+INT 7
+INT 0 
+END
