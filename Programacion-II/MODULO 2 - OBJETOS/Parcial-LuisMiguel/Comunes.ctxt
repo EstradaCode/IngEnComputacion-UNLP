@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Comunes
+comment1.params=
+comment1.target=Comunes()
+comment2.params=id\ butaca\ fila\ platea\ pago\ comprador\ tipo
+comment2.target=Comunes(int,\ int,\ int,\ java.lang.String,\ java.lang.String,\ Comprador,\ java.lang.String)
+comment3.params=id\ butaca\ fila\ platea\ pago\ comprador\ tipo\ costoImp
+comment3.target=Comunes(int,\ int,\ int,\ java.lang.String,\ java.lang.String,\ Comprador,\ java.lang.String,\ double)
+comment4.params=
+comment4.target=java.lang.String\ getTipo()
+comment5.params=
+comment5.target=double\ getCostoImp()
+comment6.params=tipo
+comment6.target=void\ setTipo(java.lang.String)
+comment7.params=costoImp
+comment7.target=void\ setCostoImp(double)
+comment8.params=
+comment8.target=double\ calcularTotal()
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10

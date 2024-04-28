@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Show
+comment1.params=numSHow\ fecha\ soldOut
+comment1.target=Show(int,\ java.lang.String,\ boolean)
+comment2.params=
+comment2.target=Show()
+comment3.params=
+comment3.target=int\ getNumShow()
+comment4.params=
+comment4.target=java.lang.String\ getFecha()
+comment5.params=
+comment5.target=boolean\ getSoldOut()
+comment6.params=local
+comment6.target=void\ agregarLocalidad(Localidad)
+comment7.params=
+comment7.target=double\ totalizar()
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9
