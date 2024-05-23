@@ -58,19 +58,20 @@ public class GeneralTree<T> {
 				children.remove(child);
 		}
 	}
-	public int altura() { // necesita arreglarse
+	public int altura() { // arreglado
 		var l = this.children;
-		if(this.isEmpty()) {
-			return 1;
-		}
-		int Maxaltura = 0, altura = 0;
-		for(GeneralTree <T> c: l) {
-			altura = c.altura();
-			if( Maxaltura <= altura) {
-				Maxaltura = altura;
+		if( this.isEmpty()) {
+			return -1;
+		}else {
+			int maxheight = -1; int height;
+			for(GeneralTree<T> c: l) {
+				height= c.altura();
+				if( height > maxheight ) {
+					maxheight = height; 
+				}
 			}
+			return maxheight +1;
 		}
-		return Maxaltura + 1;
 	}
 
 	
