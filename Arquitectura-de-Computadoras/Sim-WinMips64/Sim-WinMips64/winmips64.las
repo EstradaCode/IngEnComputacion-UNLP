@@ -1,1 +1,1 @@
-D:\matias\drive\FACULTAD\PRIMER_AÑO\ARQ DE C\sim-winmips64\ejercicios\practica 5\p5e3.s
+C:\Users\megai\Documents\IngEnComputacion-UNLP\Arquitectura-de-Computadoras\practicas\Practica4\ej6.s

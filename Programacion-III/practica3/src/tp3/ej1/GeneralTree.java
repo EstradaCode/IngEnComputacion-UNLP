@@ -73,6 +73,38 @@ public class GeneralTree<T> {
 			return maxheight +1;
 		}
 	}
+	public int nivel(T dato ) { // de la raiz al nodo, debo encontrar en nodo con el dato,
+		if(!this.isEmpty()) {
+			int level=0;
+			var children = this.children; // obtengo sus hijos
+			for(GeneralTree<T> child: children) {
+				level = child.buscarNivel(dato);
+				if( level > 0) return level;
+			}
+			if(this.data.equals(dato)) return 0; 
+			return level;
+		}else {
+			return -1;
+		}
+	}
+	private int buscarNivel(T dato) {
+		if(this.isEmpty()) {
+			return 0;
+		}
+		
+		if( this.data.equals(dato)) return 1;
+		else {
+			int levelNode= 0;
+			for(GeneralTree<T> child: children) {
+				levelNode = child.buscarNivel(dato);
+				if(levelNode > 0 ) {
+					return levelNode + 1;
+				}
+			}
+			return levelNode;
+		}
+		
+	}
 
 	
 
