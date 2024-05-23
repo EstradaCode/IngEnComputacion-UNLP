@@ -1,15 +1,16 @@
 package tp1.ejercicio8;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Queue <E> extends Sequence {
 	private List <E> l;
 	public Queue() {
 		// TODO Auto-generated constructor stub
-		this.l = new ArrayList<E>();
+		this.l = new LinkedList<E>();
 	}
 	public Queue(List <E> dato) {
-		this.l = new ArrayList<E>();
+		this.l = new LinkedList<E>();
 		for(E e : dato) {
 			this.enqueue(e);
 		}
