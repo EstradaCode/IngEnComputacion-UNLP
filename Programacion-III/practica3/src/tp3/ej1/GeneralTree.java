@@ -1,5 +1,5 @@
 package tp3.ej1;
-
+import tp3.ej1.Queue;
 import java.util.List;
 import java.util.LinkedList;
 
@@ -73,39 +73,54 @@ public class GeneralTree<T> {
 			return maxheight +1;
 		}
 	}
-	public int nivel(T dato ) { // de la raiz al nodo, debo encontrar en nodo con el dato,
-		if(!this.isEmpty()) {
-			int level=0;
-			var children = this.children; // obtengo sus hijos
-			for(GeneralTree<T> child: children) {
-				level = child.buscarNivel(dato);
-				if( level > 0) return level;
-			}
-			if(this.data.equals(dato)) return 0; 
-			return level;
-		}else {
-			return -1;
-		}
-	}
-	private int buscarNivel(T dato) {
-		if(this.isEmpty()) {
-			return 0;
-		}
-		
-		if( this.data.equals(dato)) return 1;
-		else {
-			int levelNode= 0;
-			for(GeneralTree<T> child: children) {
-				levelNode = child.buscarNivel(dato);
-				if(levelNode > 0 ) {
-					return levelNode + 1;
-				}
-			}
-			return levelNode;
-		}
-		
+	public int nivel(T dato) {
+	    return buscarNivel(this, dato, 0);
 	}
 
+	private int buscarNivel(GeneralTree<T> nodo, T dato, int nivelActual) {
+	    if (nodo.isEmpty()) {
+	        return -1; // Si el nodo está vacío, se devuelve -1 indicando que el dato no se encontró.
+	    }
+
+	    if (nodo.data.equals(dato)) {
+	        return nivelActual; // Si el nodo actual contiene el dato, se devuelve el nivel actual.
+	    }
+
+	    for (GeneralTree<T> child : nodo.children) {
+	        int nivelEncontrado = buscarNivel(child, dato, nivelActual + 1);
+	        if (nivelEncontrado >= 0) {
+	            return nivelEncontrado; // Si se encuentra el dato en el subárbol del hijo, se devuelve el nivel encontrado.
+	        }
+	    }
+
+	    return -1; // Si el dato no está en el subárbol, se devuelve -1.
+	}
+	
+	public int ancho() {
+		Queue <GeneralTree<T>>cola = new Queue<GeneralTree<T>>();
+		List <GeneralTree<T>> children;
+		int MaxNodos = 0, nodos=0;
+		GeneralTree<T> aux; // variable auxiliar
+		cola.enqueue(this);
+		cola.enqueue(null); // para diferencial el nivel 0
+		while(!cola.isEmpty()) {
+			aux = cola.dequeue();
+			if( aux != null) {
+				nodos++;
+				children =  aux.getChildren();
+				for( GeneralTree<T> child : children) {
+					cola.enqueue(child);
+				}
+			}else {
+					if(nodos > MaxNodos) MaxNodos = nodos;
+					nodos = 0;
+					if( !cola.isEmpty()) { // si no llegue a recorrer todos los niveles
+						cola.enqueue(null); // fin de nivel
+					}
+			}
+		}
+	return MaxNodos;
+	}
 	
 
 }

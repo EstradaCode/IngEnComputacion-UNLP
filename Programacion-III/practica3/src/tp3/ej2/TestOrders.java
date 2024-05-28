@@ -41,6 +41,7 @@ public class TestOrders {
 			System.out.println(r.numerosImparesMayoresQuePostOrden(g, 5));
 			System.out.println(g.altura());
 			System.out.println(g.nivel(1));
+			System.out.println(g.ancho());
 	
 	}
 
