@@ -1,1 +1,1 @@
-C:\Users\megai\Documents\IngEnComputacion-UNLP\Arquitectura-de-Computadoras\practicas\Practica4\ej6.s
+C:\Users\megai\Documents\IngEnComputacion-UNLP\Arquitectura-de-Computadoras\practicas\Practica4\ej10.s

@@ -121,6 +121,18 @@ public class GeneralTree<T> {
 		}
 	return MaxNodos;
 	}
-	
+	public boolean esAncestro(T a , T b) { // encontrar elemento en a y luego, trazar los caminos desde a en un submodulo privado
+		boolean res= false;
+		if(this.isEmpty()) {
+			return false;
+		}
+		if(this.getData().equals(a)) {
+			// return buscarCaminoB(b);
+		}
+		List<GeneralTree<T>> children = new LinkedList<GeneralTree<T>>();
+		for(GeneralTree<T> child: children) {
+			res = child.esAncestro(a, b);
+		}
+	}
 
 }
