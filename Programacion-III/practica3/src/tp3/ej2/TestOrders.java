@@ -42,6 +42,7 @@ public class TestOrders {
 			System.out.println(g.altura());
 			System.out.println(g.nivel(1));
 			System.out.println(g.ancho());
+			System.out.println(g.esAncestro(6, 25));
 	
 	}
 

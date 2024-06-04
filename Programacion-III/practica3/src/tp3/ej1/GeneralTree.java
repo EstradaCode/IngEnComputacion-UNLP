@@ -126,13 +126,40 @@ public class GeneralTree<T> {
 		if(this.isEmpty()) {
 			return false;
 		}
-		if(this.getData().equals(a)) {
-			// return buscarCaminoB(b);
-		}
+		res= EncontrarAncestro(a, b);
+		return res;
+	}
+	private boolean EncontrarAncestro(T a, T b){
 		List<GeneralTree<T>> children = new LinkedList<GeneralTree<T>>();
-		for(GeneralTree<T> child: children) {
-			res = child.esAncestro(a, b);
-		}
+		boolean res= false;
+		if(!this.isEmpty()) {
+			children = this.getChildren();
+			if(this.data.equals(a)) {
+				for(GeneralTree<T> child : children ) {
+					res = child.CaminoAB(b);
+					if(res) return res;
+				}
+			}else {
+				for(GeneralTree<T> child: children) {
+					res= child.EncontrarAncestro(a, b);
+					if(res) return res;
+				}
+			}	
+		} return res;
+	 }
+	 private boolean CaminoAB(T b) {
+		 boolean res= false;
+		 if(!this.isEmpty()) {
+			 if(this.data.equals(b)) {
+				 return true;
+			 }else {
+				 children = this.getChildren();
+				 for(GeneralTree<T> child : children ) {
+					 res= child.CaminoAB(b);
+					 if(res) return res;
+				 }
+			 }
+		 } return res;
+		 }
 	}
 
-}
