@@ -129,6 +129,7 @@ public class GeneralTree<T> {
 		res= EncontrarAncestro(a, b);
 		return res;
 	}
+	// ej5
 	private boolean EncontrarAncestro(T a, T b){
 		List<GeneralTree<T>> children = new LinkedList<GeneralTree<T>>();
 		boolean res= false;
