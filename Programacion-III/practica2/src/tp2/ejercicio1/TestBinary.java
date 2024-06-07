@@ -13,7 +13,7 @@ public class TestBinary {
 		a.getRightChild().getRightChild().addLeftChild(new BinaryTree<Integer>(10));
 		BinaryTree <Integer> a2 = a.espejo();
 		a2.printLevelTraversal();
-		System.out.println(a2.contarHojas());
+		System.out.println("contar hojas: " + a2.contarHojas());
 		a.printLevelTraversal();
 		System.out.println("entre niveles");
 		a.entreNiveles(0, 1);

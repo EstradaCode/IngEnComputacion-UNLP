@@ -5,7 +5,6 @@ public class ProfundidadDeArbolBinario {
 	private BinaryTree<Integer> treeNode;
 
 	public ProfundidadDeArbolBinario(BinaryTree<Integer> treeNode) {
-		super();
 		this.treeNode = treeNode;
 	}
 
@@ -13,26 +12,27 @@ public class ProfundidadDeArbolBinario {
 		super();
 	}
 	public int sumaElementosProfundidad(int p) { // respeta los parametros por ser iterativo, no requiere cambios!
-	int prof = 0, suma=0;
-	BinaryTree<Integer> ab = null; // ref nula
- 	Queue<BinaryTree<Integer>> cola = new Queue<BinaryTree<Integer>>(); // cola 
- 	cola.enqueue(this.treeNode);
-    cola.enqueue(null); // todo cumple el nivel 0
- 	 while (!cola.isEmpty() && prof <= p) {
- 		 ab = cola.dequeue();
- 		 if (ab != null) {
- 			 if(prof == p)
- 			   suma+= ab.getData();
- 			 if (ab.hasLeftChild())
- 				 cola.enqueue(ab.getLeftChild());
- 			 if (ab.hasRightChild())
- 				 cola.enqueue(ab.getRightChild());
- 		 } else if (!cola.isEmpty()) {
- 			 cola.enqueue(null);
- 			 prof++; // aca es donde cambia de nivel de profundidad
- 		 }
- 	 }
- 	 return suma;
+		if(this.treeNode == null) {
+			return 0;
+		}else {
+			return profundidadHelper(p,this.treeNode,0);
+		}
+	}
+	
+	private int profundidadHelper(int p, BinaryTree<Integer> node, int currentDepth){ // fixed!! no era por niveles, asi es las bonito.
+		int total=0;
+		if(node !=null && !node.isEmpty()) {
+			if( currentDepth == p) { // caso base
+				return node.getData();
+			}
+			if(node.hasLeftChild()) {
+				total+= profundidadHelper(p, node.getLeftChild(),currentDepth+1);
+			}
+			if(node.hasRightChild()) {
+				total+=profundidadHelper(p,node.getRightChild(),currentDepth+1);
+			}
+		}
+		return total;
 	}
 }
 

@@ -14,7 +14,7 @@ public class RedBinariaLlena {
 		super();
 	}
 
-	public int contadorRetardo(BinaryTree <Integer> tree) {
+	private int contadorRetardo(BinaryTree <Integer> tree) {
 		int max1=0,max2=0;
 		if(tree != null && !tree.isEmpty()) { // utilizar metodo helper un metodo llama a otro privado donde no pueda el usuario acceder internamente.
 			if(tree.hasLeftChild())

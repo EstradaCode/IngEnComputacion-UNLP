@@ -1,5 +1,5 @@
 package tp2.ejercicio1;
-import tp1.ejercicio8.Queue;
+import tp1.ejercicio8.*;
 
 
 public class BinaryTree <T> {
@@ -76,30 +76,50 @@ public class BinaryTree <T> {
 		return this.getData().toString();
 	}
 	// corresponden a ejercicio2
-	public  int contarHojas() {
+	public  int contarNodos() { // update 7/6 mala mia, no es un contarhojas sino contar nodos 
 		int total = 0;
 		if(this != null && !this.isEmpty()) {
 			total++;
 			if(this.hasLeftChild())
-				total+= this.getLeftChild().contarHojas();
+				total+= this.getLeftChild().contarNodos();
 			if(this.hasRightChild())
+				total+= this.getRightChild().contarNodos();
+		}
+		return total;
+	}
+	public int contarHojas() { // contarHojas completado
+		int total=0;
+		if(this !=null && !this.isEmpty()) {
+			// caso base
+			if(this.isLeaf()) {
+				return 1;	
+			}
+			if(this.hasLeftChild()) {
+				total+= this.getLeftChild().contarHojas();
+			}
+			if(this.hasRightChild()) {
 				total+= this.getRightChild().contarHojas();
+			}
 		}
 		return total;
 	}
 		
 		
     	 // ej 2
-    public BinaryTree<T> espejo(){
+    public BinaryTree<T> espejo(){ // update: reordenado y con un caso base más claro.
 	   BinaryTree <T> aux = null;
     	if(this !=null && !this.isEmpty()) {
     		aux = new BinaryTree<T>(this.getData()); // cargo el dato para el arbol 2 ;
-		   if(this.hasLeftChild() && this.hasRightChild()) {
+    		// caso base, las hojas es desde donde empieza a armar el arbol, para luego ensamblarla con la llamada del nivel anterior
+    		
+    		if(this.isLeaf()) {
+    			return aux;
+    		}
+    		
+    		if(this.hasRightChild()) {
 			   aux.addLeftChild(this.getRightChild().espejo());
-			   aux.addRightChild(this.getLeftChild().espejo());
-		   }else if(this.hasRightChild()) {
-			   aux.addLeftChild(this.getRightChild().espejo());
-		   }else if(this.hasLeftChild()) {
+    		}
+    	    if(this.hasLeftChild()) {
 			   aux.addRightChild(this.getLeftChild().espejo());
 		   }
     	}
@@ -114,7 +134,7 @@ public class BinaryTree <T> {
       	 while (!cola.isEmpty()) {
       		 ab = cola.dequeue();
       		 if (ab != null) {
-      			 System.out.print(ab.getData());
+      			 System.out.print(ab.getData()+"  ");
       			 if (ab.hasLeftChild()) {
       				 cola.enqueue(ab.getLeftChild());
       			 }
