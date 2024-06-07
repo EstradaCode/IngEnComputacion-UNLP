@@ -74,4 +74,50 @@ public class ParcialArboles {
 	/* FIN DEL EJERCICIO 8 PRACTICA 2 
 	 * 
 	 */
+	
+	// ejercicio 9 p2
+	public BinaryTree<Datos> sumAndDif(BinaryTree<Integer>arbol){
+		if( arbol == null) {
+			return null;
+		}
+		BinaryTree<Datos> root = sumDifHelper(arbol, 0,0);
+		//dif(arbol,root,0); antes lo hacia por partes, sumdifHelper realiza todo.
+		return root;
+	}
+	
+	private BinaryTree<Datos> sumDifHelper(BinaryTree<Integer> arbol, int currentsum, int datoPadre){
+		BinaryTree<Datos> aux = null;
+		if(arbol != null && !arbol.isEmpty()) {
+			aux = new BinaryTree<Datos>();
+			Datos d= new Datos();
+			currentsum += arbol.getData();
+			d.setSuma(currentsum);
+			d.setDif(arbol.getData() - datoPadre);
+			aux.setData(d);
+			
+			if(arbol.isLeaf()) {
+				return aux;
+			}
+			
+			if(arbol.hasLeftChild()) {
+				aux.addLeftChild(sumDifHelper(arbol.getLeftChild(), currentsum, arbol.getData()));
+			}
+			if(arbol.hasRightChild()) {
+				aux.addRightChild(sumDifHelper(arbol.getRightChild(), currentsum, arbol.getData()));
+			}
+		}
+		return aux; 
+	}
+	public void preorden (BinaryTree<Datos> a) {
+		if(a!=null && !a.isEmpty()) {
+			System.out.println(a.getData().getSuma() + "|" + a.getData().getDif());
+			if(a.hasLeftChild()) {
+				preorden(a.getLeftChild());
+			}
+			if(a.hasRightChild()) {
+				preorden(a.getRightChild());
+			}
+		}
+	}
+	
 }

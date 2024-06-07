@@ -35,6 +35,11 @@ public class TestParciales {
 		a2.getLeftChild().getRightChild().addRightChild(new BinaryTree<Integer>(11));
 		a2.getLeftChild().addLeftChild(new BinaryTree<Integer>(23));
 		System.out.println(p.esPrefijo(a2,a));
+		
+		// ej9
+		BinaryTree<Datos> d = p.sumAndDif(a2);
+		p.preorden(d);
+		
 	}
 
 }
