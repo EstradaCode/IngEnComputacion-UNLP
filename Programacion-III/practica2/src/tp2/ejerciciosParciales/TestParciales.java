@@ -40,6 +40,16 @@ public class TestParciales {
 		BinaryTree<Datos> d = p.sumAndDif(a2);
 		p.preorden(d);
 		
+		// ej YO YO MISTER WHITE
+		BinaryTree <Integer> a3 = new BinaryTree<Integer>(1);
+		a3.addLeftChild(new BinaryTree<Integer>(1));
+		a3.getLeftChild().addRightChild(new BinaryTree<Integer>(1));
+		a3.getLeftChild().addLeftChild(new BinaryTree<Integer>(2));
+		a3.addRightChild(new BinaryTree<Integer>(1));
+		a3.getRightChild().addLeftChild(new BinaryTree<Integer>(2));
+		a3.getRightChild().addRightChild(new BinaryTree<Integer>(1));
+		System.out.println(p.TotalValency(a3));
+		
 	}
 
 }

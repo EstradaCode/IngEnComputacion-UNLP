@@ -1,4 +1,7 @@
 package tp2.ejerciciosParciales;
+import java.util.LinkedList;
+import java.util.List;
+
 import tp2.ejercicio1.*;
 public class ParcialArboles {
 	BinaryTree <Integer> root;
@@ -120,4 +123,76 @@ public class ParcialArboles {
 		}
 	}
 	
+	// ejercitacion extra
+	public List<Integer> procesar (){
+		if(this.root == null) {
+			return null;
+		}
+		List<Integer> lista = new LinkedList<Integer>();
+		int suma =procesarHelper(this.root,lista);
+		System.out.println(suma);
+		return lista;
+	}
+	
+	private int procesarHelper(BinaryTree<Integer> root,List<Integer>lista) {
+		int sum=0;
+		if(root!= null && !root.isEmpty()) {
+			if(root.hasLeftChild()) {
+				sum += procesarHelper(root,lista);
+			}
+			if(root.hasRightChild()) {
+				sum+= procesarHelper(root,lista);
+			}
+			if(root.getData() % 2 != 0){
+				if(root.hasLeftChild() ^ root.hasRightChild()){
+					lista.add(root.getData());
+				}
+				sum++;
+			}
+		}
+		return sum;
+	}
+	//EJERCICIO YO YO MR WHITE
+	public BinaryTree<Integer> insertCompounds(StringBuffer exp){ // no funciona correctamente
+		// utilizo el string para ir insertando elementos en mi arbol.
+		if(exp.length() ==0) {
+			return null;
+		}
+		Integer num = Character.getNumericValue(exp.charAt(0));
+		BinaryTree<Integer> aux= new BinaryTree<Integer>(num);
+		
+		exp.delete(0, 1);
+		aux.addLeftChild(insertCompounds(exp));
+		aux.addRightChild(insertCompounds(exp));
+
+		return aux;
+	}
+	
+	public int TotalValency (BinaryTree<Integer> tree) {
+		int valency=0;
+		if(tree != null && !tree.isEmpty()) {
+			if(tree.isLeaf()) {
+				return tree.getData();
+			}
+			
+			if(tree.hasLeftChild()) {
+				valency += TotalValency(tree.getLeftChild());
+			}
+			if(tree.hasRightChild()) {
+				valency+= TotalValency(tree.getRightChild());
+			}
+		}
+		return valency;
+	}
+	public void preordenI (BinaryTree<Integer> a) {
+		if(a!=null && !a.isEmpty()) {
+			System.out.println(a.getData());
+			if(a.hasLeftChild()) {
+				preordenI(a.getLeftChild());
+			}
+			if(a.hasRightChild()) {
+				preordenI(a.getRightChild());
+			}
+		}
+	}
 }
