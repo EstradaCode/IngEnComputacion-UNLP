@@ -25,3 +25,5 @@ dmul $v0,$a0,$v0
 fin_factorial: ld $ra, 0($sp)
 daddi $sp,$sp,8
 jr $ra
+; no es posible no utilizar la pila ya que todos las dir de retorno del modulo son al mismo lugar, pero es necesario guardar la dir de retorno al programa principal.
+; se podria con otro registro, pero no es buena practica
