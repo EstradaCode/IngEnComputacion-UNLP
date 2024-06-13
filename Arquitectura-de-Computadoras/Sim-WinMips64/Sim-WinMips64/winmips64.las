@@ -1,1 +1,1 @@
-C:\Users\megai\Documents\IngEnComputacion-UNLP\Arquitectura-de-Computadoras\practicas\Practica6\ej6.s
+C:\Users\megai\Documents\IngEnComputacion-UNLP\Arquitectura-de-Computadoras\practicas\Practica6\Dibujando-en-WinMIPS.s
