@@ -1,0 +1,45 @@
+programa EJ6
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot tipo1
+  variables
+    flor:numero
+    papel:numero
+    cuadrados: numero
+    corte: boolean
+  comenzar
+    corte:= F
+    cuadrados:=0
+    mientras (~(corte) & (cuadrados < 10))
+      flor:=0 {se reinician por cada cuadrado que haga}
+      papel:=0
+      repetir 4 { de crear el cuadrado}
+        repetir 4 {de avanzar 4 espacios}
+          mientras(HayFlorEnLaEsquina)
+            tomarFlor
+            flor:=flor + 1
+          mientras(HayPapelEnLaEsquina)
+            tomarPapel
+            papel:=papel + 1
+          mover
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+          flor:=flor + 1
+        mientras(HayPapelEnLaEsquina)
+          tomarPapel
+          papel:= papel + 1
+        derecha
+      si( flor = (2*papel))
+        corte:=V
+      sino
+        Pos(PosAv+6,PosCa + 2)
+      cuadrados:= cuadrados + 1
+    Informar(cuadrados)
+  fin
+variables
+  robot1: tipo1
+comenzar
+  AsignarArea(robot1,ciudad)
+  Iniciar(robot1,1,1)
+fin
