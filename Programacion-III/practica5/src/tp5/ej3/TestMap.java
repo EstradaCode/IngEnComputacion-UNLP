@@ -1,5 +1,6 @@
 package tp5.ej3;
 
+import java.util.Arrays;
 import java.util.List;
 
 import tp5.ej1.Graph;
@@ -36,7 +37,7 @@ public class TestMap {
         ciudades.connect(v4, v1); // tokio -- bsas
         Map mapa = new Map(ciudades);
         System.out.println(mapa.devolverCamino("Asunción", "Tokio")); // agarra el primero dependiendo de la lista de adyacencia de cada una.
-        System.out.println(mapa.devolverCaminoExceptuando("Buenos Aires", "Tokio", "Roma"));
+        System.out.println(mapa.devolverCaminoExceptuando("Buenos Aires", "Tokio", Arrays.asList("Paris","Madrid", "Caracas")));
         System.out.println(mapa.CaminoMasCorto("Caracas", "Santiago"));
 	}
 

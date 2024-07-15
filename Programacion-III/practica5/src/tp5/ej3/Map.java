@@ -51,14 +51,17 @@ public class Map {
 				return exito;
 			}
 			
-				public List<String> devolverCaminoExceptuando(String ciudad1,String ciudad2,String ciudad3){
-					List<String> camino = new ArrayList<String>();
-					if(!this.ciudades.isEmpty()) {
+					public List<String> devolverCaminoExceptuando(String ciudad1,String ciudad2,List<String> ciudades){
+						List<String> camino = new ArrayList<String>();
+						if(!this.ciudades.isEmpty()) {
 						Vertex<String> origin = this.ciudades.search(ciudad1);
 						Vertex<String> destination = this.ciudades.search(ciudad2);
-						Vertex<String> evitar =	this.ciudades.search(ciudad3);
+						List<Vertex<String>>evitar = new ArrayList<>();
+						for(String city: ciudades) {
+							evitar.add(this.ciudades.search(city));
+						}
 						if( (origin != null) && (destination != null) && (evitar!=null) ) {
-							if(origin != evitar) {
+							if(!evitar.contains(origin) && !evitar.contains(destination)) {
 								buscarCaminoExcepto(origin, new boolean [this.ciudades.getSize()], camino, destination,evitar);
 							}
 						}
@@ -67,26 +70,26 @@ public class Map {
 					
 					
 				}
-					private boolean buscarCaminoExcepto(Vertex<String> origin, boolean[] marca,List<String> camino, Vertex<String> destination,Vertex<String> evitar) {
+					private boolean buscarCaminoExcepto(Vertex<String> origin, boolean[] marca,List<String> camino, Vertex<String> destination,List<Vertex<String>> evitar) {
 						boolean exito= false;
 						marca[origin.getPosition()] = true; // recorrido el vertice
-						camino.add(origin.getData());
-						if(( origin == destination) && (destination!=evitar)) {
+						camino.add(origin.getData()); // coloco el elemento
+						if( origin == destination) {
 							return true;
 						}
 						else {
-							List<Edge<String>> adyacentes = this.ciudades.getEdges(origin); //adyacentes
+							List<Edge<String>> adyacentes = this.ciudades.getEdges(origin); // obtengo los adyacentes
 							Iterator<Edge<String>> it = adyacentes.iterator();
 							int j;
-							while((it.hasNext())&& (!exito)) {
-								 Vertex<String>aux = it.next().getTarget();
-								 j=aux.getPosition();
-								 if((!marca[j]) && (aux != evitar)) {
-									exito = buscarCaminoExcepto(aux,marca,camino,destination,evitar);
+							while((it.hasNext())&& (!exito)) { // mientras haya tenga adyacentes y no haya llegado a mi destino.
+								 Vertex<String>aux = it.next().getTarget(); // obtengo el objeto adyacente
+								 j=aux.getPosition(); // obtengo su posicion 
+								 if((!marca[j]) && (!evitar.contains(aux))) { // si no esta marcado ni debo evitarlo
+									exito = buscarCaminoExcepto(aux,marca,camino,destination,evitar); // busco
 								}
 							}
 						}
-						if(!exito) {
+						if(!exito) { // si no llegue a mi destino, elimino la lista
 							camino.remove(camino.size()-1); // como no llego a nada, se elimina de la lista recursivaente
 						}
 						return exito;
@@ -130,5 +133,41 @@ public class Map {
 						return min;
 					}
 					// re hacer despues con dijkstra y floyd
-				}
+				
+					public List<String> caminoSinCargarCombustible(String ciudad1, String ciudad2, int tanqueAuto){
+						// pensando que las aristas contienen el gasto de combustible que conlleva ir de ciudad en ciudad
+						List<String> camino = new ArrayList<>();
+						List<String> cur = new ArrayList<String>();
+						if(!this.ciudades.isEmpty()) {
+							Vertex<String> origin = this.ciudades.search(ciudad1);
+							Vertex<String> destination = this.ciudades.search(ciudad2);
+							if(origin != null && destination!= null && tanqueAuto != 0) {
+								sinCargarCombustibleHelper(origin,destination,camino,cur, new boolean [this.ciudades.getSize()], tanqueAuto);
+							}
+						}
+						return camino;
+					}
+					private void sinCargarCombustibleHelper(Vertex<String> origin, Vertex<String> destination,List<String>camino, List<String> cur, boolean[] marca, int tanque){
+						marca[origin.getPosition()]= true; // marcado / visitado
+						cur.add(origin.getData());
+						if(origin == destination) {
+							camino.clear();
+							camino.addAll(cur);
+							return;
+						}
+						List<Edge<String>> adyacentes= this.ciudades.getEdges(origin);
+						for(Edge<String> ady : adyacentes ) {
+							int j = ady.getTarget().getPosition();
+							if(tanque - ady.getWeight() > 0 ) {
+								if(!marca[j]) {
+									sinCargarCombustibleHelper(ady.getTarget(),destination,camino,cur,marca,tanque - ady.getWeight());
+								}
+							}
+						}
+						marca[origin.getPosition()]= false; // desmarco para poder revisitarlo por otro camino si es necesario;
+						cur.remove(cur.size()-1);	
+							
+						}
+						
+					}
 
