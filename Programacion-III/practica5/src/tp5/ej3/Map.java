@@ -153,6 +153,9 @@ public class Map {
 						if(origin == destination) {
 							camino.clear();
 							camino.addAll(cur);
+							marca[origin.getPosition()]= false; // desmarco para poder revisitarlo por otro camino si es necesario;
+							cur.remove(cur.size()-1);	
+								
 							return;
 						}
 						List<Edge<String>> adyacentes= this.ciudades.getEdges(origin);
@@ -168,6 +171,54 @@ public class Map {
 						cur.remove(cur.size()-1);	
 							
 						}
+						public List<String> caminoConMenorCargaDeCombustible(String ciudad1, String ciudad2, int tanqueAuto) {
+							List<String> camino = new ArrayList<>();
+							if(!this.ciudades.isEmpty()) {
+								List<String> current = new ArrayList<>();
+								Vertex<String> origin = this.ciudades.search(ciudad1);
+								Vertex<String> destination = this.ciudades.search(ciudad2);
+								if(origin != null && destination != null && tanqueAuto !=0) {
+									caminoMenorCargaHelper(origin,destination, new boolean[this.ciudades.getSize()], current,camino, tanqueAuto,0,Integer.MAX_VALUE, 100);
+									
+								}
+							}
+							return camino;
+						}
+						private int caminoMenorCargaHelper(Vertex<String> origin, Vertex<String> destination, boolean[] marca, List<String> current, List<String>camino, int tanque, int currentCargas, int minCargas,int fullTanque ) {
+							marca[origin.getPosition()]= true; // visitado
+							current.add(origin.getData());
+							if(origin == destination) {
+								if(currentCargas<minCargas) {
+									minCargas = currentCargas;
+									camino.clear();
+									camino.addAll(current);
+								}
+								marca[origin.getPosition()]= false;
+								current.remove(current.size()-1);
+								return minCargas;
+							} // implmentacion con else facilitaria la labor
+							List<Edge<String>> adyacentes= this.ciudades.getEdges(origin);
+							for(Edge<String> e : adyacentes) {
+								int j = e.getTarget().getPosition();
+								int  consumo = e.getWeight();
+								if((!marca[j])&&(currentCargas<minCargas)) { // esto hace que no recorra si ya las carga actual es mayor	
+										if(tanque < consumo) {
+											currentCargas++;
+											tanque = fullTanque; // supongo 
+										}
+										if (currentCargas<minCargas){
+									     	minCargas = caminoMenorCargaHelper(e.getTarget(),destination,marca,current,camino,tanque - consumo, currentCargas, minCargas,fullTanque);
+										}
+									}
+								}
+							marca[origin.getPosition()]= false;
+							current.remove(current.size()-1);
+							return minCargas;
+							
+						}
+							
+							
+							
+						}
 						
-					}
 
