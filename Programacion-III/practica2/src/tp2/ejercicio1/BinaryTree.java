@@ -112,10 +112,6 @@ public class BinaryTree <T> {
     		aux = new BinaryTree<T>(this.getData()); // cargo el dato para el arbol 2 ;
     		// caso base, las hojas es desde donde empieza a armar el arbol, para luego ensamblarla con la llamada del nivel anterior
     		
-    		if(this.isLeaf()) {
-    			return aux;
-    		}
-    		
     		if(this.hasRightChild()) {
 			   aux.addLeftChild(this.getRightChild().espejo());
     		}
