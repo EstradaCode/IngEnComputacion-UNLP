@@ -30,6 +30,7 @@ public class GenTest {
 		List <Integer> l = new ArrayList <Integer>();
 		preorder(g,l);
 		System.out.println(l);
+	    g = new GeneralTree<>();
 		System.out.println(g.altura());
 		
 	}

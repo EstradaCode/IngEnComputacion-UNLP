@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="/practica5"/>
 	<classpathentry kind="src" path="/Programacion-III"/>
+	<classpathentry kind="src" path="/practica3"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

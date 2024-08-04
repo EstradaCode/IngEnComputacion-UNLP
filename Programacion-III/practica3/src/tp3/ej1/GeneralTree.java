@@ -12,6 +12,8 @@ public class GeneralTree<T> {
 	public GeneralTree(T data) {
 		this.data = data;
 	}
+	public GeneralTree() {
+	}
 
 	public GeneralTree(T data, List<GeneralTree<T>> children) {
 		this(data);
@@ -58,25 +60,27 @@ public class GeneralTree<T> {
 				children.remove(child);
 		}
 	}
-	public int altura() { // arreglado
-		var l = this.children;
-		if( this.isEmpty()) {
-			return -1;
-		}else {
-			int maxheight = -1; int height;
-			for(GeneralTree<T> c: l) {
-				height= c.altura();
-				if( height > maxheight ) {
-					maxheight = height; 
+	
+	public int altura() {
+		int maxHeight = -2,height=0;
+		if(!this.isEmpty()) {
+			if(this.hasChildren()) {
+				for(GeneralTree<T> child: this.children) {
+					height= child.altura();	
+					if(height > maxHeight) {
+						maxHeight= height;
+					}
 				}
+			} else {
+				maxHeight++; // significa que debe retornar 0 y no utiliza recurrencia.
 			}
-			return maxheight +1;
 		}
+		return maxHeight + 1;			
 	}
 	public int nivel(T dato) {
 	    return buscarNivel(this, dato, 0);
 	}
-
+	
 	private int buscarNivel(GeneralTree<T> nodo, T dato, int nivelActual) {
 	    if (nodo.isEmpty()) {
 	        return -1; // Si el nodo está vacío, se devuelve -1 indicando que el dato no se encontró.
