@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64fb0e73-28b3-4a12-bd3e-5c070d0ac169" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../Conceptos-de-Sistemas-Operativos/Teoria (PDF)/Tema 1/Tema 1 - Introducción .pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Entregable-Docs/2024_TallerDeLenguajes2_Entregable_1.pdf" beforeDir="false" />
-    </list>
+    <list default="true" id="64fb0e73-28b3-4a12-bd3e-5c070d0ac169" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,9 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2lejaTJ1VPDet4NOiazc2YvOxAC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,7 +25,8 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/megai/Downloads/OctoWallet/OctoWallet"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
