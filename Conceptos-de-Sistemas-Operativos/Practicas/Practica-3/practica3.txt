@@ -1,0 +1,8 @@
+1 - el Shell Scripting es un archivo de texto con una lista de comandos que isntruye al la shell del sistema operativo para realizar ciertas tareas. (Shell: interface que interpreta, procesa y ejecuta comandos)
+Sirve mucho para automatizar tareas del s.o o de usuario, crear aplicaciones interactivas, o con interfaces graficas.
+Los scripts no son compilados, sino interpretados, esto debido a la naturaleza de la shell, quien se encarga de ejecutar los comandos directamente (interpreta) 
+y dado que los scripts son una coleccion de comandos que juntos realizan una tarea en concreto, el comportamiento no cambia.
+2 - ECHO -> imprime desde pantalla
+read -> lee desde teclado.
+comentarios en un script -> # EL INTERPRETE LO IGNORA
+las variable en un script se declaran con una simple asignacion nombre=algo(sin espacios entre la asignacion), por lo general no se esecifica el tipo de varaible ya que la shell trata todos los datos como Strings (puede cambiar por contexto), para hacer referencia al valor de la variable se utiliza $nombre 
