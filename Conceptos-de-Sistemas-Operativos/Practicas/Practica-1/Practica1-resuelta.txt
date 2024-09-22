@@ -1,0 +1,50 @@
+1 - Caracteristicas de GNU/LINUX:
+	a)GNU/LINUX es un Sistema Operativo UNIX libre (libre distribución, gratuito, codigo abierto) que se rige bajo la licencia GNU, GPL. Fue diseñado y es mantenido por miles de programadores alrededor del mundo, tiene muchas distribuciones. Desarrollado en caoas, Kernel monolitico hibrido.Multitarea y multiusuario, permite la ejecución simultanea de multiples tareas y usuarios. Muy personalizable.
+	b) Windows no es un s.o de libre distribucion,es un s.o propietario, ya que le pertenece a microsoft y son propietarios del producto. hay que pagar su licencia, su codigo es cerrado. Fue diseñado por la compañia microsoft, Existen versiones, no distribuciones.
+	c) Que es GNU? Gnu es un proyecto de software libre que garantiza que un proyecto bajo la licencia GPL GNU cumple con las 4 libertades, usar, modificar,estudiar y distribuir dicho software. Este mismo fue iniciado por Richard Stallman.
+	d) Historia del proyecto GNU.
+	e)permite que varios procesos o aplicaciones se ejecuten aparentemente al mismo tiempo, compartiendo uno o más procesadores. El sistema le asigna un tiempo finito a cada proceso que usa, y una vez de terminar, se verifica si continuar con dicho proceso o pasar a otro.
+	f) POSIX es un conjunto de estandares para definir la api de los Sistemas operativos tipo UNIX.
+
+2 - Distribuciones de GNU/LINUX:
+	a) Una distribucion de linux es un conjunto de aplicaciones, configuraciones y programas unidos a una version del Kernel Linux para algun uso especifico.
+		ej: Ubuntu, distribucion de debian. Red Hat, Arch linux, linux mint.
+
+	b) Las distibuciones se diferencian justamiente en las aplicaciones instaladas por defecto, las configuraciones, la version del Kernel Linux utilizada y el proposito con el que se pensó esta agrupacion de elementos (ciberseguridad, uso tipico, desarrollo, servidor, etc)
+	c) Que es DEbian? proyecto debian es una asociacion de personas que han hecho causa comun para crear un sistema operativo libre, debian utilizando herramientas del proyecto GNU (Linux, bash, etc).
+	Historia de debian.
+
+3 - Estructura de GNU/LINUX
+	a) Componentes fundamentales de Gnu/Linux
+	 	- KERNEL (LINUX)
+		- Interprete de comandos
+		- Sistema de Archivos
+	b) Esructura basica del Sistema operativo GNU/LINUX
+	esquema de capas de la teoria.
+
+4 - Kernel
+
+9 - Archivos
+	a) como se idenifican los archivos en GNU/LINUX?
+	Los archivos se identifican por la ruta especifica que se traza desde / (raiz) hasta el directorio actual donde este es contenido.
+	b)
+	comando cat:
+	comando concatenate se utiliza para mostrar el contenido de archivos, concatenarlos y 	      redigir el contenido a otro archivo o proceso.
+	- mostrar contenido de un archivo: cat archivo.txt
+	- concatenar archivos: cat archivo1.txt archivo2.txt > combinado.txt mezcla los 2 archivos en el combinado.
+	- crear archivo desde la terminal: cat > newarchivo.txt
+	comando MORE: permite ver el contenido de un archivo de manera paginada, mostrando una pantalla de texto a la vez. Util para archivos grandes
+		more archivo.txt
+	d) COMANDO FILE:
+		se utiiza para determinar el tipo de archivo en funcion de su contenido, en lugar de depender de la exension del archivo. util para identificar archivos binarios, scripts, textos, img, etc.
+10 - algunos comandos
+	-mkdir
+	- touch
+	- ls
+	- pwd
+	-find
+	- df
+	-who
+	-vim, nano, algun editor de texto o echo y redireccion.
+	- tail
+9,10,11 + practico.
