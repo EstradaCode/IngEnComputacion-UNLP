@@ -5,4 +5,102 @@ y dado que los scripts son una coleccion de comandos que juntos realizan una tar
 2 - ECHO -> imprime desde pantalla
 read -> lee desde teclado.
 comentarios en un script -> # EL INTERPRETE LO IGNORA
-las variable en un script se declaran con una simple asignacion nombre=algo(sin espacios entre la asignacion), por lo general no se esecifica el tipo de varaible ya que la shell trata todos los datos como Strings (puede cambiar por contexto), para hacer referencia al valor de la variable se utiliza $nombre 
+las variable en un script se declaran con una simple asignacion nombre=algo(sin espacios entre la asignacion), por lo general no se esecifica el tipo de varaible ya que la shell trata todos los datos como Strings (puede cambiar por contexto), para hacer referencia al valor de la variable se utiliza $nombre
+4 - Parametrizacion:
+	¿Como se acceden a los parametros enviados al script al momento de su invocacion? ¿Que informacion contienen las varaibles $#, $*,$? y $HOME dentro de un script.
+	$# = cantidad de argumentos recibidos
+	$* = lista de argumentos
+	$? = el valor de retorno del ultimo comando ejecutado
+	$HOME = Directorio home del usuario actual.
+
+5 - comando exit se uiliza para salir de un script o para terminar un proceso, y opcionalmente puede devolver un valor de salida exit [n] n denota el codigo de salida, por defecto es 0.
+
+6 - Comando expr sirve para evaluar expresiones en la linea de comandos. Util para calculos aritmeticos, comparaciones y manipular cadenas de texto en scripts.
+	expr arg1 op arg2
+
+	ejs: expr 5 + 3 #resultado : 8
+	     expr 4 \* 2 # res: 8 se debe escapar el asterisco con barra invertida por ser un caracer reservado en bash.
+	     expr 3 = 5 #falso
+	     expr 3!= 5 # verdadero
+	     expr 3\< 5 # verdadero misma idea de la barra invertida
+
+	     EXPR CON CADENAS
+	     
+	     expr length "hola" #longitud de una cadena res 4 
+	     expr index "hola mundo" "o" #res 2 posicion de un elemento de la cadena"
+	     expr substr "hola mundo" 2 3 # param posicion de inicio del substr y long de substr # resultado ola
+	     expr 0 \| 5 # operador logico or | retorna el arg != 0  si es correcto
+	     expr 0 \& 1 # operador logico and, misma idea
+7 - Comando "test expresion" Y [expresion] permiten evaluar expresiones logicas para generar un valor de retorno, 0 o 1. 
+	ejemplos de uso en contextos:
+		EVALUACION DE ARCHIVOS:
+			-e archivo: verifica si el archivo existe.
+			test -e archivo.txt o [-e archivo.txt]
+			-f archivo: verifica si el archivo es un archivo regular ( no dir).
+			test -f archivo.txt
+			-d archivo verifica si es directorio.
+			test -d archivo.txt
+			-w archivo: verifica si es escribible.
+			test -w archivo.txt
+			-x archivo: verifica si el archivo es ejecutable.
+			test -x script.sh
+			-s archivo: verifica si el archivo tiene contenido (tamaño > 0)
+			test -s archivo.txt
+			archivo1 -nt archivo2: verifica si archivo1 es más reciente que archivo2.
+			test archivo1.txt -nt archivo2.txt
+			archivo1 -ot archivo2: verifica si archivo1 es más antiguo que archivo2.
+		EVALUACION DE CADENAS:
+			-z cadena: verifica si la cadena es vacia (len 0)
+			-n cadena: verifica si la cadena no es vacio (len != 0)
+			cadena1 = cadena2 verifica si son iguales 
+			cadena1 != cadena2 verifica si las 2 cadenas son distintas.
+
+		EVALUACION NUMERICA:
+			num1 -eq num2: verifica si num1 es igual a num2
+			num1 -ne num2: verifica si num1 es distinto a num2
+			num1 -gt num2: verifica si num1 es mayor que num2
+			num1 -ge num2: verifica si num1 es mayor o igual a num2
+			num1 -lt num2: verifica si num1 es menor que num2
+			num1 -le num2 verifica si num1 es menor o igual a num2
+8 - ESTRUCTURAS DE CONTROL 
+	IF:
+	if [ condición ]; then
+		    # comandos si la condición es verdadera
+	elif [ otra_condición ]; then
+    		# comandos si la otra condición es verdadera
+	else
+   		 # comandos si ninguna condición es verdadera
+	fi
+	CASE: 	case variable in
+   			 patrón1)
+        	# comandos si coincide con patrón1
+        		;;
+   	 		patrón2)
+      		  # comandos si coincide con patrón2
+       		 	;;
+   		 *)
+        		# comandos si no coincide con ningún patrón
+        		;;
+		esac
+
+	WHILE:
+		while[condicion]; do 
+			#comandos a ejecutar
+		done
+	foreach:
+		for variable in lisa; do
+			#comandos
+		done
+
+	for: 	for((i=1;i<=5;i++));do
+			echo " numero: $i"
+		done
+
+	SELECT: 
+		select variable in lista; do
+    			# comandos a ejecutar para la opción seleccionada
+    			break  # Opcional: para salir del bucle después de la selección
+		done
+
+
+
