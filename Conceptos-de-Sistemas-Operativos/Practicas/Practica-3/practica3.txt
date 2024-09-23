@@ -103,4 +103,31 @@ las variable en un script se declaran con una simple asignacion nombre=algo(sin 
 		done
 
 
+9 - break termina el bucle y continue, omite la iteracion actual y salta a la siguiente.
+10 - Que tipo de variables existen?
+	no existen tipos de datos especificos como lenguajes fuertemente tipados( java o c). Todas las variables se manejan como strings, y el shell interpreta el contenido dependiendo del contexto ej: solo numeros. SHELL SCRIPT NO ES FUERTEMENTE TIPADO.
+	TIPOS DE VARIABLES:
+		nombre = "Juan"
+		edad = 25
 
+	ARREGLOS. Los arreglos no son estrictamente tipados, y solo pueden contener strings
+	mi_arreglo = ("elem1" "elem2" "elem3)
+	- acceso al elemento:
+	echo ${mi_arreglo[0]}
+	- acceso a todos los valores del arreglo:
+	echo ${arreglo[@]}
+	- tamaño del arreglo
+	echo ${#arreglo[@]}
+	- borrado de un elem (reduce tamaño pero no elimina posicion)
+	unset arreglo[2]
+	indice inicial en 0
+
+11 - Pueden definirse funciones dentro de los scripts
+	function nombre{ block}
+	nombre(){ block}
+
+	return retorna un valor entre 0 y 255
+	el valor de retorno se evalua mediante $?
+	 reciben argumento en las variables $1,$2,etc
+12 -	Evaluacion de expresiones:
+	
