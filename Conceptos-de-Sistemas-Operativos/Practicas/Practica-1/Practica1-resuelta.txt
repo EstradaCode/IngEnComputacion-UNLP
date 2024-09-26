@@ -47,4 +47,4 @@
 	-who
 	-vim, nano, algun editor de texto o echo y redireccion.
 	- tail
-9,10,11 + practico.
+
