@@ -2,10 +2,10 @@
 archivos=()
 
 cantidad(){
-	echo"${#archivos[@]}"
+	echo "${#archivos[@]}"
 }
 verArchivos(){
-	echo"${archivos[@]}"
+	echo "${archivos[@]}"
 }
 existe(){
 	if echo "${archivos[@]}" | grep -q "$1"; then
