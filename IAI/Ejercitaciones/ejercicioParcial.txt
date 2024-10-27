@@ -1,0 +1,52 @@
+programa ejercicioParcial
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    esqvacias:numero
+    papel:numero
+  comenzar
+    derecha
+    repetir 49
+      papel:=0
+      mientras (papel < 10)
+        {si no hay flor en la esquina y no hay papel en la esquina}
+        si (~HayFlorEnLaEsquina & ~HayPapelEnLaEsquina)
+          esqvacias:= esqvacias + 1
+        sino {se usa sino  y despues el si}
+          si (HayPapelEnLaEsquina)
+            mientras(HayPapelEnLaEsquina & (papel < 10))
+              tomarPapel
+              papel:= papel + 1
+            mientras(HayPapelEnLaBolsa)
+              depositarPapel
+        si (papel = 10)
+          Pos(1,PosCa + 2)
+        sino
+          mover
+    {caso calle 99}
+    papel:=0
+    mientras (papel < 10)
+      si (~HayFlorEnLaEsquina & ~HayPapelEnLaEsquina)
+        esqvacias:= esqvacias + 1
+      sino 
+        si (HayPapelEnLaEsquina)
+          mientras(HayPapelEnLaEsquina & (papel<10))
+            tomarPapel
+            papel:= papel + 1
+          mientras(HayPapelEnLaBolsa)
+            depositarPapel
+      si (papel = 10)
+        Pos(1,1)
+      sino
+        mover
+    Informar(esqvacias)
+    Informar(papel)
+  fin
+variables
+  Rinfo: robot1
+comenzar
+  AsignarArea(Rinfo,ciudad)
+  Iniciar(Rinfo,1,1)
+fin
