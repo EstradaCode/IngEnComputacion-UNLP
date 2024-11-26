@@ -57,7 +57,22 @@ G) ACA VA IMAGENES DE LOS ESTADOS DEL PROCESO
 		APROPIATIVO, UTILIZA UN RELOJ CON UN TIEMPO QUANTUM (Q), FORMATO DE COLA CIRCULAR. TIENE UN CONTADOR (TIMER), PUEDE SER GLOBAL O LOCAL(PCB) EN TIMER VARIABLE(inicializa en q cada contador al iniciar), en TIMER FIJO (el contador se comparte, por lo que si un proceso debe atender E/S o termina, el siguiente sigue con lo que le quedó del timer, cuando llega a 0 se recarga y cambia de proceso).
 	+ PRIORIDADES
 	CAMPO DE PRIORIDADES, - VALOR + PRIORIDAD, SE SELECCIONA LOS DE MAS PRIORIDAD EN LA COLA DE LISTOS, HAY UNA COLA DE LISTOS POR CADA NIVEL DE PRIORIDAD, LOS DE BAJA PRORIDAD PODRIAN SUFRIR INANICION, LA SOLUCION ES PERMITIR QUE SE PUEDE CAMBIAR LA PRIORIDAD DURANTE EL CICLO DE VIDA (PENALTY O AGING), PUEDE SER APROPIATIVO O NO.
+9-
 INANICION: CUANDO UN PROCESO NO TIENE OPORTUNIDAD DE EJECUTARSE DURANTE MUCHO TIEMPO.
+b) el Algoritmo SJF puede provocarla Y LOS ALGORITMOS DE USO POR PRIORIDADES PUEDEN PROVOCAR INANICIÓN.
+C) En el caso de los algoritmos por prioridades puede solucionarse utilizando aging, para cambiar la prioridad a lo largo del tiempo.
+10 - Los procesos, durante su ciclo de vida, pueden realizar operaciones de I/O como lecturas o escrituras a disco, cintas, uso de impresoras, etc.
+
+para cada dispositivo, una cola de procesos que espera por la utilización del mismo( al igual que ocurre con la cola de listos y la cpu, la cpu es un dispositivo mas)
+
+Cuando un proceso en ejecución realiza una op de i/o el mismo es expulsado de la CPU y colocado en la cola correspondiente al dispositivo involucrado.
+EL SO dispone también de un "I/O SCHEDULIN" que administra cada cola de dispositivo a través de algun algoritmo (FCFS, PRIORIDADES, ETC). Si al colocarse un proceso en la cola del dispositivo, 
+y la misma se encuentra vacia, el mismo será atendido de manera inmediato, sino, deberá esperar a que el SO lo seleccione segun el algoritmo establecido.
+
+Los mecanismos de I/O utilizados hoy en día permiten que la CPU no sea utilizada durante esa operación, por lo que el SO puede ejecutar otro proceso que se encuentr en espera despues de que el proceso bloqueado por la I/O se coloca en la cola correspondiente.
+Cuando finaliza retorna a la cola de listos para competir nuevamente por la CPU.
+
+
 OVERHEAD: MAS TIEMPO CAMBIANDO DE CONTEXTO QUE EJECUTANDO EN CPU.
 
 

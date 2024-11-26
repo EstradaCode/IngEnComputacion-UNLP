@@ -1,0 +1,85 @@
+- CPU: compuesta por la UNIDAD DE CONTROL (UC) Y la UNIDAD ARITMETICO LOGICA (ALU)
+- MEMORIA PRINCIPAL: Lugar donde se almacenan temporalmente, datos e instrucciones.
+- MODULO DE E/S: TRANSFIERE DATOS DESDE LOS DISPOSITIVOS EXTERNOS A la cpu y a la memoria, y viceversa.
+
+Componente interconectados con un bus del sistema.
+
+### REPERTORIO DE INSTRUCCIONES
+
+Conjunto completo de instrucciones que se realizan en una cpu, pueden ser codigo maquina o binario.
+
+### ¿Cuáles son los elementos de una instrucción maquina?
+
+Cada instrucción debe contener la información que necesita el procesador para su ejecución:
+• **Código de operación**: especifica la operación a realizar. La operación se indica mediante un código binario denominado código de operación (”codop”).
+• **Referencia a operandos fuente u origen**: la operación puede implicar a uno o más operandos de origen, es decir operandos que son entradas para la instrucción.
+• **Referencia al operando de destino o resultado**: la operación puede producir un resultado.
+• **Referencia a la siguiente instrucción**: dice al CPU donde captar la siguiente instrucción tras completarse la ejecución de la instrucción actual.
+
+Los operandose se almacenan en Memoria principal, en un registro de la cpu o en un dispositivo de E/S
+
+### **Tipos de operaciones de instrucción.**
+
+Se pueden clasificar en 
+
+- De PROCESAMIENTO DE DATOS: Instrucciones aritmeticas y logicas
+    - Dan capacidad computacional para procesar datos numericos y demás datos gracias al manejo logico de los bits.
+- De almacenamiento de datos: Instrucciones de memoria.
+    - transferir datos entre memoria y registros
+- De TRANSFERENCIA DE DATOS: Instrucciones de E/S
+    - Transferir programas y datos a memoria y devolver resultados al usuario.
+- De CONTROL: intrucciones de comprobación y de bifurcación
+    - Comprobación: comprobar el valor de una palabra de datos o el estado de un calculo.
+    - Bifurcacion: bifurcar a distintas instrucciones dependiendo de la decision tomada
+
+### DISEÑO DEL REPERTORIO DE INSTRUCCIONES
+
+Los aspectos fundamentales a tener en cuenta son:
+
+- **Repertorio de operaciones**: Cuantas y qué operaciones considerar, y cuan complejas deben ser.
+- **TIPOS DE DATOS**: con los que operar.
+- **Formatos de instrucciones**: Longitud de instruccion, numero de direcciones, tamaño de distintos campos, etc.
+- **Registros**: num de registros del procesador que pueden referenciarse por las instrucciones y su uso particular.
+- **DIRECCIONAMIENTO**: modos de direccionamiento mediante los cuales puede especificarse la direccion de un operando
+- RISC O CISC?
+
+### MODOS DE DIRECCIONAMIENTO
+
+Los modos de direccionamiento son la forma en el que programador le describe a la máquina el lugar donde se encuentran los operandos o la siguiente instrucción a ejecutar. Los más comunes son:
+• **Inmediato**: el operando esta presente en la propia instrucción. Ej: MOV AX, 10
+• **Directo**: también llamado absoluto. El campo de direcciones tiene la dirección efectiva del
+operando. Solo requiere una referencia a memoria y no necesita ningún calculo especial. Ej: MOV
+AX, 1000H
+• **Indirecto**: el campo de direcciones referencia la dirección de una palabra a memoria, la cual
+contenga la dirección completa del operando.
+• **Directo de Registro**: el campo de direcciones referencia un registro, en donde se encuentra el
+operando.
+• **Indirecto de Registro**: el campo de direcciones referencia un registro, la cual tiene la dirección de
+memoria del operando.
+• **Con Desplazamiento**: las instrucciones tienen dos campos de direcciones. Uno de los campos
+tiene una referencia a un registro cuyo contenido se le suma al valor contenido en el otro campo
+para generar la dirección efectiva.
+
+[]()
+
+# CICLO DE INSTRUCCIÓN
+
+La versión simple del ciclo de instruccion consta de un ciclo de captacion y de ejecución.
+
+CICLO DE CAPTACIÓN:
+
+1. Se carga la dir de la instrucción en el REGISTRO PC
+2. LA UC CAPTA la instruccion desde memoria, la instrucción va al IR
+3. PC SE INCREMENTA, a menos que se indique lo contrario.
+4. UC interpreta la instrucción captada y lleva a cabo la acción requerida.
+
+CICLO DE EJECUCÓN, La accion depende del tipo de instruccion captada.
+
+- PROCESADOR-MEMORIA: se transfieren los datos entre ellos.
+- PROCESADOR-E/S deben transfirse datos a o desde el exterior mediante transferencia entre cpu y modulo e/s.
+- PROCESAMIENTO DE DATOS: La CPU ha de realziar una operacion aritmetica o logica.
+- Control: UNa instucción puede especificar que la secuencia de ejecucuón se aitere.
+
+CICLO DE INSTRUCCIÓN POR ESTADOS
+
+Por interrupciones lo mismo.
