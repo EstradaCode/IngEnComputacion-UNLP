@@ -72,7 +72,9 @@ y la misma se encuentra vacia, el mismo será atendido de manera inmediato, sino
 Los mecanismos de I/O utilizados hoy en día permiten que la CPU no sea utilizada durante esa operación, por lo que el SO puede ejecutar otro proceso que se encuentr en espera despues de que el proceso bloqueado por la I/O se coloca en la cola correspondiente.
 Cuando finaliza retorna a la cola de listos para competir nuevamente por la CPU.
 
-
+11- a) Si tengo dos tipos de procesos: Interactivos y Batch, cada uno dentro de una cola según su tipo. ¿Que algoritmos usaria para cada una de estas colas?
+- Para los procesos interactivos utilizaria el algoritmo RR-TV con un Quantum intermedio Q=3, por ejemplo. Debido a que ayudaría a avanzar habilmente con los procesos cuyos recursos ya fueron solicitados y queda ejecutar.
+- Para los Batch, como se ejecutan en segundo plano, no requieren de interacción con el usuario o partes ajenas al sistema recurrentemente. Por lo que un algoritmo como SJF o un algoritmo de prioridades serviria para darles más eficiencia de cpu.
 OVERHEAD: MAS TIEMPO CAMBIANDO DE CONTEXTO QUE EJECUTANDO EN CPU.
 
 
