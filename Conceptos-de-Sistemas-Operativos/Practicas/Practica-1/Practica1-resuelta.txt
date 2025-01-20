@@ -23,10 +23,150 @@
 	esquema de capas de la teoria.
 
 4 - Kernel
+5 - shell
+	Un intérprete de comandos o Shell es una interfaz entre el usuario y el sistema operativo que permite ejecutar comandos para interactuar con el sistema. Puede ser una interfaz de línea de comandos (CLI) o gráfica, aunque el término generalmente se asocia con la CLI.
+	b) Interpretar comandos: Procesa los comandos ingresados por el usuario y los convierte en instrucciones comprensibles para el sistema operativo.
+Automatización: Permite la creación y ejecución de scripts (archivos con comandos) para automatizar tareas repetitivas.
+Gestión de procesos: Facilita la ejecución, monitoreo y control de procesos en el sistema.
+Acceso a herramientas y utilidades: Proporciona acceso a programas, herramientas del sistema y utilidades externas.
+Control del entorno del usuario: Permite configurar variables de entorno, como rutas de búsqueda o preferencias.
+c) Bash (Bourne Again Shell):
 
+    Popularidad: Es el más común en GNU/Linux.
+    Funcionalidades: Incluye historial de comandos, scripting avanzado y soporte para tareas interactivas.
+    Ventajas: Amplia documentación, compatible con scripts heredados de Bourne Shell.
+    Uso principal: Ideal para usuarios generales y desarrolladores.
+
+Zsh (Z Shell):
+
+    Popularidad: Cada vez más adoptado, especialmente en macOS (desde Catalina) y Linux por su personalización.
+    Funcionalidades: Más personalizable que Bash, autocompletado inteligente, corrección de errores en comandos.
+    Ventajas: Compatible con Bash, muy configurable, soporta temas y plugins.
+    Uso principal: Para usuarios avanzados que valoran la personalización.
+
+Fish (Friendly Interactive Shell):
+
+    Popularidad: Menos usado que Bash o Zsh, pero apreciado por su facilidad de uso.
+    Funcionalidades: Configuración por defecto atractiva, autocompletado automático sin necesidad de configuración adicional.
+    Ventajas: Interfaz amigable y moderna, no requiere mucha personalización para ser funcional.
+    Uso principal: Para usuarios nuevos o aquellos que prefieren simplicidad.
+    d)Comandos propios del Shell (Built-in):
+
+    Estos comandos son implementados directamente en el intérprete de comandos y no existen como archivos en el sistema.
+    Ejemplo: cd, echo, alias, set.
+    No tienen path en el sistema de archivos.
+
+Comandos externos al Shell:
+
+    Son programas ejecutables ubicados en directorios del sistema.
+    Los paths de estos comandos están definidos en la variable de entorno PATH.
+    Ejemplo de paths comunes:
+        /bin: Comandos básicos del sistema (e.g., ls, cat).
+        /usr/bin: Comandos adicionales de usuarios (e.g., python, gcc).
+        /sbin: Comandos administrativos (e.g., ifconfig).
+	e) Principales razones:
+	- modularidad: independizar las tareas, ya que el kernel se encarga de la gestion eficiente de recursos del sistema, y la shell se encarga de comunicar al sistema con el usuario por medio de comandos.
+	- Seguridad: En el caso de que falle la shell, al estar independiente al kernel, el error no lo afecta.
+	- Se puede cambiar de shell sin tener que modificar el kernel.
+	f) Si, es posible definir un interprete de comandos distinto para cada usuario, se define en el erchivo /etc/passwd donde están los registros de usuarios, donde SOLO el Superusuario puede realizar la tarea.
+
+6 - FileSystem
+ 	a) ¿Que es?
+	Un sistema de archivos es una estructura jerarquica para organizar, almacenar y recuperar datos en un dispositivo de almacenamiento (como un disco duro, SSD, o USB). Define cómo se nombran, almacenan y acceden a los archivos y directorios, y proporciona la interfaz para administrar el espacio disponible y la estructura jerárquica.
+	b) GNU/Linux soporta una amplia variedad de sistemas de archivos, incluyendo:
+
+    Ext family:
+        Ext2: Sistema de archivos básico, sin journaling.
+        Ext3: Añade journaling para mayor confiabilidad.
+        Ext4: Soporta volúmenes más grandes, rendimiento mejorado y journaling avanzado.
+
+    XFS:
+        Diseñado para altas prestaciones y sistemas de alto rendimiento.
+
+    Btrfs (B-Tree File System):
+        Soporta snapshots, compresión y gestión avanzada de volúmenes.
+
+    ReiserFS:
+        Optimizado para manejar gran cantidad de archivos pequeños.
+
+    FAT (vFAT, exFAT):
+        Usado en unidades USB y compatibles con múltiples sistemas operativos.
+
+    NTFS:
+        Sistema de archivos de Microsoft, soportado en GNU/Linux mediante herramientas como ntfs-3g.
+	c) Si, es posible visualizar particiones del tipo FAT y NTFS en Linux, nativamente fat y con el paquete ntfs-3g tambien.
+	d)/ (Raíz):
+    Punto de partida del sistema de archivos.
+/bin:
+    Contiene ejecutables esenciales para todos los usuarios, como ls, cp, mv.
+/boot:
+    Archivos necesarios para el arranque del sistema, como el kernel y el cargador de arranque (grub).
+/dev:
+    Archivos de dispositivos que representan hardware, como discos (/dev/sda), terminales (/dev/tty).
+/etc:
+    Archivos de configuración del sistema y servicios.
+
+/home:
+    Directorios personales de los usuarios.
+
+/lib y /lib64:
+    Bibliotecas compartidas esenciales para ejecutables del sistema.
+/media y /mnt:
+    Puntos de montaje para medios extraíbles y sistemas de archivos temporales.
+/opt:
+    Software adicional y opcional.
+/proc:
+    Sistema de archivos virtual que expone información sobre procesos y el kernel.
+
+/root:
+    Directorio personal del usuario root.
+
+/sbin:
+    Ejecutables del sistema para administración y mantenimiento.
+
+/tmp:
+    Archivos temporales.
+
+/usr:
+    Programas y utilidades para usuarios.
+    Subdirectorios importantes: /usr/bin, /usr/lib, /usr/share.
+
+/var:
+    Archivos variables como logs, colas de impresión y datos temporales.
+8- Bootstrap de un s.o
+	a)El BIOS (Basic Input/Output System) es un firmware fundamental que se ejecuta cuando una computadora se enciende. Su tarea principal es inicializar y probar el hardware básico (como la CPU, memoria RAM, disco duro, etc.) y cargar el sistema operativo desde un dispositivo de almacenamiento (disco duro, SSD, etc.). Además, proporciona una interfaz para que el sistema operativo y otros programas interactúen con el hardware.
+	b)UEFI (Unified Extensible Firmware Interface) es una interfaz de firmware que reemplaza al BIOS tradicional en las computadoras modernas. UEFI ofrece varias mejoras, como el soporte para discos de mayor capacidad (más de 2 TB), arranque más rápido, un entorno gráfico para la configuración, y soporte para la firma digital de arranque seguro (Secure Boot), lo que aumenta la seguridad en el arranque. Su función principal es inicializar el hardware y cargar el sistema operativo de manera más eficiente y segura.
+c)	MBR (Master Boot Record): Es un esquema de particionamiento de discos que se usa tradicionalmente en discos duros. El MBR contiene la tabla de particiones y el código de arranque. El MBR es un área de 512 bytes al principio de un disco, y es responsable de cargar el gestor de arranque.
+	MBC (Master Boot Code): Hace referencia al código en el MBR que es ejecutado durante el proceso de arranque. Este código está diseñado para cargar el gestor de arranque, el cual gestiona la carga del sistema operativo.
+d)	GPT (GUID Partition Table): Es un esquema de particionamiento moderno que reemplaza al MBR. Usa identificadores únicos globales (GUID) para identificar particiones, lo que permite crear discos con más de 2 TB de capacidad y gestionar un mayor número de particiones (hasta 128). GPT ofrece una mayor robustez, ya que guarda múltiples copias de la tabla de particiones y tiene un mecanismo de corrección de errores.
+Formato: El formato de GPT es más flexible y moderno en comparación con el MBR. Tiene un encabezado al principio y al final del disco, que permite la recuperación de particiones en caso de daño.
+e)Un gestor de arranque es un software que se encarga de cargar el sistema operativo durante el proceso de arranque de la computadora. Su función principal es gestionar y seleccionar qué sistema operativo se va a cargar cuando se inicia la máquina.
+
+    Tipos: Existen gestores de arranque de un solo sistema operativo (como Windows Boot Manager) y gestores de arranque múltiple (como GRUB, LILO).
+    Ubicación: Se instalan en el sector de arranque del disco duro o en el sector de arranque del disco de arranque (MBR o UEFI).
+    f) -Encendido de la computadora: Se energiza la placa base y el BIOS/UEFI se inicia.
+-Inicialización del hardware: El BIOS/UEFI realiza pruebas de hardware y configura dispositivos esenciales.
+-Carga del gestor de arranque: El BIOS/UEFI carga el código de arranque desde el MBR (para BIOS) o desde el archivo de arranque en el sistema UEFI.
+-Seleccionar sistema operativo (si hay varios): El gestor de arranque presenta un menú (si está configurado) y selecciona el sistema operativo.
+-Carga del núcleo (kernel): El gestor de arranque carga el kernel del sistema operativo en la memoria.
+-Inicialización del sistema operativo: El kernel comienza a gestionar el hardware y carga los procesos necesarios para que el sistema operativo funcione.
+-Lanzamiento de los procesos de usuario: El sistema operativo lanza el inicio de sesión o los procesos de usuario según la configuración.
+g)
+BIOS/UEFI: Al encender la computadora, el BIOS/UEFI realiza las pruebas y carga el gestor de arranque.
+GRUB (o gestor de arranque): Si hay múltiples sistemas operativos, el gestor de arranque GRUB ofrece un menú donde se selecciona el kernel de Linux a cargar.
+Cargar el kernel: GRUB carga el kernel de Linux en la memoria.
+Cargar los controladores iniciales: El kernel comienza a cargar controladores para el hardware esencial (como discos, redes, etc.).
+Montaje del sistema de archivos raíz: El kernel monta la partición raíz (/) y comienza a ejecutar los procesos de inicialización del sistema.
+Systemd/Init: El sistema de inicio, como systemd (en la mayoría de las distribuciones modernas), comienza a iniciar servicios y procesos del sistema.
+Interfaz de usuario: Una vez que los servicios esenciales están cargados, el sistema puede proporcionar una interfaz de usuario (gráfico o línea de comandos).
+h)Detener procesos del usuario: El sistema envía señales para finalizar los procesos del usuario de manera ordenada.
+Detener servicios del sistema: El sistema de inicio (systemd o init) detiene los servicios del sistema, como redes, almacenamiento, etc.
+Desmontaje de sistemas de archivos: El sistema desmonta de manera segura los sistemas de archivos para evitar corrupción.
+Apagar el hardware: El sistema apaga el hardware y la alimentación de la máquina.
+i)Sí, es posible tener un sistema dual con GNU/Linux y otro sistema operativo (como Windows) en la misma computadora. Esto se logra utilizando una partición separada para cada sistema operativo y un gestor de arranque (como GRUB) que permite seleccionar qué sistema operativo se iniciará al encender la computadora. El gestor de arranque reconoce los sistemas operativos instalados y permite elegir entre ellos al arrancar el equipo.
 9 - Archivos
 	a) como se idenifican los archivos en GNU/LINUX?
-	Los archivos se identifican por la ruta especifica que se traza desde / (raiz) hasta el directorio actual donde este es contenido.
+	Los archivos se identifican por la ruta (path) especifica que se traza desde / (raiz) hasta el directorio actual donde este es contenido.
 	b)
 	comando cat:
 	comando concatenate se utiliza para mostrar el contenido de archivos, concatenarlos y 	      redigir el contenido a otro archivo o proceso.
@@ -37,6 +177,8 @@
 		more archivo.txt
 	d) COMANDO FILE:
 		se utiiza para determinar el tipo de archivo en funcion de su contenido, en lugar de depender de la exension del archivo. util para identificar archivos binarios, scripts, textos, img, etc.
+
+
 10 - algunos comandos
 	-mkdir
 	- touch
@@ -47,4 +189,85 @@
 	-who
 	-vim, nano, algun editor de texto o echo y redireccion.
 	- tail
+	
+11 - otros comandos 
+Comandos relacionados con la gestión del sistema:
+
+    shutdown: Apaga el sistema o programa un apagado.
+        Ejemplo: shutdown -h now (apaga inmediatamente).
+        Ejemplo: shutdown -r +10 (reinicia en 10 minutos).
+
+    reboot: Reinicia el sistema.
+        Equivalente a shutdown -r now.
+
+    halt: Detiene todas las actividades del sistema (similar a apagar pero no apaga físicamente algunos sistemas modernos).
+
+    uname: Muestra información del sistema.
+        Ejemplo: uname -a (muestra toda la información).
+
+Comandos relacionados con hardware y kernel:
+
+    gmesg (debería ser dmesg): Muestra mensajes del kernel, útil para depuración.
+        Ejemplo: dmesg | tail (últimos mensajes del kernel).
+
+    lspci: Lista los dispositivos PCI conectados.
+        Ejemplo: lspci -v (muestra detalles).
+
+Comandos relacionados con sistemas de archivos:
+
+    mount: Monta un sistema de archivos.
+        Ejemplo: mount /dev/sda1 /mnt (monta la partición /dev/sda1 en /mnt).
+
+    umount: Desmonta un sistema de archivos.
+        Ejemplo: umount /mnt.
+
+    losetup: Configura un dispositivo de bucle.
+        Ejemplo: losetup /dev/loop0 archivo.img.
+
+    mkfs: Formatea un sistema de archivos.
+        Ejemplo: mkfs.ext4 /dev/sda1 (crea un sistema de archivos ext4 en /dev/sda1).
+
+    fdisk: Maneja particiones en discos (¡utilízalo con cuidado!).
+        Ejemplo: fdisk /dev/sda (abre el disco /dev/sda).
+
+Comandos relacionados con redes:
+
+    netstat: Muestra estadísticas de red, conexiones activas, etc.
+        Ejemplo: netstat -tuln (lista puertos TCP/UDP abiertos).
+
+Comandos de utilidades generales:
+
+    locate: Encuentra archivos rápidamente usando una base de datos preconstruida.
+        Ejemplo: locate archivo.txt.
+
+    head: Muestra las primeras líneas de un archivo.
+        Ejemplo: head -n 10 archivo.txt (primeras 10 líneas).
+
+    write: Envía mensajes a otros usuarios en la terminal.
+        Ejemplo: write usuario (comienza un mensaje con el usuario).
+
+Comando relacionado con tareas programadas:
+
+    at: Programa tareas para ejecutarse una vez en un momento específico.
+        Ejemplo: echo "shutdown -h now" | at 23:00 (apaga el sistema a las 23:00).
+        ¿DONDE SE ALMACENAN?
+        /bin: Comandos esenciales del sistema accesibles tanto para usuarios normales como para root.
+        Ejemplos: shutdown, reboot, halt, mount, umount, head, write.
+
+    /sbin: Comandos esenciales administrativos utilizados principalmente por el usuario root.
+        Ejemplos: fdisk, mkfs, losetup, shutdown (algunas distribuciones lo tienen aquí).
+
+    /usr/bin: Comandos adicionales para usuarios normales y root que no son críticos para el sistema.
+        Ejemplos: locate, uname, netstat, lspci, at.
+
+    /usr/sbin: Comandos adicionales para administración del sistema.
+        Ejemplo: gmesg (o dmesg), mkfs (algunas distribuciones).
+
+Cómo verificar la ubicación de un comando
+
+Puedes usar el comando which o type para determinar en qué directorio se encuentra un comando. Por ejemplo:
+
+which shutdown
+which uname
+type netstat
 

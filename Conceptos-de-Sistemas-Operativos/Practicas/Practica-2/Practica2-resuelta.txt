@@ -1,0 +1,187 @@
+1 Se empieza a ejecutar el código del BIOS
+2 El BIOS ejecuta el POST
+3 El BIOS lee el sector de arranque (MBR)
+4 Se carga el gestor de arranque (MBC)
+5 El bootloader carga el kernel y el initrd
+6 Se monta el initrd como sistema de archivos raı́z y se
+inicializan componentes esenciales (ej.: scheduler)
+7 El Kernel ejecuta el proceso init y se desmonta el initrd
+8 Se lee el /etc/inittab
+9 Se ejecutan los scripts apuntados por el runlevel 1
+10 El final del runlevel 1 le indica que vaya al runlevel por defecto
+11 Se ejecutan los scripts apuntados por el runlevel por defecto
+12 El sistema está listo para usarse
+
+(b) Proceso INIT
+
+    ¿Quién lo ejecuta?
+    El kernel lo lanza después de la inicialización del sistema y montaje del sistema de archivos raíz. Su ruta es generalmente /sbin/init.
+    ¿Cuál es su objetivo?
+    Su función es cargar todos los subprocesos necesarios para el
+correcto funcionamiento del SO
+2El proceso init posee el PID 1 y se encuentra en /sbin/init
+3En SysV se lo configura a través del archivo /etc/inittab
+4No tiene padre y es el padre de todos los procesos (pstree)
+5-Es el encargado de montar los filesystems y de hacer
+disponible los demás dispositivos
+Runlevels
+c) RUNLEVELS
+
+    ¿Qué son?
+    Son estados predefinidos del sistema que determinan qué servicios y procesos se ejecutan. Cada runlevel tiene una configuración específica para diferentes usos del sistema.
+    ¿Cuál es su objetivo?
+    Facilitar la transición entre diferentes estados operativos, como mantenimiento, modo gráfico, o apagado.
+D) NIVELES DE RUNLEVEL
+0: Apagado del sistema.
+1: Modo monousuario (mantenimiento básico).
+2: Multiusuario sin servicios de red.
+3: Multiusuario con servicios de red (modo texto).
+4: No usado (personalizable por el administrador).
+5: Multiusuario con interfaz gráfica.
+6: Reinicio del sistema.
+Dónde se define el runlevel de inicio?
+En el archivo /etc/inittab, con una línea como:
+
+id:5:initdefault:
+
+Este ejemplo configura el sistema para iniciar en el runlevel 5.
+¿Respetan todas las distribuciones estos estándares?
+No, sistemas modernos como los basados en systemd usan "targets" en lugar de runlevels.
+(e) Archivo /etc/inittab
+
+    Finalidad: Define cómo se inicializa el sistema, qué runlevel se usa por defecto, y qué procesos deben ejecutarse.
+    Tipo de información:
+    Contiene configuraciones del sistema relacionadas con el proceso init.
+    Estructura de las líneas:
+
+id:runlevels:action:process
+
+Ejemplo:
+
+    id:5:initdefault:
+    l0:0:wait:/etc/rc.d/rc0
+
+        id: Identificador.
+        runlevels: Runlevels en los que se aplica.
+        action: Acción a tomar (ej., wait, respawn).
+        process: Proceso o script a ejecutar.
+
+(f) Cambiar de runlevel
+
+    Comando(s):
+    Para cambiar al runlevel <Y> desde el runlevel actual <X>:
+
+    init <Y>
+
+        Ejemplo: init 3 cambia al runlevel 3.
+    ¿Es permanente?
+    No, el cambio solo afecta la sesión actual. El runlevel predeterminado sigue siendo el configurado en /etc/inittab.
+
+(g) Scripts RC
+
+    Finalidad:
+    Gestionan la inicialización y detención de servicios al cambiar entre runlevels.
+    Ubicación:
+    Están en directorios como:
+        /etc/rc.d/
+        /etc/init.d/
+        Dentro de estos directorios hay subdirectorios (rc0.d, rc1.d, etc.) con enlaces simbólicos a los scripts de servicio.
+    Ejecución al iniciar/detener el sistema:
+        Scripts con prefijo S (Start) se ejecutan al inicio.
+        Scripts con prefijo K (Kill) se ejecutan al detenerse.
+        El orden de ejecución depende del número asociado al prefijo, como S01servicio.
+        
+        (a) ¿Qué es SystemD?
+
+SystemD es un sistema de inicialización y gestión de servicios para sistemas operativos Linux. Reemplaza a los sistemas de inicialización tradicionales como SysVinit y Upstart. SystemD es responsable de inicializar el sistema al arrancar, gestionar servicios en ejecución, y supervisar procesos en segundo plano. Además, ofrece funcionalidades adicionales como:
+
+    Arranque paralelo de servicios.
+    Dependencias explícitas entre servicios.
+    Manejo de "cgroups" para controlar recursos de procesos.
+
+(b) ¿A qué hace referencia el concepto de Unit en SystemD?
+
+Una Unit en SystemD es la representación básica de un recurso que SystemD puede administrar. Existen diferentes tipos de unidades, y cada una está definida por un archivo de configuración con extensión específica, que describe cómo debe gestionarse. Algunos tipos comunes de unidades son:
+
+    Service Unit (.service): Representa un servicio o demonio, como nginx.service.
+    Socket Unit (.socket): Representa un socket de comunicación.
+    Target Unit (.target): Representa un grupo de servicios y otras unidades.
+    Timer Unit (.timer): Representa tareas programadas.
+    Mount Unit (.mount): Representa un punto de montaje.
+
+Cada unidad tiene configuraciones asociadas, como dependencias, acciones, y estados.
+(c) ¿Para qué sirve el comando systemctl en SystemD?
+
+El comando systemctl es la herramienta principal para interactuar con SystemD desde la línea de comandos. Se utiliza para administrar y consultar el estado de las unidades. Algunas de sus funciones principales incluyen:
+
+    Iniciar, detener, reiniciar servicios:
+        systemctl start nginx.service
+        systemctl stop nginx.service
+    Habilitar o deshabilitar servicios para el arranque automático:
+        systemctl enable nginx.service
+        systemctl disable nginx.service
+    Ver el estado de servicios y otras unidades:
+        systemctl status nginx.service
+    Listar todas las unidades activas o disponibles:
+        systemctl list-units
+    Recargar la configuración de SystemD:
+        systemctl daemon-reload
+
+(d) ¿A qué hace referencia el concepto de target en SystemD?
+
+Un target en SystemD es un grupo de unidades que se utilizan para alcanzar un estado particular del sistema o un propósito específico. Los targets reemplazan a los "runlevels" tradicionales de SysVinit. Algunos ejemplos comunes son:
+
+    multi-user.target: Equivale al "runlevel 3", proporciona un entorno multiusuario con acceso a red pero sin entorno gráfico.
+    graphical.target: Equivale al "runlevel 5", proporciona un entorno gráfico completo.
+    rescue.target: Equivale al "runlevel 1", proporciona un entorno de recuperación con acceso básico.
+
+Los targets permiten agrupar y organizar servicios y dependencias en estados lógicos del sistema.
+(e) Ejecute el comando pstree. ¿Qué es lo que se puede observar a partir de la ejecución de este comando?
+
+El comando pstree muestra una representación jerárquica de los procesos en ejecución en el sistema. Cada rama en el árbol representa un proceso padre y sus procesos hijos.
+
+    Lo que se puede observar:
+        systemd es típicamente el proceso raíz (PID 1) y se encarga de iniciar y supervisar otros procesos del sistema.
+        A partir de systemd, se despliegan procesos hijos como servicios del sistema (sshd, nginx) o demonios (dbus-daemon).
+        Se visualizan relaciones de dependencia entre procesos.
+        Los procesos iniciados por usuarios también aparecen bajo sus respectivos shells (bash, zsh).
+        
+        a) Archivos utilizados en un sistema GNU/Linux para guardar la información de los usuarios:
+
+En un sistema GNU/Linux, la información de los usuarios se guarda principalmente en los siguientes archivos:
+
+    /etc/passwd: Este archivo contiene información básica sobre cada usuario del sistema, como su nombre de usuario, UID, GID, el directorio home, y el shell predeterminado. Cada línea del archivo corresponde a un usuario y tiene un formato similar a:
+
+    nombre_usuario:x:UID:GID:nombre_completo:/directorio/home:/ruta/shell
+
+    /etc/shadow: Este archivo contiene información sobre las contraseñas de los usuarios, como el hash de la contraseña, la fecha de expiración de la contraseña, y otros datos relacionados con la seguridad de la cuenta. Las contraseñas no están almacenadas en texto claro aquí, sino en formato cifrado.
+
+    /etc/group: Contiene información sobre los grupos del sistema, incluyendo el nombre del grupo, el GID y los miembros del grupo. Esto permite que los usuarios sean asignados a grupos específicos con permisos especiales.
+
+    /etc/gshadow: Similar a /etc/shadow, pero para los grupos. Contiene información sobre las contraseñas de los grupos y otros datos relacionados con la seguridad de los grupos.
+
+(b) UID y GID:
+
+    UID (User Identifier): Es un número único asignado a cada usuario en el sistema para identificarlo de manera única. El UID es utilizado por el sistema operativo para gestionar las operaciones de los usuarios, como la asignación de permisos.
+
+    GID (Group Identifier): Es un número único asignado a cada grupo en el sistema. Al igual que el UID, el GID es usado para manejar permisos y gestionar la pertenencia de los usuarios a grupos.
+
+¿Pueden coexistir UIDs iguales en un sistema GNU/Linux?
+
+No, los UIDs deben ser únicos para cada usuario en el sistema. No puede haber dos usuarios con el mismo UID, ya que esto generaría conflictos en la asignación de permisos y en la administración del sistema, ya que el sistema operará con el UID para identificar al usuario en las operaciones del sistema (como lectura, escritura y ejecución de archivos). Sin embargo, el sistema puede asignar el mismo UID a un usuario en diferentes sistemas si esos sistemas son independientes entre sí.
+
+(c) Usuario root:
+
+    ¿Qué es el usuario root?
+
+    El usuario root es el superusuario o administrador del sistema en Linux y otros sistemas Unix. Tiene acceso completo y sin restricciones a todos los archivos, procesos y configuraciones del sistema, lo que le permite realizar cualquier tarea administrativa, como instalar software, modificar configuraciones del sistema, y gestionar cuentas de usuario.
+
+    ¿Puede existir más de un usuario con este perfil en GNU/Linux?
+
+    Aunque el sistema permite la creación de otros usuarios con privilegios elevados, solo debe existir un usuario con UID 0, que es el usuario root. Cualquier otro usuario con privilegios similares al root (por ejemplo, administradores o usuarios con permisos sudo) puede tener acceso administrativo, pero no son el usuario root propiamente dicho. Es posible crear otros usuarios con permisos de administrador usando sudo, pero no es recomendable tener múltiples usuarios con UID 0, ya que comprometería la seguridad y el control.
+
+    ¿Cuál es la UID del root?
+
+    El UID del usuario root es 0. Este valor está reservado para el superusuario, y es utilizado por el sistema para otorgar privilegios de administrador a ese usuario.
+
+
