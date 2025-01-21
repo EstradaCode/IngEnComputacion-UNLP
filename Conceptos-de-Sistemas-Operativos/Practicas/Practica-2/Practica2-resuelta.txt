@@ -225,4 +225,18 @@ g) - cd: change directory, sirve para moverse entre directorios de la gerarquia 
 - pwd: mostrar la ruta absoluta del directorio actual.
 - du: muestra el uso de espacio en el disco del directorio (cuanto espacio pesa, usar parametro -h para humanizar la cifra y que no sea en kibibytes)
 -df: muestra el espacio libre del disco.(-h)
-
+6) PROCESOS
+a) ¿Que es un proceso? es una instancia de un programa en ejecución. PID: PROCESS ID; ES EL Identificador del proceso.
+PPID: Parent Process ID; es el identificador del proceso padreo. Todos los procesos tienen estos atributos en GNU/linux
+atributos: %cpu,%ram,tiempo de inicio, duración, tty (nombre de la terminal donde se ejecuta), tamaño de fijo de memoria(rss) y tamaño de memoria virtual (vsz) que consume el proceso. 
+b) Pueden verse con ps,top y htop.
+c) Background y foreground hacen referencia a los distintos planos en los que puede ejecutarse un proceso. si está ejecutando en Foreground, la terminal, que es su proceso padre, debe esperar a su finalización para poder ejecutar otro proceso. En cambio, si el proceso es en bakground, puede ejecutarse en segundo plano mientras la terminal es funcional para ejecutar cualquier otro proceso.
+d) para ejecutar un proceso en Background debe ejecutarse $proceso & (& es el indicador de bg). Para pasar de fore a back se utiliza el comando bg, y fg.
+d) la funcion de pipe | es anclar la salida de un proceso con la entrada de otro proceso. ej: ls | wc -l (la salida del proceso ls se utiliza como la entrada para el comando wc)
+f) existe la redirección destructiva y no destructiva. Una destruye y la otra añade.la finalidad es variada pero sirve para redirigir las salidas de los procesos a archivos de manera destructiva o no destructiva. ej: cat /etc/passwd | grep iso20* > registro.txt
+g)el comando kill se utiliza para detener un proceso en ejecución con el nombre de su PID. existe pkill para utilizar el nombre del proceso. ej: pkill firefox.
+h) - ps
+   -kill
+   - pstree
+   - top
+   - nice: permite otorgarle prioridad a un proceso en un rango de 20.
