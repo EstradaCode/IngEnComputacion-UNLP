@@ -184,4 +184,45 @@ No, los UIDs deben ser únicos para cada usuario en el sistema. No puede haber d
 
     El UID del usuario root es 0. Este valor está reservado para el superusuario, y es utilizado por el sistema para otorgar privilegios de administrador a ese usuario.
 
+e) -useradd : crea usuarios ; parametros: -m (crea la carpeta home), -p (le coloca contraseña)
+-usermod: sirve para añadirle un grupo al usuario; parametros -a : añade un grupo, no sobreescribe los anteriores, -G : lo añade como grupo secundario.
+-groupadd: crea grupo.
+-su: switch user, cambia el usuario para poder generar comandos, sin la necesidad de cerrar sesion. 
+-userdel: borra el usuario; parametro: -r borra la carpeta home del usuario también.
+-who: muestra los usuarios activos.
+-groupdel: borra el grupo
+-passwd: cambia la contraseña del usuario elegido.
+
+5) FILESYSTEM
+---------------
+a) en linux se tienen 3 tipos de permisos:
+ - Lectura | R | 4
+ - Escritura | W | 2
+ - Ejecución | X | 1
+ estas condicionan a los usuarios sobre las tareas que pueden realizar con cierto archivo.
+ se expresa de manera U G O
+  U	G	O
+DUEÑO | GRUPO | OTROS
+
+b)-chmod: permite cambiar los permisos del archivo, utilizando la notacion octal. ej:chmod 755 archivo.txt 
+-chown: permite cambiar el dueño y el grupo propietario del archivo
+-chgrp: permite exclusivamente cambiar el grupo propietario del archivo.
+d) no es posible si no tiene los permisos.
+e) full path name: es la ruta especificada del archivo desde el tope del filesystem /.
+relative path name: es la ruta especificada del archivo desde el directorio donde estoy trabajando actualmente.
+f) -PWD para ubicarme donde estoy.
+- si, simplemente haciendo cd sin path o con ~.
+- si, sirve para transportarte a cualquier directorio o archivo dentro de tu directorio personal ej: cd ~/Documentos/sistemas-operativos
+g) - cd: change directory, sirve para moverse entre directorios de la gerarquia del filesystem.
+- umount: desmontar un filesystem.
+-mount: montar un filesystem
+- mkdir: crear directorio.
+- rmdir: borrar directorio.
+-mv: permite mover archivos y directorios de lugar.
+-cp:permite copiar uno o varios archivos en otro.
+- ls: mostrar contenido del directorio.
+-ln:sirve para crear enlaces entre archivos (probarlo).
+- pwd: mostrar la ruta absoluta del directorio actual.
+- du: muestra el uso de espacio en el disco del directorio (cuanto espacio pesa, usar parametro -h para humanizar la cifra y que no sea en kibibytes)
+-df: muestra el espacio libre del disco.(-h)
 

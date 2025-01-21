@@ -1,0 +1,4 @@
+echo "soy el p.i.t.y, el gato! tenés estos archivos y carpetas en el directorio actual"
+ls 
+echo " prrrrrr, te amo $(whoami)"
+
