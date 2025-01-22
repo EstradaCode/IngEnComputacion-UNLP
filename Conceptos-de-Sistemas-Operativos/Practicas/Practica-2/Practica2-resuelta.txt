@@ -239,4 +239,13 @@ h) - ps
    -kill
    - pstree
    - top
-   - nice: permite otorgarle prioridad a un proceso en un rango de 20.
+   - nice: permite otorgarle prioridad a un proceso en un rango de 20s.
+7) OTROS COMANDOS LINUX
+a) el concepto de empaquetar archivos hace referencia a agrupar todos los archivos en un archivo comprimido, el cual pese menos que la suma de todos ellos. Para poder acceder a ellos el usuario debe comprimir.
+b) se puede comprimir con tar -cvf (-x* para extraer, -t para contenidos), zip -r y unzip, gzip y gunzip. NOTA: SE DEBEN TENER PERMISOS  de lectura (y escritura dependiendo el lugar donde quiera guardarse) SOBRE LOS ARCHIVOS PARA EMPAQUETARLOS.
+e)tar: empaquetar
+grep: encuentra un patrón/palabra en un archivo.
+zgrep: lo mismo que grep pero para archivos gzipeados.
+gzip: empaquetamiento con trucamiento.
+wc: contador de palabras de un archivo.
+da
