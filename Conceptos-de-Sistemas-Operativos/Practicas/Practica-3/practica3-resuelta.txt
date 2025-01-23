@@ -1,0 +1,14 @@
+1) ¿Que es el Shell Scripting?
+El shell scripting es una herramienta para poder ejecutar una secuencia de comandos de manera automatizada, creando codigo que se guardan en un tipo de archivo llamado script. Esta orientado a tareas de automatización de tareas para el usuario. Los scripts no deben compilarse, ya que no es un lenguaje de programacion, sino un lenguaje interpretado.
+
+2) echo: forma de imprimir palabras para comunicarse con el usuario. (salida por defecto, pantalla)
+read: comando de entrada de datos, se debe leer y colocar en una variable.
+bash soporta string,numeros y arrays. Las variables se declaran NOMBRE="pepe" y se referencia $NOMBRE (variables case sensitive).
+Los comentarios se realizan en una linea con #.
+3) c)la sustitución de comandos es otra forma de referenciar la salida un comando sin la necesidad de hacer $(whoami) utilizando  `whoami`.
+4)Parametrización: ¿Como se acceden a los parametros enviados al script al momento de su invocación? para acceder se hace por edio de las variables $1,$2,..$n dependiendo de los n parametros que reciba al invocarlo.
+- $#: CANTIDAD DE ARGUMENTOS RECIBIDOS
+- $*: LISTA DE ARGUMENTOS
+- $?: VALOR DE RETORNO DEL ULTIMO COMANDO EJECUTADO
+- $HOME: Devuelve la ruta del directorio personal del usuario.
+5- el comando exit, permite terminar el proceso actual, devuelve cualquier valor numerico, pero es 0 cuando se pudo terminar correctamente sin problemas:.
