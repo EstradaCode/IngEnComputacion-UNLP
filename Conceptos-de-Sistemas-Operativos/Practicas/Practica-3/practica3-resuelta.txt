@@ -11,4 +11,33 @@ Los comentarios se realizan en una linea con #.
 - $*: LISTA DE ARGUMENTOS
 - $?: VALOR DE RETORNO DEL ULTIMO COMANDO EJECUTADO
 - $HOME: Devuelve la ruta del directorio personal del usuario.
-5- el comando exit, permite terminar el proceso actual, devuelve cualquier valor numerico, pero es 0 cuando se pudo terminar correctamente sin problemas:.
+5 - el comando exit, permite terminar el proceso actual( en este caso el script), devuelve cualquier valor numerico, pero es 0 cuando se pudo terminar correctamente sin problemas:.
+6 - expr: sirve para evaluar expresiones aritmeticas, ej: expr 1 - 2. NOTA: Cuidado con *, ya que la shell la interpreta como un comodin que contiene todos los datos del directorio actual(normalmente, cambia su proposito dependiendo del contexto, por eso es un comodin). para interpretar la multiplicacion utilice la barra invertida \ (como la del filesystem de windows).
+7 - test: evalua cierta expresion y genera un valor de retorno booleano. se puede utilizar en vez de test expresión como: [ expresion].
+SE PUEDE USAR PARA ARCHIVOS, NUMEROS, Y CADENAS DE CARACTERES.
+PARAMETROS ARCHIVOS:
+-e archivo : si archivo existe
+-s archivo : si archivo existe y tienen tamaño mayor que cero
+-f arch : si archivo existe y es un archivo regular
+-d arch: si archivo existe y es un directorio
+-r arch : ' ' y si tiene derechos de lectura
+-w arch : lo mismo pero con escritura
+-x arch : lo mismo pero con ejecución.
+PARAMETROS CADENAS
+-z str : si tamaño es cero
+-n cadena si tamaño es mayor a cero
+ cadena : si tiene tamaño mayor a cero
+ c1 = c2 : cadena c1 y c2 son identicas.
+ PARAMETROS NUMEROS
+ n1 -eq n2 : si n1 y n2 iguales
+ n1 -ne n2: si n1 y n2 no son iguales
+ n1 -gt n2: n1 es mayor que n2
+ n1 -ge n2 : n1 es mayor o igual a n2
+ n1 -lt n2 :n1 es menor que n2
+ n1 -le n2 :n1 menor o igual a n2
+
+OTROS:
+( ) parentesis para agrupar
+! negación
+-a	AND
+-o  OR
