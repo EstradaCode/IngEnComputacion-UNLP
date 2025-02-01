@@ -1,29 +1,27 @@
 #!/bin/bash
 #
 # pila estructura lifo
-#
 arreglo=()
 indice=0
-function push{
-elemento="$1"
-arreglo[$indice]=$elemento
-echo "agregado elemento $1 a la pila"
+push(){
+arreglo+=("$1")
+echo "agregado elemento "$1" a la pila"
 (( indice++ ))
 }
-function pop{
+pop(){
 	unset arreglo[$indice]
 	(( indice-- ))
 	arreglo=(${arreglo[@]})
 	echo "desapilado ultimo elemento ingresado"
 }
-function length{
+length(){
 	echo "${#arreglo[@]}"
 }
-function print{
+print(){
 	echo "${arreglo[@]}"
 }
 
-select opcion in "push" "pop" "length" "print" "salir" do
+select opcion in "push" "pop" "length" "print" "salir"; do
 	case $opcion in 
 		push) echo "ingrese elemento a añadir"
 			read elem
