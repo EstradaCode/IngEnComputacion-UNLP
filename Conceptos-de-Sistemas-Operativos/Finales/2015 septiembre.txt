@@ -1,0 +1,15 @@
+Final ISO – mesa septiembre 2015
+
+1. Procesos y syscall
+a. Describa las estructuras de datos y actividades llevadas a cabo para implementar el manejo de procesos. Tener en cuenta: planificación, estados, módulos, etc.
+
+b. Syscall. Definición. Cómo trabaja fork() en Linux, indique el apoyo por parte de HW.
+
+c. indicar que estructuras de a) son utilizadas y/o modificadas a causa de b)
+
+2. Memoria virtual. Paginación con demanda
+a. Cómo y quién realiza la traducción lógica en física. Tener en cuenta HW, actividades del SO, estructuras de datos, etc.
+
+b. Hiperpaginación. Definición. Cómo puede ser tratada? Relación con working set.
+
+3. Sistema de E/S. Describa el sistema de archivos en Unix System V. describa los pasos necesarios para abrir un archivo open('/home/iso/finales.doc').

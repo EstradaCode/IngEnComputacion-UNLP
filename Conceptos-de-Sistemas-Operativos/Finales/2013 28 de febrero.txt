@@ -1,0 +1,14 @@
+Final de ISO
+28.02.2012
+
+1) System Calls
+	a) Definición, como se implementan, participación o apoyo del hardware, modos de ejecución, uso de pilas.
+	b) Un proceso x ejecuta una System call bloqueante de proceso como read, pasos que se suceden hasta ejecutar un nuevo proceso y (estructuras y módulos de planificación)
+
+2) Memoria Virtual paginación por demanda.
+Estructuras, apoyo del HW, actividades del SO.
+Page faults. Trashing definición, cómo descubrirlo y cómo tratarlo.
+
+3) Sistema de archivos describir la estructura del file system de UNIX System V.
+Pasos en la creación de un archivo, cómo acceder por ejemplo a homeusrfinal.txt.
+Modificación de estructuras, consulta y estructuras creadas con la creación del archivo.

@@ -1,0 +1,13 @@
+Final de ISO - 17 diciembre 2015
+
+1)System calls:
+	a) Definición. Explicar como pueden ser implementadas, para ello tenga en cuenta: participación o apoyo del harware, modos de ejecución, stacks (pilas).
+	b) Suponiendo que un proceso ejecuta la System Call "fork()", describa eventos y actividades que se suceden hasta que el nuevo proceso comienza su ejecución (tener en cuenta planificadores, dispatcher, etc)
+
+2) Memoria virtual con paginación por demanda:
+	a) Funcionamiento. Estructuras utilizadas, participación del hardware, actividades desarrolladas por el SO.
+	b) Fallos de páginas: Explicar como se resuelven y que estructuras de las descriptas en el punto anterior son utilizadas (tanto modificadas, creadas y/o consultadas)
+
+3) Sistemas de archivos.
+	a) Describa la estructura del sistema de archivos de UNIX System V.
+b) ¿Si quisiera crear un nuevo archivo, por ejemplo /home/usuario/final.txt, que estructuras de las descriptas en el 

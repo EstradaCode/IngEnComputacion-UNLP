@@ -1,0 +1,10 @@
+Final ISO Marzo 2014
+
+1)	Se quiere implementar el concepto de proceso junto a algún algoritmo de planificación de CPU en un SO 
+	¿Cómo lo implementaría? Tenga en cuenta el apoyo del HW, estructuras de datos , tareas que deba realizar el SO
+
+2)	Explique la técnica de administración de memoria : segmentación paginada.
+	Tenga en cuenta estructuras utilizadas, tareas desarrolladas por el SO y apoyo que debe brindar el HW pasar las mismas
+
+3)	Sistemas de archivos , Sistemas de E/S y buffer cache 
+	Explique y relacione los 3 componentes y su interaccion dentro del so.
