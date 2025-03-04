@@ -6,8 +6,8 @@
 | Año | Estado | Avance |
 |-----|--------|--------|
 | 1er Año | ✅ Completado | ![100%](https://progress-bar.dev/100) |
-| 2do Año | 🔄 En progreso | ![60%](https://progress-bar.dev/80) |
-| 3er Año | 🔄 En progreso | ![20%](https://progress-bar.dev/40) |
-| 4to Año | ⏳ Próximamente | ![0%](https://progress-bar.dev/20) |
-| 5to Año | 🚀 Meta final | ![10%](https://progress-bar.dev/10) |
+| 2do Año | 🔄 En progreso | ![70%](https://progress-bar.dev/80) |
+| 3er Año | 🔄 En progreso | ![30%](https://progress-bar.dev/40) |
+| 4to Año | 🔄 En progreso | ![0%](https://progress-bar.dev/20) |
+| 5to Año | 🚀 🔄 En progreso | ![10%](https://progress-bar.dev/10) |
 
