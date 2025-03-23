@@ -1,0 +1,11 @@
+y = mx + b 
+queremos explorar precisión y rango de valores que pueden obtenerse al trabajar con la ecuación de recuta con representación en punto fijo.
+m = Q(0,15) y para b = Q(7,8); x e y variables de punto fijo de 32 bits con signo.
+
+a) rango de representación y la resolución de los valores de m ?
+- m presenta un rango = 0 <= x <= 2^0 - 2^-15 = 1 - 0.0000305= 0.999695
+- m presenta una resolución de = 2^-b = 2^-15 = 3.05 * 10^-5 =0.0000305
+
+b) rango de representación y resolución de los valores de b?
+- b presenta un rango  = 0<= x <= 2^7 - 2^-8 = 128- 0.00390625 = 127.99609375
+- b presenta una resolución de =2^-8 = 0.00390625

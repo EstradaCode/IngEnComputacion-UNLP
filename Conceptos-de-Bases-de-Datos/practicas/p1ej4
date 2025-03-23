@@ -1,0 +1,22 @@
+program ej4;
+procedure archToText(arch: file of integer);
+var archivo_texto:Text; cant:integer;
+begin
+	assign(archivo_texto,'votantes.txt');
+	rewrite(archivo_texto);
+	read(arch,cantidad);
+	while ( not eof(arch)) do begin
+		writeln(archivo_texto, 'cantidad de votantes: ' + cantidad);
+		read(arch,cantidad);
+	end;
+	close(archivo_texto);
+end;
+
+var nom_archivo:string [20];archivo_votantes: file of integer;
+begin
+	read(nom_archivo);
+	assign(archivo_votantes,nom_archivo);
+	reset(archivo_votantes);
+	archToText(archivo_votantes);
+	close(archivo_votantes);
+end.
