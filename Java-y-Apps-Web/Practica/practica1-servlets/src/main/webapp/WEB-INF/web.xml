@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+  <servlet>
+    <servlet-name>HolaServlet</servlet-name>
+    <servlet-class>com.miempresa.HolaServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HolaServlet</servlet-name>
+    <url-pattern>/hola</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Bienvenida</servlet-name>
+        <servlet-class>com.miempresa.Bienvenida</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Bienvenida</servlet-name>
+        <url-pattern>/Bienvenida</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+
+
