@@ -48,6 +48,7 @@ assign(mae,'maestro.dat');
 for i:=1 to tam do begin
 	assign(det[i], 'ej1detalles' + Chr(i + 48) + '.dat'); // cuidado si i > 9
 	reset(det[i]);
+	leer(det[i],regsd[i]);
 end;
 reset(mae);
 assign(soli,'informe.txt');

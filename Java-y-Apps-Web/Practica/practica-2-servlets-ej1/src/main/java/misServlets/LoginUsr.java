@@ -44,7 +44,6 @@ public class LoginUsr extends HttpServlet {
             sesion.setAttribute("apellidoNombre", apellidoNombre);
             sesion.setAttribute("direccion", direccion);
 
-            // ✅ Redirección usando el contexto actual
             response.sendRedirect(request.getContextPath() + "/Productos");
         } else {
             response.sendRedirect(request.getContextPath() + "/login.html");
