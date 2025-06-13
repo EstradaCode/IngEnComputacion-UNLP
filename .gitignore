@@ -1,0 +1,15 @@
+# Ignorar archivos ejecutables
+*.exe
+*.obj
+
+# Ignorar carpetas de compilación
+bin/
+obj/
+
+# Ignorar archivos de configuración local
+*.log
+*.tmp
+
+# Ignorar archivos de sistema (ejemplo para Windows)
+Thumbs.db
+.DS_Store

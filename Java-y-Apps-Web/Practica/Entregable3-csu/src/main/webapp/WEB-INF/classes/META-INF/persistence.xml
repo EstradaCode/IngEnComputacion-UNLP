@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="UNLP_PU" transaction-type="RESOURCE_LOCAL">
+        <class>ar.edu.unlp.salud.algo</class> <!-- A reemplazar por tus clases -->
+        <!--debo colocar la clase de cada una de las entidades para que manejen esta configuración de persistencia-->
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mi_basedatos" />
+            <property name="jakarta.persistence.jdbc.user" value="mi_usuario" />
+            <property name="jakarta.persistence.jdbc.password" value="mi_contraseña" />
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+
+            <!-- Configuración de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>
