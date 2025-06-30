@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="P4_EJ1" transaction-type="RESOURCE_LOCAL">
+        <class>Modelo.Item</class>
+        <class>Modelo.Visitante</class>
+        <!--debo colocar la clase de cada una de las entidades para que manejen esta configuración de persistencia-->
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bodas_servicio" />
+            <property name="jakarta.persistence.jdbc.user" value="bodas_dba" />
+            <property name="jakarta.persistence.jdbc.password" value="321" />
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+
+            <!-- Configuración de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create" /> <!-- duda sobre create -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.import_files" value="import.sql"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>
