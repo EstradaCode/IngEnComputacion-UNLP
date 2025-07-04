@@ -1,0 +1,193 @@
+PMS
+process jugador[1..20]
+{
+	entrenador!llego(id);
+	entrenador?cancha(cancha)
+	cancha[cancha]!empezar(id);
+	cancha[cancha]?fin();
+	entrenador!termino();
+	entrenador?finCharla();
+}
+
+process entrenador
+{
+	for (i =0; i < 20 ; i++)
+	{	
+		cancha = (i mod 2) + 1
+		jugador[*]?llego(id);
+		jugador[id]!cancha(cancha);
+	}
+	for (i =0; i < 20 ; i++)
+	{	
+		jugador[*]?termino(id);
+	}
+	
+	//dar charla
+	delay (10 min);
+	for (i =0; i < 20 ; i++)
+	{	
+		jugador[i]!finCharla();
+	}
+	
+}
+
+process cancha[1..2]
+{
+	for (i =0; i < 20 ; i++)
+	{
+		jugador[*]?empezar(id);
+		jugadores.push(id);
+	}
+	
+	//empeiza partido
+	delay 40 min;
+	
+	for (i =0; i < 20 ; i++)
+	{
+		jugador[jugadores.pop()]!fin();
+	}
+
+}
+
+PMA
+chan llgue (int),cancha[20](int),empezoPartido[2](int),terminoPartido[2](int),charla(int),finCharla(int);
+process jugador[0..19]
+{	
+	send llegue(id);
+	recive cancha[id](idCancha);
+	send empezoPartido[idCancha]();
+	recive terminoPartido[idCancha]();
+	send charla();
+	recive finCharla();
+}
+
+process entrenador[1..20]
+{
+	for (i =0; i < 20 ; i++)
+	{
+		idCancha = (i mod 2) + 1;
+		recive llegue(id);
+		send cancha[id] (idCancha);
+	}
+	
+	for (i =0; i < 20 ; i++)
+	{
+		recive charla();
+	}
+	delay 10 min
+	
+	for (i =0; i < 20 ; i++)
+	{
+		send finCharla();
+	}
+}
+
+process cancha[1..2]
+{
+	for (i =0; i < 10 ; i++)
+	{
+		recive empezoPartido[id]();
+	}
+	
+	delay 40 min
+	
+	for (i =0; i < 10 ; i++)
+	{
+		send terminoPartido[id]();
+	}
+
+}
+
+ADA
+
+procedure basquet is
+
+task entrenador is
+	entry termino();
+	entry asignar(idCancha:out int);
+	entry terminoCharla ();
+end entrenador;
+
+task type cancha is
+	entry jugar();
+	entry terminoPartido();
+end cancha;
+
+task type juagador is
+end jugador;
+
+arrJ (0..19) :array Jugador;
+arrC (0..1) :array Cancha;
+
+task body Jugador is
+begin
+	entrenador.asignar(idCancha);
+	arrC(idCancha).jugar();
+	--juega
+	arrC(idCancha).terminoPartido();
+	entrenador.terminoCharla();
+	
+end jugador;
+
+task body entrenador is
+begin
+
+	for i in 0..19 loop
+		accept asignar(idCancha) is
+			idCancha := (i mod 2) + 1
+		end asignar;
+	end loop;
+	
+	for i in 0..1 loop
+		accept termino();
+	end loop;
+	
+	delay 10 min;
+	
+	for i in 0..19 loop
+		accept terminoCharla();
+	end loop;
+end entrenador;
+
+task body cancha is
+begin
+	
+	for i in 0..10 loop
+		accept jugar is
+			null;
+		end jugar;
+	end loop;
+	
+	delay 40 min;
+	
+	for i in 0..19 loop
+		accept terminoPartido is
+			null;
+		end jugar;
+	end loop;
+	
+	entrenador.termino();
+end cancha;	
+begin 
+null;
+end basquet;
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

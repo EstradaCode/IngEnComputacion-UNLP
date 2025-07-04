@@ -1,0 +1,85 @@
+---------------EJERCICIO 1---------------
+
+chan atencion(int, int, text), respuesta[N](int), terminar[N](text);
+
+Process Cliente[id:0..N-1]
+{  
+   int idL;
+   text t;
+   send atencion(id, NULL, "llegada");
+   receive respuesta[id](idL);
+   //usar locutorio
+   send atencion(id, idL, "devolver");
+   receive terminar[id](t);
+}
+
+Process Empleado
+{
+   int idL, id;
+   text ticket, at;
+   Cola esperando, cLocutorios;
+   while(true){
+      receive atencion(id, idL, at);
+      if(at == "devolver"){
+         cobrar();
+         send terminar[id](ticket);
+         push(cLocutorios, idL);
+         if(!empty(esperando)) send respuesta[pop(esperando)](pop(cLocutorios));
+      }
+      else if(!empty(cLocutorios)) send respuesta[id](pop(cLocutorios));
+         else push(esperando, id);
+   }
+}
+
+---------------EJERCICIO 2---------------
+Process oficina is
+
+   task type empleado is
+     entry tramite(t: in text; res: out text);
+     entry terminar;
+   end empleado;
+   task type admin is
+     entry salir;
+   end admin;
+   task type cliente;
+
+   arrCliente=(1..P) of cliente;
+
+   task body cliente is
+     t, res: text;
+   begin
+     select
+         empleado.tramite(t, res);
+     or delay 1200
+         NULL;
+     end select;
+     admin.salir;
+   end cliente;
+
+   task body admin is
+   begin
+     for int i in 1..P loop
+         accept salir;
+     end loop;
+     empleado.terminar;
+   end;
+   
+   task body empleado is
+     t: text;
+     termine: boolean:=false;
+   begin
+     while(not termine)loop
+         select
+             accept tramite(t: in text; res: out text) do
+                 res:=atender(t);
+             end tramite;
+         or
+             accept terminar()do
+                 termine:=true;
+             end terminar;
+         end select;
+     end loop;
+   end empleado;
+begin
+   null;
+end oficina;

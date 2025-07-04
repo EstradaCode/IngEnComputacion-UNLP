@@ -1,0 +1,143 @@
+1. Resolver con PMS (Pasaje de Mensajes SINCRÓNICOS) el siguiente problema. En 
+una carrera hay C corredores, 3 Coordinadores. Al llegar los corredores deben 
+dirigirse a los coordinadores para que cualquiera de ellos le dé el número de “chaleco” 
+con el que van a correr. Los coordinadores atienden a los corredores de acuerdo al 
+orden de llegada (cuando un coordinador está libre atiende al primer corredor que está 
+esperando). Cuando todos los corredores ya recibieron su número de “chaleco” 
+comienza la carrera. Cuando un corredor termina de correr busca la posición en que 
+termino la carrera y se retira. Nota: maximizar la concurrencia.
+
+
+process corredor[id:0..c-1]
+{
+	admin!libre(id);
+	admin?coordinador(idCoor);
+	coordinador[idCor]!dameChaleco(id);
+	coordinador[idCor]?numeroChaleco(nChaleco);
+	admin!listo();
+	--corre
+	admin!posicion(id);
+	admin?damePosicion(pos);
+	--se va
+}
+
+process coordinador[0..2]
+{
+	whlie(true)
+	{
+		admin!pedido(id);
+		corredor[*]?dameChaleco(idCorr);
+		corredor[idCorr]!numeroChaleco(random());--da numero chaleco
+	}
+	
+}
+
+process admin
+{
+	
+	
+	do 	cant < c corredor[*]?libre(idCorr) -> corredores.push(idCorr);
+		not corredores.empty(); coordinador[*]?pedido(idCoor) -> corredor[corredores.pop()]!coordinador(idCoor);
+													cant++;
+	
+	--en vez de 2 for un do?, tengo que avisarle que arranquen todos antes de darle su pos a alguno?
+	
+	for(i = 0; i <c ; i++)
+	{
+		corredor[*]?listo();
+	}
+	
+	for(i = 0; i <c ; i++)
+	{
+		corredor[*]?posicion(posCorr);
+		corredor[idCorr]!damePosicion(i);
+	}
+}
+
+2. Resolver con PMA (Pasaje de Mensajes ASINCRÓNICOS) el siguiente problema. 
+En una oficina hay 3 empleados y P personas que van para ser atendidas para iniciar 
+un trámite, o para buscar su resultado. Cuando una persona llega espera hasta ser 
+atendido por cualquiera de los empleados, le indica que necesita (iniciar trámite o 
+buscar el resultado de un trámite) y espera hasta que terminan de atenderlo y le 
+devuelven: un número de trámite en el primer caso, un dictamen en el segundo caso. 
+Los empleados atienden las solicitudes en orden de llegada; si no hay personas 
+esperando, durante 5 minutos resuelven trámites pendientes (simular el proceso de 
+resolver trámites pendientes por medio de un delay). Cuando se han atendido a las P 
+personas los empleados se retiran. Nota: no generar demora innecesaria; cada persona 
+hace sólo un pedido y termina; los empleados deben terminar. 
+
+
+process persona[0..p-1]
+{
+	send esperar(id,tramite);
+	recive resultado[id](resultado);
+}
+
+process empleado[0..2]
+{
+	send pedido(id);
+	recive (idP,tramite,terminar);
+	whlie (not terminar)
+	{
+		if (tramite == "vacio")
+		{
+			delay 5 min --resuleve tramites pendientes
+		}else
+		{
+			if (tramite == "iniciar tramite")
+				
+				send resultado[idP](generarNumeroTramite());
+			else
+				send resultado[idP](generarDicatamen());
+		}
+		send pedido(id);
+		recive (idP,tramite,terminar);
+	}
+}
+
+process adimn
+{
+	terminar= false;
+	atendidos = 0;
+	while (true)
+	{
+		recive pedido(idEmp);
+		if (not esperar.empty)
+		{
+			recive esperar(idP, tramite);
+			atendidos++;
+		}else
+		{
+			tramite="vacio";
+			idP = -1;
+		}
+		send empleado[idEmp](idP,tramite,terminar);
+		if (atendidos >= c)
+		{
+			terminar = true;
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

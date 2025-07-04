@@ -1,0 +1,16 @@
+Operaciones send y receive,Pueden ser bloqueantes o no bloqueantes y con buffer o sin buffer
+Qué es MPI?,"MPI es una librería estándar que define las interfaces para la comunicación entre procesos por pasaje de mensajes. Esta tiene un modelo SPMD. Todas las rutinas, tipos de datos y constantes en MPI tienen el prefijo ""MPI_"". 
+Con 6 rutinas podemos escribir programas paralelos basados en pasaje de mensajes: MPI_Init, MPI_Finalize, MPI_Comm_size, MPI_Comm_rank, MPI_Send y MPI_Recv. "
+Inicio y finalización de MPI,"MPI_Init: se invoca en todos los procesos antes que cualquier otro llamado a rutinas MPI. Sirve para inicializar el entorno MPI. MPI_Init (int *argc, char **argv)
+MPI_Finalize: se invoca en todos los procesos como último llamado a rutinas MPI. Sirve para cerrar el entorno MPI
+MPI_Finalize()"
+Comunicadores en MPI,"Los comunicadores permiten definir el dominio de comunicación. Cada proceso puede pertenecer a muchos comunicadores. Estos son variables del tipo MPI_Comm y almacenan información sobre qué procesos pertenecen a él. 
+MPI_Comm_size: cantidad de procesos en el comunicador.
+MPI_Comm_rank: indica el identificador del proceso dentro de ese comunicador. 
+El comunicador MPI_COMM_WORLD incluye a todos los procesos de la aplicación."
+Protocolos para Send,"Bsend -> Bloqueante con buffering
+Ssend -> Bloqueante sin buffering
+Isend -> No bloqueante"
+Protocolos para Recv,"Recv -> Bloqueante
+Irecv -> No bloqueante"
+Comunicaciones colectivas,"MPI provee un conjunto de funciones para realizar operaciones colectivas sobre un grupo de procesos asociado con un comunicador. Estas comunicaciones son más eficientes que las que se hacen punto a punto ya que son de orden logarítmico, no lineal. (explicar gráfico P0..P7). "

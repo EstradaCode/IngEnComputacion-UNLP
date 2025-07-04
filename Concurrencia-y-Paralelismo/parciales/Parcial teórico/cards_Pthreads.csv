@@ -1,0 +1,21 @@
+Thread,"roceso “liviano” que tiene su propio contador de
+programa y su pila de ejecución, pero no controla el “contexto
+pesado” (por ejemplo, las tablas de página)"
+Exclusión mutua en Pthreads,"Pthreads nos permite manejar la exclusión mutua por medio de variables mutex. 
+Las secciones críticas se implementan en Pthreads utilizando mutex locks (bloqueo por exclusión mutua) por medio de variables mutex. Una variable mutex tienen dos estados: locked (bloqueado) and unlocked (desbloqueado). En cualquier instante, sólo UN thread puede bloquear un mutex. Lock es una operación atómica. Todos los mutex deben inicializarse como desbloqueados."
+Tipos de Mutex Pthreads,"Pthreads soporta tres tipos de Mutexs (Locks): Normal, Recursive y Error Check.
+Un Mutex con el atributo Normal NO permite que un thread que lo tienen bloqueado vuelva a hacer un lock sobre él (deadlock).
+Un Mutex con el atributo Recursive SI permite que un thread que lo tienen bloqueado vuelva a hacer un lock sobre él. Simplemente incrementa una cuenta de control.
+ Un Mutex con el atributo ErrorCheck responde con un reporte de error al intento de un segundo bloqueo por el mismo thread. 
+El tipo puede setearse como atributo en la inicialización."
+funcion pthread_mutex_trylock,"A menudo se puede reducir el overhead por espera ociosa,
+utilizando la función pthread_mutex_trylock. Retorna el
+control informando si pudo hacer o no el lock. El proceso no se queda esperando a que se le permita entrar a la SC."
+Exclusión por condición en Pthreads,"Pthreads permite manejar la sincronización por condición utilizando variables condición.
+Cada variable de condición estará asociada con un predicado. Cuando el predicado se convierte en verdadero (TRUE) la variable de condición da una señal para el/los threads que están esperando por el cambio de estado
+de la condición. Una única variable de condición puede asociarse a varios predicados (difícil el debug). Una variable de condición siempre tiene un mutex asociada a ella. Cada thread bloquea este mutex y testea el predicado definido sobre la variable compartida. Si el predicado es falso, el thread espera en la variable condición utilizando la función pthread_cond_wait (NO USA CPU)."
+Attributes objects,"Permiten cambiar los atributos por defecto de las entidades. Es una estructura de datos que describe las propiedades de la entidad en cuestón (thread, mutex, variable de condición). Se pasan como parámetro en la inicialización de la entidad."
+Funciones para implementar un semaforo en pthreads,"incluir semaphore.h. sem_t declaracion. sem_init(&semaforo, alcance, valor_inicial) inicializacion. Alcance indica si es compartido por los hilos de un único proceso (0) o por los de todos los procesos ( ≠ 0).
+sem_wait(&semaforo) → equivale al P.
+sem_post(&semaforo) → equivale al V"
+Monitores en Pthreads,"Pthreads no tiene la estrucutra de monitores. Con las variables mutex y las condición podremos simular el uso de monitores. "

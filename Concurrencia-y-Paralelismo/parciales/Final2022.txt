@@ -1,0 +1,7 @@
+1) relación paralelismo recursivo y divide & conquer, cómo podría esto aplicarse al ordenar un arreglo.
+2) defina heartbeat y servidores replicados, ventajas y desventajas de cada uno con pma y pms
+3) comunicación guardada defina y explique cómo funciona if y do
+4) muestra un código y decir que hace , cuántos mensajes envia cada programa y que tipo de granularidad tiene cada programa (los programas eran, 2 for que recorrían una matriz y uno mandaba mensaje por cada casilla y otra función sumaba y el otro sumaba toda la fila y luego enviaba 1 mensaje) 
+5) Escribir un programa para ordenar de menor a mayor un arreglo de a[1..n] , con 2 procesos donde cada uno recibe n/2.
+Cuántos mensajes se hacen en el mejor caso? Y en el peor?
+Haga el mismo ejercicio pero para n/k con c/u odd-even-exchange-sort

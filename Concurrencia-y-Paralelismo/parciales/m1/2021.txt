@@ -1,0 +1,308 @@
+30-04-2021
+
+2021.txt
+float prom = 0;
+int v[1000];
+int cant_terminaron = 0;
+
+Process p[id: 0..9]{
+    int pos = id;
+    int sumaParcial = 0;
+
+    for (int i=0; i<100; i++){
+        sumaParcial += v[pos]
+        pos += 10;
+    }
+    
+    float promParcial = sumaParcial / 1000;
+
+    <prom += promParcial>; 
+    <cant_terminaron++>;
+    <await(cant_terminaron == 10)>;
+    float promLocal = prom;
+}
+
+----------------------------------------
+
+# Resolver el siguiente problema con MONITORES. Simular el funcionamiento de un Complejo de
+# Canchas de Futbol 5 que posee 8 canchas y donde hay una máquina encargada de asignar las canchas. Al 
+# complejo acuden 80 jugadores divididos en 8 grupos (cada grupo tiene las 10 personas que jugarán en una 
+# cancha), cada jugador ya conoce a qué grupo pertenece. Cuando un jugador llega le indica a la máquina el 
+# grupo al que pertenece para que esta le indique el número de cancha a la cual debe ir, y luego se dirige a ella. 
+# Cuando los 10 integrantes de un grupo han llegado a la cancha que les corresponde, comienzan a jugar el 
+# partido que dura 50 minutos; y luego se retiran. La máquina asigna el número de cancha de acuerdo al orden 
+# en que llega el primer jugador de cada grupo. Nota: maximizar la concurrencia. 
+
+Process Jugador[id: 0..79]{
+    int grupo, cancha; // se supone el grupo conocido
+    Maquina.llegue(grupo, cancha);
+    Cancha[cancha].llegue();
+}
+
+Monitor Maquina{
+    int cancha = 0;
+    int canchas[8] = ([8] -1);
+
+    Procedure llegue(grupo: in int; c: out int){
+        if (canchas[grupo] == -1){
+            canchas[grupo] = cancha;
+            cancha++;
+        }
+        c = canchas[grupo];
+    }
+}
+
+Monitor Cancha[id: 0..7]{
+    int cant_llegaron = 0;
+    cond esperando;
+
+    Procedure llegue(){
+        cant_llegaron++;
+        if (cant_llegaron == 10){
+            delay(50); // se juega el partido;
+            signal_all(esperando); // se retiran todos los jugadores
+        }
+        else 
+            wait(esperando);
+    }
+}
+
+# Resolver el siguiente problema con MONITORES. Simular el funcionamiento de un Entrenamiento de
+# Básquet donde hay 20 jugadores y 2 canchas donde entrenar. Los jugadores se van distribuyendo entre las 
+# canchas en forma cíclica de acuerdo al orden de llegada (el primero va a la cancha 1, el segundo a la 2, el 
+# tercer a la 1, y así sucesivamente). Cuando un jugador llega determina la cancha a la cual debe ir y se dirige a 
+# ella a esperar a que lleguen los 10 de esa cancha. Cuando todos los jugadores de una cancha han llegado, 
+# juegan un partido de 40 minutos y se retiran. Nota: maximizar la concurrencia.
+
+Process Jugador[id: 0..19]{
+    int cancha;
+    Fila.hacerFila();
+    Admin.obtenerCancha(cancha);
+    Fila.irse();
+    Cancha[cancha].llegue();
+}
+
+Monitor Fila{
+    int cant = 0;
+    # Cola cola;
+    # bool libre = false;
+
+    Procedure hacerFila(pid: in int){
+        cant++;
+        if (cant > 1){
+            wait(esperando);
+        }
+    }
+
+    Procedure irse(){
+        cant--;
+        if (cant > 0){
+            signal(esperando);
+        }
+    }
+}
+
+Monitor Admin{
+    int cancha_actual = 0;
+
+    Procedure obtenerCancha(cancha: out int){
+        cancha = cancha_actual + 1;
+        cancha_actual = (cancha_actual + 1) mod 2;
+    }
+}
+
+Process Partido[id: 0..1]{
+    Cancha[id].comenzar();
+    delay(40);
+    Cancha[id].fin();
+}
+
+Monitor Cancha[id: 1..2]{
+    int cant_llegaron = 0;
+    cond empezar, esperar;
+
+    Procedure llegue(){
+        cant_llegaron++;
+        if (cant_llegaron == 10)
+            signal(empezar);
+        wait(esperar);
+    }
+
+    Procedure comenzar(){
+        if (cant_llegaron < 10)
+            wait(empezar);
+    }
+
+    Procedure fin(){
+        signal_all(esperar);
+    }
+}
+
+# Resolver el siguiente problema con SEMÁFOROS. Simular la atención en un Centro de Vacunación con 8 
+# puestos para vacunar contra el coronavirus. Al Centro acuden 200 pacientes para ser vacunados, cada uno 
+# de ellos ya conoce el puesto al que se debe dirigir. En cada puesto hay UN empleado para vacunar a los 
+# pacientes asignados a dicho puesto, y lo hace de acuerdo al orden de llegada al mismo. Cada paciente al 
+# llegar al puesto que tenía asignado espera a que lo llamen para vacunarlo, y al terminar se retira. Nota: 
+# suponer que existe una función Vacunar() que simula la atención del paciente por parte del empleado. 
+# Suponer que cada puesto tiene asignado 25 pacientes. Todos los procesos deben terminar
+
+Cola colas[8];
+sem mutex[8] = ([8] 1);
+sem esperar[200] = ([200] 0);
+sem hayCliente[8] = ([8] 0);
+
+Process Empleado[id: 0..7]{
+    for (int i=0; i<25; i++){
+        P(hayCliente[puesto]);
+        P(mutex[id]);
+        pop(colas[id], next_id);
+        V(mutex[id]);
+
+        V(esperar[id_next]);
+        # P(llegue[id]);
+        Vacunar();
+        V(vacunacion[puesto])
+        P(llegue[id]); # Espera a que el paciente se vaya
+    }
+}
+
+Process Paciente[id: 0..199]{
+    int puesto; // se supone conocido
+    P(mutex[puesto]);
+    push(colas[puesto], id);
+    V(mutex[puesto]);
+    V(hayCliente[puesto]);
+
+    P(esperar[id]);
+    # V(llegue[puesto]);
+    P(vacunacion[puesto]);
+    V(llegue[puesto]);  
+}
+
+Cola colas[8];
+sem mutex = 1;
+sem esperar[200] = ([200] 0);
+sem hayCliente[8] = ([8] 0);
+sem vacunacion[200]
+sem fin[200] = ([200] 0);
+
+Process Empleado[id: 0..7]{
+    for (int i=0; i<25; i++){
+        P(hayCliente);
+        P(mutex);
+        pop(cola, next_id);
+        V(mutex);
+
+        V(esperar[id_next]);
+        # P(llegue[id]);
+        Vacunar();
+        V(esperar[id_next])
+        P(fin[id_next]); # Espera a que el paciente se vaya
+    }
+}
+
+Process Paciente[id: 0..199]{
+    P(mutex);
+    push(cola, id);
+    V(mutex1);
+    V(hayCliente);
+
+    P(esperar[id]);
+    # V(llegue[puesto]);
+    P(esperar[id]);
+    V(fin[id]);  
+}
+
+# esolver el siguiente problema con MONITORES. Simular el funcionamiento de un Complejo de
+# Canchas de Paddle que posee 10 canchas y donde hay UN robot encargado de distribuir a las personas en 
+# las canchas. Al complejo acuden 40 personas a jugar. Cuando una persona llega el robot le indique el 
+# número de cancha a la cual debe ir, para que se dirija a ella; cuando han llegado los 4 jugadores a la cancha, 
+# comienzan a jugar el partido que dura 60 minutos; al terminar el partido las 4 personas se retiran. El 
+# encargado asigna el número de cancha según el orden de llegada (los 4 primeros a la cancha 1, los siguientes 
+# 4 a la 2 y así sucesivamente). Nota: maximizar la concurrencia
+
+Process Jugador[id: 0..39]{
+    int cancha;
+    Fila.hacerFila();
+    Admin.obtenerCancha(cancha);
+    Fila.irse();
+    Cancha[cancha].llegue();
+}
+
+Monitor Fila{
+    int cant = 0;
+
+    Procedure hacerFila(pid: in int){
+        cant++;
+        if (cant > 1){
+            wait(esperando);
+        }
+    }
+
+    Procedure irse(){
+        cant--;
+        if (cant > 0){
+            signal(esperando);
+        }
+    }
+}
+
+Monitor Fila{
+    int esperando = 0;
+    bool free = true;
+    cond cola;
+
+    Procedure llegar(){
+        if (libre)
+            libre = fasle;
+        else {
+            esperando++;
+            wait(cola);
+        }
+    }
+
+    Procedure irse(){
+        if (esperando > 0){
+            esperando--;
+            signal(cola);
+        }  
+        else
+            free = true;
+    }
+}
+
+Monitor Admin{
+    int cant_llegaron = 0;
+
+    Procedure obtenerCancha(cancha: out int){
+        cancha = cant_llegaron div 4 + 1;
+        cant_llegaron++;
+    }
+}
+
+Process Partido[id: 0..1]{
+    Cancha[id].comenzar();
+    delay(60);
+    Cancha[id].fin();
+}
+
+Monitor Cancha[id: 1..10]{
+    int cant_llegaron = 0;
+    cond empezar, esperar;
+
+    Procedure llegue(){
+        cant_llegaron++;
+        if (cant_llegaron == 4)
+            signal(empezar);
+        wait(esperar);
+    }
+
+    Procedure comenzar(){
+        if (cant_llegaron < 10)
+            wait(empezar);
+    }
+
+    Procedure fin(){
+        signal_all(esperar);
+    }
+}

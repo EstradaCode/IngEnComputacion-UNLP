@@ -1,0 +1,17 @@
+Paradigma de programación,"Un paradigma de programación engloba una clase de algoritmos que resuelve distintos problemas, pero que tienen la misma estructura de control. "
+Cliente-Servidor,El cliente-servidor es el esquema dominante en las aplicaciones de procesamiento distribuido. Los servidores son procesos que esperan pedidos de servicios de múltiples clientes. Estos pueden ejecutarse en procesadores diferentes.
+Máster/Slave,"El máster envía iterativamente datos a los workers y recibe resultados de estos. Hay dos casos de acuerdo a las dependencias de las iteraciones: 
+1) Iteraciones dependientes: El máster necesita los resultados de todos los workers para generar un nuevo conjunto de datos.
+2) Entradas de datos independientes: Los datos llegan al maestro, que no necesita resultados anteriores para generar un nuevo conjunto de datos. 
+Existe la posibilidad de que se establezca un “cuello de botella” cuando se utilizan muchos workers. Se podrían tener distintos niveles de máster. 
+Para la distribución de datos se puede
+1) Distribuir todos los disponibles de acuerdo a alguna política. (estático)
+2) Distribuir bajo petición o demanda. (dinámico)
+"
+Pipelines y Algoritmos sistólicos,"El problema se particiona en una secuencia de pasos. El stream de datos pasa entre los procesos, y cada uno realia una tarea sobre él. Su velocidad está condicionada por la etapa que más demora. Si una etapa requiere más procesamiento, se agregan más procesos con el fin de contrarrestar este tiempo."
+Dividir y conquistar,"Consiste en la división repetida de problemas y datos en subproblemas más chicos (dividir) para la resolución independiente de estos (conquistar), con frecuencia de manera recursiva. Se puede considerar una tercer etapa que sería la de combinar, ya que las soluciones de cada subproblema se combinarán para formar la solución del problema global."
+SPMD,"El programador genera un programa único que ejecuta cada proceso sobre una porción del dominio de datos. La diferente evaluación de un predicado en sentencias condicionales permite que cada nodo tome distintos caminos del programa.
+Consiste en dos fases:
+1) Se determina el lugar que ocuparán los datos en los nodos. La carga es proporcional al número de datos asignado a cada nodo.
+2) Se convierte el programa secuencial en SPMD.
+Suele implicar paralelismo iterativo, donde un programa consta de un conjunto de procesos los cuales tienen 1 o más loops. "

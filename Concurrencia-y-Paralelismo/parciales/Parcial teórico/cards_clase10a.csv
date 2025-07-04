@@ -1,0 +1,52 @@
+Enfoques para clasificar arquitecturas paralelas,"Por la org del espacio de direcciones
+Por la granularidad
+Por el mecanismo de control
+Por la red de interconexión"
+Por la org del espacio de direcciones,"mem compartida: Esquemas UMA y NUMA
+mem distribuida
+Esta clasificación se relaciona con el modelo de comunicación a utilizar
+Accesos a Memoria Compartida 
+Päsaje de mensajes."
+Por la granularidad,"Relación entre la potencia de cómputo y la potencia de la red de comunicación. 
+1ras potentes y la 2da potente: arquitectura de grano grueso. Pocas máquinas potentes con comunicación lenta. En este caso conviene hacer pocos procesos que hagan mucho trabajo y se comuniquen poco entre ellos. "
+Por el mecanismo de control,"SISD
+SIMD
+MISD
+MIMD
+multiple/single instruction multiple/single data"
+Por la red de interconexión,"Redes estáticas: constan de links punto a punto. Típicamente se usan para máquina de pasaje de mensajes.
+Redes dinámicas: están contruidas usando switches y enlaces de comunicación. Normalmente para máquinas de memoria compartida. "
+Limitaciones en la performance del sistema de memoria,"En muchas aplicaciones la limitación está en el sistema de memoria, no en la velocidad y potencia de cálculo del procesador. Los dos parámetros esenciales son la latencia y el ancho de banda del sistema de memoria. 
+Utilización de cachés para diminuir la latencia del sist. de memoria -> Se debe explotar la localidad temporal y espacial de los datos. Minimizar los accesos a memoria desde el código.
+ "
+Coherencia de caché,"El uso de cachés también implica la necesidad de mantener coherencia en los sitemas de múltiples cpus con múltiples cachés. Existen dos protocolos:
+Update: Cuando un procesador modifica un dato que está en múltiples cachés, se actualiza en todas al valor nuevo.
+Invalidate: Cuando un procesador modifica un dato que está en múltiples cachés, se invalida el valor actual, de modo que si alguno de los procesadores intenta acceder al valor del dato, se dará cuenta que esta desactualizado y tendrá que volver a cargarlo."
+Pasos fundamentales en el diseño de algoritmos paralelos,"Descomposición en tareas
+Mapeo de procesos a procesadores.
+
+"
+Descomposición en tareas,"Descomposición en tareas: Se debe descomponer el problema en sus componentes funcionales concurrentes (procesos/tareas).
+Se puede descomponer en tareas de igual código, lo que se conoce como paralelismo de datos o dominio. O se puede descomponer en tareas con distinto código, lo que se llama paralelismo funcional. 
+Aglomeración: Se revisa la descomposición con la visión de obtener un algoritmo que ejecute en forma eficiente en una clase de máquina real. Se considera si es útil combinar las atareas para obtener otras de mayor tamaño y si vale la pena replicar datos"
+Mapeo de tareas a procesadores,"Se especifica dónde se ejcuta cada tarea. El objetivo es minimizar el tiempo de ejecución.  
+Un buen mapping debe:
+1. Tratar de mapear tareas independientes a diferentes procesadores.
+2. Asignar prioritariamente los procesadores disponibles a las tareas que estén en el camino crítico. 
+3. Asignar tareas con alto nivel de interacción al mismo procesador, de modo de disminuir el tiempo de comunicación físico. 
+Estos criterios pueden oponerse entre sí -> Se debe encontrar un equilibrio.
+El mapping determina la eficiencia del algoritmo. 
+El mapeo puede ser:
+Estático: Las tareas se mapean a procesos a priori.
+Dinámico: Las tareas se mapean en ejecución. "
+Speed up,"Tiempo Secuencial / Tiempo paralelo
+Speed up optimo = sum(potencia(i)/potencia(mejor))"
+Eficiencia,S/S optimo
+Estabilidad de los sistemas paralelos,"Es muy dificil extrapolar la performance de un sist. paralelo, a partir de configuraciones con pocos procesadores y conjuntos de datos reducidos. Esto es así porque los resultados con pequeños conjuntos de datos están afectados por la localidad en el manejo de la memoria. Una matriz de 10x10 entra en caché, pero no una de 1000000x1000000"
+Factores que limitan el speed up,"Ley de amdahl: Alto porcentaje de código secuencial ejecutable únicamente por un procesador.
+Alto porcentaje de e/s respecto de la computación.
+Algoritmo no adecuado
+Exceesiva contanción de memoria
+Tamaño del problema 
+Desbalance de carga
+Overhead paralelo: ciclos adicionales de CPU para crear procesos sincronizar, etc."
