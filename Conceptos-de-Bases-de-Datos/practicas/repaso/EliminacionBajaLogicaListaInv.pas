@@ -17,7 +17,7 @@ var pos:integer;rvehiculo:tVehiculo;
 begin
 reset(a);
 read(a,rvehiculo);
-if ( rvehiculo.descripcion <> '0') then begin  // agrego al final
+if ( rvehiculo.descripcion = '0') then begin  // agrego al final
 	seek(a,filesize(a));
 	write(a,vehiculo);
 end
@@ -25,7 +25,7 @@ else begin // busco espacio disponible
 	pos:= StrToInt(rvehiculo.descripcion);
 	seek(a,pos);
 	read(a,rvehiculo); // tengo el dato
-	seek(a, pos);
+	seek(a, filepos(a)-1);
 	write(a,vehiculo); // lo coloco en el espacio disponible
 	seek(a,0);
 	write(a,rvehiculo);

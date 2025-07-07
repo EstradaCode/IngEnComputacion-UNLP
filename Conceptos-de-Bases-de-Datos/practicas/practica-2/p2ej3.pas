@@ -21,7 +21,7 @@ type
 	ADetalle=file of rDetalle;
 	ADetalles=array [1..CANT_DETALLES] of ADetalles;
 	rDetalles=array[1..CANT_DETALLES] of rDetalle;
-procedure leer(var archivo:Adetalle; var dato rDetalle);
+procedure leer(var archivo:Adetalle; var dato: rDetalle);
 begin
 	if(not eof(archivo)) then
 		read(archivo,dato)
