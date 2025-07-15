@@ -4,7 +4,10 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
                              https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+
   <display-name>Archetype Created Web Application</display-name>
+
+  <!-- LoginUsr -->
   <servlet>
     <servlet-name>LoginUsr</servlet-name>
     <servlet-class>misServlets.LoginUsr</servlet-class>
@@ -17,6 +20,58 @@
       <param-value>admin</param-value>
     </init-param>
   </servlet>
+
+  <!-- Productos -->
+  <servlet>
+    <servlet-name>Productos</servlet-name>
+    <servlet-class>misServlets.Productos</servlet-class>
+    <init-param>
+      <param-name>golo1</param-name>
+      <param-value>Chicle</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pu1</param-name>
+      <param-value>10</param-value>
+    </init-param>
+    <init-param>
+      <param-name>golo2</param-name>
+      <param-value>Chocolate</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pu2</param-name>
+      <param-value>25</param-value>
+    </init-param>
+    <init-param>
+      <param-name>golo3</param-name>
+      <param-value>Caramelo</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pu3</param-name>
+      <param-value>15</param-value>
+    </init-param>
+  </servlet>
+
+  <!-- Facturar -->
+  <servlet>
+    <servlet-name>Facturar</servlet-name>
+    <servlet-class>misServlets.Facturar</servlet-class>
+  </servlet>
+
+  <!-- TerminarSesion -->
+  <servlet>
+    <servlet-name>TerminarSesion</servlet-name>
+    <servlet-class>misServlets.TerminarSesion</servlet-class>
+  </servlet>
+
+  <!-- Mappings -->
+  <servlet-mapping>
+    <servlet-name>LoginUsr</servlet-name>
+    <url-pattern>/LoginUsr</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Productos</servlet-name>
+    <url-pattern>/Productos</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Facturar</servlet-name>
     <url-pattern>/Facturar</url-pattern>
@@ -25,32 +80,6 @@
     <servlet-name>TerminarSesion</servlet-name>
     <url-pattern>/TerminarSesion</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Productos</servlet-name>
-    <url-pattern>/Productos</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Productos</servlet-name>
-    <servlet-class>misServlets.Productos</servlet-class>
-    <init-param>
-      <param-name>cantidad</param-name>
-      <param-value>3</param-value>
-    </init-param>
-    <init-param>
-      <param-name>Chicle</param-name>
-      <param-value>10</param-value>
-    </init-param>
-    <init-param>
-      <param-name>Chocolate</param-name>
-      <param-value>25</param-value>
-    </init-param>
-    <init-param>
-      <param-name>Caramelo</param-name>
-      <param-value>15</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Productos</servlet-name>
-    <url-pattern>/Productos</url-pattern>
-  </servlet-mapping>
+
 </web-app>
+

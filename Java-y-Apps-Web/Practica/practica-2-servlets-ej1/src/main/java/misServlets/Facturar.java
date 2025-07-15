@@ -1,67 +1,67 @@
 package misServlets;
-import jakarta.servlet.ServletConfig;
+
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-@WebServlet("/Facturar")
 public class Facturar extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession sesion = request.getSession(false);
         if (sesion == null || sesion.getAttribute("usuario") == null) {
-            response.sendRedirect(request.getContextPath() + "/login.html");
+            response.sendRedirect("login.html");
             return;
         }
 
-        Map<String, Integer> cantidades = (Map<String, Integer>) sesion.getAttribute("cantidades"); // devuelvo el mapa que me mandé
         Map<String, Integer> precios = (Map<String, Integer>) getServletContext().getAttribute("precios");
+        Map<String, Integer> cantidades = new LinkedHashMap<>();
 
-        if (cantidades == null || precios == null) {
-            response.sendRedirect(request.getContextPath() + "/Productos");
-            return;
-        }
+        Enumeration<String> params = request.getParameterNames();
+        double totalGeneral = 0;
 
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html><html><head><title>Factura</title></head><body>");
-            out.println("<h1>Factura de Compra</h1>");
-            out.println("<table border='1'>");
-            out.println("<tr><th>Producto</th><th>Cantidad</th><th>Precio Total</th></tr>");
+        PrintWriter out = response.getWriter();
 
-            int totalGeneral = 0;
+        out.println("<html><body>");
+        out.println("<h2>Factura de compra:</h2>");
+        out.println("<table border='1'>");
+        out.println("<tr><th>Producto</th><th>Cantidad</th><th>Total</th></tr>");
 
-            for (String producto : cantidades.keySet()) {
-                int cantidad = cantidades.get(producto);
-                int precioUnitario = precios.getOrDefault(producto, 0);
+        while (params.hasMoreElements()) {
+            String param = params.nextElement();
 
-                if (cantidad > 0) {
-                    int subtotal = cantidad * precioUnitario;
-                    totalGeneral += subtotal;
+            if (!param.startsWith("cantidad_")) continue;
 
-                    out.println("<tr>");
-                    out.println("<td>" + producto + "</td>");
-                    out.println("<td>" + cantidad + "</td>");
-                    out.println("<td>" + subtotal + "</td>");
-                    out.println("</tr>");
-                }
+            String producto = param.substring("cantidad_".length());
+            String cantStr = request.getParameter(param);
+            int cantidad = 0;
+            try {
+                cantidad = Integer.parseInt(cantStr);
+            } catch (NumberFormatException ignored) {}
+
+            int precio = precios.getOrDefault(producto, 0);
+            double total = precio * cantidad;
+
+            if (cantidad > 0) {
+                cantidades.put(producto, cantidad);
+                out.println("<tr><td>" + producto + "</td><td>" + cantidad + "</td><td>" + total + "</td></tr>");
+                totalGeneral += total;
             }
-
-            out.println("</table>");
-            out.println("<h3>Total General: $" + totalGeneral + "</h3>");
-            out.println("<br><a href='" + request.getContextPath() + "/Productos'>Volver a productos</a>");
-            out.println("<br><a href='" + request.getContextPath() + "/TerminarSesion'>Salir</a>");
-            out.println("</body></html>");
         }
+
+        sesion.setAttribute("cantidades", cantidades); // guardar para volver a Productos
+
+        out.println("</table>");
+        out.println("<h3>Total general: $" + totalGeneral + "</h3>");
+        out.println("<br><a href='Productos'>Seguir comprando</a> | <a href='TerminarSesion'>Salir</a>");
+        out.println("</body></html>");
     }
 }

@@ -13,7 +13,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 
-@WebServlet("/LoginUsr") // registra al servlet con esta url en el tomcat
+
 public class LoginUsr extends HttpServlet {
     private Hashtable<String, String> logins; // clave = nombre valor= contraseña
     @Override

@@ -14,7 +14,7 @@ import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@WebServlet("/Productos")
+
 public class Productos extends HttpServlet {
 
     private Map<String, Integer> golosinas;
@@ -22,31 +22,46 @@ public class Productos extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        golosinas = new LinkedHashMap<>(); // mantener orden
+        golosinas = new LinkedHashMap<>(); // mantiene el orden de inserción
+
         Enumeration<String> nombres = config.getInitParameterNames();
         while (nombres.hasMoreElements()) {
-            String nombre;int precio;
-            if(cantidad == null) {
-                nombre = nombres.nextElement();
-                cantidad = Integer.parseInt(config.getInitParameter(nombre)); // agarro el primer parametro que es la cantidad
+            String param = nombres.nextElement();
+
+            if (param.startsWith("golo")) {
+                String nombreProducto = config.getInitParameter(param);
+                String numero = param.substring(4); // extrae el número después de 'golo'
+
+                String precioParam = "pu" + numero;
+                String precioStr = config.getInitParameter(precioParam);
+
+                if (precioStr != null) {
+                    try {
+                        int precio = Integer.parseInt(precioStr);
+                        golosinas.put(nombreProducto, precio);
+                    } catch (NumberFormatException e) {
+                        System.err.println("Precio inválido para producto " + nombreProducto);
+                    }
+                }
             }
-            nombre = nombres.nextElement();
-            precio = Integer.parseInt(config.getInitParameter(nombre));
-            golosinas.put(nombre, precio);
         }
-        // Almacenar en el ServletContext
+
+        // Almacenar en el ServletContext para que Facturar lo use
         getServletContext().setAttribute("precios", golosinas);
     }
 
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, IOException {
+            throws ServletException, IOException {
 
         HttpSession sesion = request.getSession(false);
         if (sesion == null || sesion.getAttribute("usuario") == null) {
-            response.sendRedirect(request.getContextPath() + "/login.html"); // si no tiene sesión creada o hubo error devuelve a login.html
+            response.sendRedirect(request.getContextPath() + "/login.html");
             return;
         }
+
+        Map<String, Integer> precios = (Map<String, Integer>) getServletContext().getAttribute("precios");
 
         response.setContentType("text/html");
         try (PrintWriter out = response.getWriter()) {
@@ -56,7 +71,7 @@ public class Productos extends HttpServlet {
             out.println("<table border='1'>");
             out.println("<tr><th>Producto</th><th>Precio Unitario</th><th>Cantidad</th></tr>");
 
-            for (Map.Entry<String, Integer> entry : golosinas.entrySet()) {
+            for (Map.Entry<String, Integer> entry : precios.entrySet()) {
                 String producto = entry.getKey();
                 int precio = entry.getValue();
 
@@ -70,31 +85,8 @@ public class Productos extends HttpServlet {
             out.println("</table><br>");
             out.println("<input type='submit' value='Facturar'>");
             out.println("</form>");
+            out.println("<br><a href='" + request.getContextPath() + "/TerminarSesion'>Salir</a>");
             out.println("</body></html>");
         }
     }
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-
-            HttpSession sesion = request.getSession(false);
-            if (sesion == null || sesion.getAttribute("usuario") == null) {
-                response.sendRedirect(request.getContextPath() + "/login.html");
-                return;
-            }
-
-            Map<String, Integer> cantidades = new LinkedHashMap<>();
-            for (String producto : golosinas.keySet()) {
-                String param = request.getParameter("cantidad_" + producto);
-                int cantidad = 0;
-                try {
-                    cantidad = Integer.parseInt(param);
-                } catch (NumberFormatException ignored) {}
-                cantidades.put(producto, cantidad);
-            }
-
-            sesion.setAttribute("cantidades", cantidades);
-
-            response.sendRedirect(request.getContextPath() + "/Productos");
-        }
     }

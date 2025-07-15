@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-@WebServlet("/TerminarSesion")
+
 public class TerminarSesion extends HttpServlet {
 
     @Override
@@ -19,6 +19,6 @@ public class TerminarSesion extends HttpServlet {
             sesion.invalidate(); // invalida la sesión actual
         }
 
-        response.sendRedirect(request.getContextPath() + "/login.html");
+        response.sendRedirect("login.html");
     }
 }
