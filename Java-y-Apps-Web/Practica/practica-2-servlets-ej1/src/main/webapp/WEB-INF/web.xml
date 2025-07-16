@@ -51,11 +51,11 @@
     </init-param>
   </servlet>
   <filter>
-    <filter-name>FiltroControlaSesion</filter-name>
-    <filter-class>misFiltros.FiltroControlaSesion</filter-class>
+    <filter-name>FiltroSessionHandler</filter-name>
+    <filter-class>filters.FiltroSessionHandler</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>FiltroControlaSesion</filter-name>
+    <filter-name>FiltroSessionHandler</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
