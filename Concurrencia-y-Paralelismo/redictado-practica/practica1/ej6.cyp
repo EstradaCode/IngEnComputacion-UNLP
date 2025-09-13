@@ -18,8 +18,8 @@ int siguiente=-1;
 cola C;
 process Persona[id:0..N-1]{
         Documento doc;
-	<if(Siguiente=-1)Siguiente=id;
-	else Agregar(C,id)>;
+	<if(Siguiente=-1)Siguiente=id; // si está vacia me coloco primero.
+	else Agregar(C,id)>; // sino, me encolo.
         <Await(siguiente==id)>
         Imprimir(doc,imp);
         <if (empty(C)) siguiente =-1
