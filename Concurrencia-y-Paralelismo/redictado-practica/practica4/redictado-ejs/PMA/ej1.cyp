@@ -1,7 +1,7 @@
-chan Solicitudes(int);
-chan liberar(int,int);
-chan Siguiente[5](int);
-chan respuesta[n](texto);
+chan Solicitudes(int); // canal de solicitudes entrantes
+chan liberar(int,int); // forma de avisar que un 
+chan Siguiente[5](int); // cola de las 5 cajas
+chan respuesta[n](texto); // canales de respuesta para cada persona
 
 proceso Persona [id:0..n-1]{
 	texto res; 
