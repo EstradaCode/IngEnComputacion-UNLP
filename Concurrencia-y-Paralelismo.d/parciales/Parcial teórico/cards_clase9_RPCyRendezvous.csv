@@ -1,0 +1,9 @@
+Remote Procedure Call,"RPC es un mecanismo de comunicación en el cual los programas se descomponen en módulos que pueden residir en espacios de direcciones distintos. Estos modulos contienen procesos y procedures. Los primeros pueden compartir variables y llamar a procedures del módulo. "
+Llamado a procedimientos de otros módulo,"Para que un proceso de un módulo llame a un procedimiento de otro, este haber sido previamente exportado por el módulo donde reside. 
+La implementación de un llamado intermódulo es distinta que para uno local, ya que los dos módulo pueden estar en distintos espacios. De este modo, un nuevo proceso sirve el llamado, y los argumentos son pasados como mensajes. "
+Sincronización en módulo,"La sincronización entre un proceso llamador y su proceso server es implícita ya que el único rol del server es actuan en nombre del llamador. Por otro lado, dentro de un mismo módulo es necesario que los procesos se sincronicen. Para eso hay dos alternativas:
+- Con exclusión mutua: Un procedure es ejecutado por un único proceso a la vez. Es necesario programar la sincronización por condición.
+- Concurrentemente: Más de un proceso puede ejecutar un procedure. En este caso es necesario programar la sinc por condición y la exclusión mutua. "
+Rendezvous,"En rendezvous un proceso invoca una operación por medio de un call, pero esta operación es servida por un proceso existente en lugar de por uno nuevo. 
+Una sentencia de entrada demora al proceso server hasta que haya algún llamado pendiente. Luego elige el más viejo, copia los argumentos en los parámetros formales, ejecuta las acciones y finalmente retorna los parámetros de resultado al llamador. 
+El server es un proceso activo. "

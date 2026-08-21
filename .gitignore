@@ -13,3 +13,4 @@ obj/
 # Ignorar archivos de sistema (ejemplo para Windows)
 Thumbs.db
 .DS_Store
+*.mp4

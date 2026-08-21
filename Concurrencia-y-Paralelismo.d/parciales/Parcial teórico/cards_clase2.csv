@@ -1,0 +1,37 @@
+Estado de un programa concurrente,Valor que tienen todas las variables compartidas y locales de cada proceso y de los registros en u instante de tiempo.
+Acción atómica,"Cada proceso ejecuta un conjunto de sentencias, cada una implementada por una o más acciones atómicas. Estas hacen una transformación de estados indivisibles (estados invisibles para otros procesos), por esto no habrá interferencia."
+Interleaving e Historia de un programa concurrente,"Cada proceso debe ejecutar una serie de acciones atómicas, interleaving es cómo se intercalan esas acciones atómicas para formar la historia del proceso. Según la funcionalidad requerida se limitaran ciertas historias del programa concurrente utilizando métodos como la sincronizacón por condición. "
+Acción atómica de grano fino,"Una acctión atómica de grano fino se debe implementar por HW y varían en distintos sistemas. "
+El tiempo absoluto no es importante,"No se puede tener en cuenta el tiempo de ejecución de determinadas instrucciones en una máquina para evitar poner sentencias de sincronización. Se debe implementar toda la sincronización por software necesaria para que el programa se ejecutable en cualquier HW, más allá de su velocidad de procesamiento."
+Ejecución atómica,"Los procesos deben ejecutar sus sentencias de forma atómica para que no haya interferencia. Si un proceso modifica variables que no son referenciadas por otro proceso, estas modificaciones serán atómicas. "
+Referencia crítica,"Una referencia a una variable que es modificada por otro proceso. "
+"Propiedad de a lo sumo una vez ","Una sentencia de asignación x = expresión satisface la propiedad de ALV si
+1) La expresión contiene a lo sumo una referencia crítica y x no es referenciada por otro proceso.
+2) La expresión no contiene referencias críticas, en cuyo caso x puede ser leída por otro proceso.
+Una expresión que no es una asignación satisface ALV si no contiene más de una referencia crítica. 
+RESUMEN: Puede habar a lo sumo una variable compartida, y puede ser referenciada a lo sumo una vez"
+Especificación de la sincronización,"Por más que una expresión o un cosnjunto de expresiones no satisfaga la prop de ASV, esta se debe ejecutar atómicamente. Para esto es necesario un mecanismo de sinzronización que permita ejecutar dicho conjunto de sentencias con exclusión mutua. Este tipo de acciones se llaman acciones atómicas de grano grueso. "
+"Problema de la sección crítica ","El problema consiste en la implementación de acciones atómicas en software. Para esto, se debe definir un protocolo de entrada y salida a las secciones críticas para que los procesos se puedan ejecutar sin interferencia y con exclusión mutua. "
+Propiedades que debe cumplir la solución al problema de la SC,"1. Exclusión mutua: A lo sumo un proceso está en su SC.
+2. Ausencia de deadlock.
+3. Ausencia de demora innecesaria. 
+4. Eventual entrada."
+Problema de la barrera,Establecer un punto de sincronización que todos los procesos deben alcanzaer para que cualquier proceso pueda continuar.
+Fairness incondicional,"Una política de scheduling es incondicionalmente
+fair si toda acción atómica incondicional que es elegible eventualmente es ejecutada."
+Fairness Débil,"Una política de scheduling es débilmente fair si :
+(1) Es incondicionalmente fair y
+(2) Toda acción atómica condicional que se vuelve elegible eventualmente es ejecutada, asumiendo que su condición se vuelve true y permanece true hasta que es vista por el proceso que ejecuta la acción atómica
+condicional."
+Fairness Fuerte,"Fairness Fuerte. Una política de scheduling es fuertemente fair si:
+(1) Es incondicionalmente fair y
+(2) Toda acción atómica condicional que se vuelve elegible eventualmente es ejecutada pues su guarda se convierte en true con infinita frecuencia."
+Solución de grano fino: Spin Locks,Solución tipo “spin locks”: los procesos se quedan iterando (spinning) mientras esperan que se limpie lock. Cumple las 4 propiedades si el scheduling es fuertemente fair. No controla el orden de los procesos demorados.
+Solución Fair: Algoritmo Tie-Breaker,"Se utiliza una variable para determinar si la SC está siendo utilizada y una variable para determinar quién fue el último proceso en intentar entrar a la SC. Esta variable es la que ""rompe"" el empate cuando más de un proceso está intentando entrar a la SC. Así pues, un proceso debe esperar mientras la SC no esté libre o dicho proceso no haya sido el último en intentar entrar a la SC. "
+Solución Fair: Algoritmo Ticket,"Se reparten números y cada proceso espera a que sea su turno. Cada proceso toma un número mayor que el de cualquier otro que espera a entrar en la SC, luego este aguarda hasta que todos los procesos con número menor hayan entrado a la SC. Con scheduling débilmente fair se asegura la eventual entrada. El incremento de la variable ticket se debe ejecutar de forma atómica, para esto ciertos procesadores tienen la instrucción fetch and add, que incrementan la variable de forma atómica. "
+Solución Fair: Algoritmo Bakery,"Cada proceso tendrá un número. Cuando un proceso trata de ingresar recorre los números de los demás y se autoasigna uno mayor. Luego espera a que su número sea el menor de los que esperan. Los procesos se chequean entre ellos y no contra un global. "
+Sincronización barrier,"- Contador compartido
+- Flags y coordinadores
+- Arboles
+- Barreras simétricas: Butterfly barrier"
+Defectos de la sincroniación por busy waiting,Son complejos y sin clara serparación entre variables de sincronización y las usadas para computar resultados. Es difícil diseñar para probar correción. Incluso la verificación es compleja cuando se incrementa el número de procesos. Técnica ineficiente si se la utiliza en multiprogramación ya que un procesador ejecutando un proceso spinning puede ser usado de manera más productiv por otro proceso.

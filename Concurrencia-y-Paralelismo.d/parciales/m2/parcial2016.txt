@@ -1,0 +1,125 @@
+---------------EJERCICIO 1---------------
+
+chan pedido(int, text), venta[C-1](text);
+Process cliente[id:0..C-1]
+{
+    texto p, res;
+    send pedido(id, p);
+    receive venta[id](res);
+}
+
+Process empleado[id:0..1]
+{
+    int idC;
+    texto p, r;
+    while(true){
+        receive pedido(idC, p);
+        res = vender(p);
+        send venta[idC](res);
+    }
+}
+
+---------------EJERCICIO 2---------------
+
+process encargado
+{
+    cola cNorte, cSur;
+    do ?entrega(p, des) -> if(des=="norte") push cNorte(p);
+                                     else push cSur(p);
+    □ (not empty(cNorte)); camion[*]?pedidoNorte(id) -> camion[id]!paqueteNorte(pop(cNorte));
+    □ (empty(cNorte)); camion[*]?pedidoNorte(id) -> camion[id]!paqueteNorte(null);
+    □ (not empty(cSur)); camion[*]?pedidoSur(id) -> camion[id]!paqueteSur(pop(cSur));
+    □ (empty(cSur)); camion[*]?pedidoSur(id) -> camion[id]!paqueteSur(null);
+    od;
+    //poner un while para que se vacie toda la cola de una
+}
+//faltan procesos para distribuir los paquetes
+//el encargado recibe y manda al buffer correspondiente
+
+process camion[id:0..1]
+{
+    text destino = ...;  //el camion ya sabe su destino
+    paquete p;
+    while(true){
+        while(not listo){
+            if(destino=="norte"){
+                encargado!pedidoNorte(id);
+                encargado?paqueteNorte(p);
+            }
+            else{
+                encargado!pedidoSur(id);
+                encargado?paqueteSur(p);
+            }
+            if(p == null) listo = true;  //no hay mas paquetes, me voy
+        }
+        //llevo los paquetes
+        listo = false;
+    }
+}
+
+---------------EJERCICIO 3---------------
+
+Process servidor is 
+   task type impColor is
+     entry imprimir(d: in text);
+   end impColor
+   
+   task type impNegro is
+     entry imprimir(d: in text);
+   end impNegro;
+
+   task type servidor is
+     entry pedidoColor(doc: in text);
+     entry pedidoBN(doc: in text);
+   end servidor;
+
+   task type cliente;
+   arrCliente:(1..C) of cliente;
+
+   task body cliente is
+     text: doc;
+     text: tipo:=...; //color o blanco y negro
+   begin
+     if(tipo=="color")then servidor.pedidoColor(doc);
+     else servidor.pedidoBN(doc);
+   end cliente;
+
+   task body servidor is
+   begin
+     while(true) loop
+     //dos entries uno para cada impresion
+         select
+             accept pedidoColor(doc: in text) do
+                 impColor.imprimir(doc);
+             end pedidoColor;
+         or
+             accept pedidoBN(doc: in text) do
+                 impNegro.imprimir(doc);
+             end pedidoBN;
+         or when(pedidoColor'count=0) accept pedidoBN(doc: in text) do
+                 impColor.imprimir(doc);
+            end pedidoBN;
+        end select;             
+     end loop;
+   end servidor;        
+
+   task body impNegro is
+   begin
+     while(true)loop
+         accept imprimir(d: in text) do
+             res:=ImprimirArchivo(d);             
+         end imprimir;
+     end loop;
+   end impNegro;
+
+   task body impColor is
+   begin
+     while(ture) loop
+         accept imprimir(d: in text) do
+             res:=ImprimirArchivo(d);
+         end imprimir;
+     end loop;
+   end impColor;     
+
+begin
+end servidor;

@@ -1,0 +1,123 @@
+---------------EJERCICIO 1---------------
+chan pedirFot(int), liberar(int, int);
+chan fotLibre[N](int), terminar[N]();
+Process usuario[id:0..N-1]
+{
+    send pedirFot(id);
+    receive fotLibre[id](nroFot);
+    usarFotocopiadora(nroFot);
+    send liberar(id, nroFot);
+    receive terminar[id]();
+    //se retira
+}
+
+Process Empleado
+{
+    while(true){
+        if(!empty(pedirFot)){
+            receive(pedirFot(id));
+            if(!empty(cFot)) send fotLibre[id](pop(cFot));
+            else push(esperando, id);
+        }
+         □ if(!empty(devolver)){
+            receive liberar(id, nroFot);
+            send terminar[id]();
+            if(!empty(esperando)) send forLibre[pop(esperando)](nroFor);
+            else push(cFot, nroFot);
+        }
+        end if;
+    }
+}
+
+
+---------------EJERCICIO 2---------------
+Process Corralon is
+  task type empleado;
+
+  task type Admin is
+     entry siguiente(idC: out int; p: out text);
+     entry pedido(id: in int; pedido: in text);
+  end admin;
+
+  task type cliente is
+     entry ident(i: in int);
+     entry respuesta(res: in text);
+  end cliente;
+
+  arrClientes: (1..N) of cliente;
+  arrEmpleados: (1..4) of empleado;
+
+  task body empleado is
+  begin
+     loop
+         Admin.siguiente(idC, p);
+         res = atender(p);
+         arrClientes[idC].respuesta(res);
+     end loop;
+  end empleado;
+
+  task body cliente is
+     id: integer;
+     pedido, r: text;
+  begin
+     accept ident(i: in int) do
+         id:=i;
+     end ident;
+     Admin.Pedido(id, pedido);
+     accept respuesta(res: in text) do
+         r:=res;
+     end respuesta;
+     //se retira
+  end cliente;
+
+  task body admin is
+  begin
+     loop
+         accept siguiente(idC: out int; p: out text) do
+             accept pedido(id: in int; pedido: in text) do
+                 idC:=id;
+                 p:=pedido;
+             end pedido;
+         end siguiente;
+     end loop;
+  end admin;
+
+begin 
+  for(int i=1; i<=N; i++){
+      arrClientes[i].ident(i);
+  }
+end corralon;
+
+
+---------------EJERCICIO 3---------------
+
+Process vehiculo[id:0..N-1]
+{
+    text tipo =...; //el vehiculo sabe de antemano si es ambulancia o vehiculo comun
+    if(tipo=ambulancia) -> admin!llegadaAmb(id);
+    else admin!llegada(id);
+    puente?pasar();
+    puente!liberar();
+}
+
+Process admin
+{
+    cola cVehiculos, cAmb;
+     do vehiculo[*]?llegada(id) -> push(cVehiculos, id);
+     □  vehiculo[*]?llegadaAmb(id) -> push(cAmb, id);
+     □  (not empty(cAmb)); puente?pedido() -> puente!siguiente(pop(cAmb));
+     □  (empty(cAmb) and not(empty(cVehiculos))); puente?pedido() -> puente!siguiente(pop(cVehiculos));
+     od;
+}
+
+Process Puente
+{
+    int cant=0;
+    while(cant < N){
+         admin!pedido();
+         admin?siguiente(idV);
+         vehiculo[idV]!pasar();
+         vehiculo[idV]?liberar();
+         cant++;
+    }
+}

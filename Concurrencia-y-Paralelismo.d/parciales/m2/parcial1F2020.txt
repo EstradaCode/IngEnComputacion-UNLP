@@ -1,0 +1,156 @@
+--------------EJERCICIO 1--------------
+Process Corredor[id:0..C-1]
+{
+    int num, pos;
+    Admin!pedirNumero(id);
+    Coordinador[*]?numero(num); 
+    Barrera!llegada();
+    Barrera?comenzar();  
+    //corre la carrera
+    Admin!pedirPosicion(id);
+    Admin?posicionFinal(pos);
+    //se retira
+}
+
+Process Coordinador[idC:0..2]
+{
+    int id, num;
+    Admin!pedido(idC);
+    Admin?siguiente(id);
+    num = siguientePechera();
+    Corredor[id]!numero(num);
+}
+
+Process Barrera
+{
+    for(int i=0; i<C; i++){
+        Corredor[*]?llegada();
+    }
+    for(int i=0; i<C; i++){
+        Corredor[*]!comenzar();
+    }
+}
+
+Process Admin
+{
+    cola c;
+    int pos=1;
+    do Corredor[*]?pedirNumero(id) -> push(c, id);
+    □ not(empty(c)); Coordinador[*]?pedido(idC) -> Coordinador[*]!siguiente(pop(c));
+    od
+    for(int i=0; i<C; i++){
+        Corredor[*]?pedirPosicion(id);
+        Corredor[id]!posicionFinal(pos);
+        pos++;
+    }
+}
+
+--------------EJERCICIO 2--------------
+Process Cliente[id:0..C]
+{
+    text res, s;
+    send solicitud(id, s);
+    receive resultado[id] (res);
+}
+
+Process Empleado[id:0..2]
+{
+    int idP;
+    text s;
+    send pedido(id);
+    receive siguiente(idP, s);
+    while(idP != -1){
+        if(idP > 0){
+            res = resolverSolicitud(s);
+            send resultado[idP] (res);
+        }
+        else delay 300;
+        send pedido(id);
+        receive siguiente(idP, s);
+    }
+}
+
+Process Coordinador
+{
+    int idE, idP;
+    int cant = 0;
+    text s;
+    while(cant < C){
+        receive pedido(idE);
+        if(empty(solicitud))idP = 0;
+        else receive(solicitud(idP, s));
+        send siguiente[idE](idP, s);
+        cant++;
+    }
+    for(int i=0; i<3; i++){
+        send siguiente[i](-1, s):
+    }
+}
+
+
+--------------EJERCICIO 3--------------
+Process empresa is
+
+  task type cliente;
+
+  task type servidor is
+     entry pedido(p: in text; res: out text);
+  end servidor;
+
+  task type admin is
+     entry pedido(id: in int; s: in text);
+     entry finTimer();
+  end admin;
+
+  task type timer;
+
+  arrClientes: (1..N) of cliente;
+  arrServidores: (1..4) of servidor;
+
+  task body cliente is
+     res, sec: text;
+  begin
+     loop
+         sec=generarSecuencia();
+         Admin.Pedido(res, sec);
+     end loop;
+  end cliente;
+
+  task body admin is
+     servAct: integer:=1;
+     sec, res: text;
+  begin
+     loop
+         select
+             when(finTimer'count=0)
+                 accept pedido(sec: in text; res: out text) do
+                     arrServidores[servAct].resolver(sec, res);
+                 end pedido;
+             or accept finTimer do
+                     servAct:= (servAct+1) mod 5;
+                 end finTimer;
+         end select;
+     end loop;
+  end admin;
+
+  task body servidor is
+     sec, res: text;
+  begin
+     loop
+         accept resolver(sec: in text; res: out text) do
+             res:=resolverSecuencia(sec);
+         end resolver;
+     end loop;
+  end servidor;
+
+  task body timer is
+  begin
+     loop
+         delay(6 horas);
+         admin.finTimer;
+     end loop;
+  end timer;
+
+begin
+  null;
+end empresa;

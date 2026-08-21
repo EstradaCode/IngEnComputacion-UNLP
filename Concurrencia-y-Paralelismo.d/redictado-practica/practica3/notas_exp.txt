@@ -1,0 +1,28 @@
+ejercicio 6
+-------------
+N clientes | 1 servidor que resuelve los pedidos por orden de llegada.
+SE NECESITA UN MONITOR ADMINISTRADOR QUE SE ENCARGUE DE GESTIONAR LA ISNTRUCCIONES, MIENTRAS SE RESUELVEN LOS PEDIDOS, SE PUEDAN REALIZAR NUEVOS CON UN ORDEN DEFINIDO.
+----------------
+MONITOR ADMIN	|
+-------------	|
+-------------	|
+Cola c;		|
+COND espera;	|
+text res;	|
+-------------	|
+Pedido(S,R);	|
+Sig(s);	    	| |
+Resultado(R);	|
+-------------	|
+- Pedido, proceso sincronizado donde se van apilando las solicitudes, esperando el resultado con la cond (revisar que deberia ser un array de espera)
+- Sig, metodo sincronico para que el servidor sepa cual debe gestionar
+- Resultado, metodo sincronico que utiliza el servidor para depositar el resultado y despertar al cliente que estaba esperando. (error, puede llegar a irse y seguir sin saber si el pedido se atendió, por lo que deberia haber un vector de resultados, asi deposita y se va, sabiendo que esa variable solo va a ser tocada por un proceso, sin molestar a los otros).
+
+MEJORAS
+--------
+SIG: SI NO HAY PEDIDOS PENDIENTES, DEBO DEMORAR AL PROCESO SERVIDOR HASTA QUE HAYA ACTIVIDAD. POR LO TANTO, UTILIZO UN COND HAYPEDIDOS PARA AVISARLE QUE HAY ELEMENTOS EN LA COLA (IF (EMPTY(C)) -> WAIT(HAYPEDIDO)) // SE QUEDA ESPERANDO HASTA QUE NO DÉ
+
+SI ES MAS DE UN SERVIDOR?
+HAY MAS DE UNO LLAMANDO AL PROCESO SIGUIENTE. POR LO TANTO, DONDE LOS DOS ESTAN TRABADOS EN EL IF, VAN A QUEDAR DEMORADOS, CUANDO HAYA UN PEDIDO, SE DESBLOQUEAN LOS DOS PERO NO AL MISMO TIEMPO Y TAKVEZ EL OTRO YA VACIÓ LA COLA O NO.
+
+OTRO PROBLEMA QUE APARECE CON DOS SERVIDORES, PUEDO ESTAR DESPERTANDO CON SIGNAL A UN PROCESO CLIENTE QUE LLEGÓ DESPUES Y NO AL QUE REALMENTE ATENDÍ. RECORDEMOS QUE COND FUNCIONA EN FORMA DE COLA.
