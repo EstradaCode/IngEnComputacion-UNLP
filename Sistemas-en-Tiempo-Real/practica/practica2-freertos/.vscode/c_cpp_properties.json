@@ -1,0 +1,58 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/home/francisco/Documents/IngEnComputacion-UNLP/Sistemas-en-Tiempo-Real/practica/practica2-freertos/include",
+                "/home/francisco/Documents/IngEnComputacion-UNLP/Sistemas-en-Tiempo-Real/practica/practica2-freertos/src",
+                "/home/francisco/Documents/IngEnComputacion-UNLP/Sistemas-en-Tiempo-Real/practica/practica2-freertos/.pio/libdeps/uno/FreeRTOS/src",
+                "/home/francisco/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/home/francisco/.platformio/packages/framework-arduino-avr/variants/standard",
+                "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/home/francisco/Documents/IngEnComputacion-UNLP/Sistemas-en-Tiempo-Real/practica/practica2-freertos/include",
+                    "/home/francisco/Documents/IngEnComputacion-UNLP/Sistemas-en-Tiempo-Real/practica/practica2-freertos/src",
+                    "/home/francisco/Documents/IngEnComputacion-UNLP/Sistemas-en-Tiempo-Real/practica/practica2-freertos/.pio/libdeps/uno/FreeRTOS/src",
+                    "/home/francisco/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/home/francisco/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/home/francisco/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60200",
+                "ARDUINO_AVR_UNO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "compilerPath": "/home/francisco/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

@@ -31,7 +31,9 @@ void setup()
 
     xTaskCreate(TareaA, "A", 128, NULL, 1, NULL);
     xTaskCreate(TareaB, "B", 128, NULL, 1, NULL);
+    // xTaskCreate(TareaB, "B", 128, NULL, 2, NULL);
     xTaskCreate(TareaC, "C", 128, NULL, 1, NULL);
+    //xTaskCreate(TareaC, "C", 128, NULL, 3, NULL);
 }
 
 void loop() {}
